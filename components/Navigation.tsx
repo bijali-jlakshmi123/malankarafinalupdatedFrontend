@@ -1,7 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { NavigationItem, SiteSettings, getNavigationItems, getSiteSettings } from '@/lib/api';
+import { useEffect, useState } from "react";
+import {
+  NavigationItem,
+  SiteSettings,
+  getNavigationItems,
+  getSiteSettings,
+} from "@/lib/api";
 
 interface NavigationProps {
   isOpen: boolean;
@@ -10,21 +15,21 @@ interface NavigationProps {
 
 export default function Navigation({ isOpen, onClose }: NavigationProps) {
   const [menuItems, setMenuItems] = useState<NavigationItem[]>([
-    { id: 1, label: 'Home', href: '/', active: true },
-    { id: 2, label: 'Rooms & Suites', href: '/rooms' },
-    { id: 3, label: 'Facilities', href: '/facilities' },
-    { id: 4, label: 'Dining', href: '/dining' },
-    { id: 5, label: 'Experiences', href: '/experiences' },
-    { id: 6, label: 'Wedding & Events', href: '/wedding-events' },
-    { id: 7, label: 'Gallery', href: '/gallery' },
-    { id: 8, label: 'Our Story', href: '/our-story' },
-    { id: 9, label: 'Contact Us', href: '/contact' },
+    { id: 1, label: "Home", href: "/", isActive: true },
+    { id: 2, label: "Rooms & Suites", href: "/rooms" },
+    { id: 3, label: "Facilities", href: "/facilities" },
+    { id: 4, label: "Dining", href: "/dining" },
+    { id: 5, label: "Experiences", href: "/experiences" },
+    { id: 6, label: "Wedding & Events", href: "/wedding-events" },
+    { id: 7, label: "Gallery", href: "/gallery" },
+    { id: 8, label: "Our Story", href: "/our-story" },
+    { id: 9, label: "Contact Us", href: "/contact" },
   ]);
 
   const [phoneNumbers, setPhoneNumbers] = useState<string[]>([
-    '04862 204400',
-    '+91 75102 00444',
-    '+91 80862 00404',
+    "04862 204400",
+    "+91 75102 00444",
+    "+91 80862 00404",
   ]);
 
   useEffect(() => {
@@ -40,10 +45,12 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
         }
 
         if (settings?.phoneNumbers) {
-          setPhoneNumbers(Array.isArray(settings.phoneNumbers) ? settings.phoneNumbers : []);
+          setPhoneNumbers(
+            Array.isArray(settings.phoneNumbers) ? settings.phoneNumbers : [],
+          );
         }
       } catch (error) {
-        console.error('Error loading navigation data:', error);
+        console.error("Error loading navigation data:", error);
       }
     }
     fetchData();
@@ -51,13 +58,13 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -66,7 +73,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
       />
@@ -74,7 +81,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
@@ -109,9 +116,9 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                   <a
                     href={item.href}
                     className={`block py-3 px-4 text-lg font-medium transition-colors duration-200 ${
-                      item.active || item.isActive
-                        ? 'text-purple-600'
-                        : 'text-gray-800 hover:text-purple-600'
+                      item.isActive
+                        ? "text-purple-600"
+                        : "text-gray-800 hover:text-purple-600"
                     }`}
                     onClick={onClose}
                   >
@@ -149,7 +156,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                 {phoneNumbers.map((phone, index) => (
                   <a
                     key={index}
-                    href={`tel:${phone.replace(/\s/g, '')}`}
+                    href={`tel:${phone.replace(/\s/g, "")}`}
                     className="text-purple-600 hover:text-purple-700 font-medium"
                   >
                     {phone}
