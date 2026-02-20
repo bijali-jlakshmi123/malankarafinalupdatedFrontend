@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model HeroSlide {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String
+  order       Int      @default(0)
+  link        String? 
+
+  @@map("hero_slides")
+  @@index([order])
+}
+
+model NavigationItem {
+  id       Int    @id @default(autoincrement())
+  label    String
+  href     String
+  order    Int    @default(0)
+  isActive Boolean @default(false)
+
+  @@map("navigation_items")
+  @@index([order])
+}
+
+model SiteSetting {
+  id             Int      @id @default(1)
+  siteName       String   @default("Malankara Palace")
+  siteTagline    String   @default("LAKE VIEW RESORT & SPA")
+  bookNowUrl     String? 
+  whatsappNumber String? 
+  logoUrl        String? 
+  phoneNumbers   String   @default("04862 204400,+91 75102 00444,+91 80862 00404")
+
+  @@map("site_settings")
+}
+
