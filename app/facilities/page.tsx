@@ -255,7 +255,7 @@ export default function FacilitiesPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <h1 className="text-4xl md:text-6xl font-serif text-white mb-4">
+          <h1 className="text-4xl md:text-6xl font-prata text-white mb-4">
             {pageData.heroTitle}
           </h1>
           <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl">
@@ -269,10 +269,10 @@ export default function FacilitiesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6 font-medium">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
               {pageData.amenitiesSectionTitle}
             </h2>
-            <p className="text-gray-600 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-text text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
               {pageData.amenitiesSectionDescription}
             </p>
           </div>
@@ -284,7 +284,7 @@ export default function FacilitiesPage() {
                 key={amenity.id}
                 className="flex flex-col items-center text-center space-y-4 group"
               >
-                <div className="w-12 h-12 text-gray-700 group-hover:text-purple-700 transition-colors">
+                <div className="w-12 h-12 text-text group-hover:text-primary-hover transition-colors">
                   {amenity.svgIcon ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -325,7 +325,7 @@ export default function FacilitiesPage() {
                     </svg>
                   )}
                 </div>
-                <span className="text-gray-800 font-serif text-lg max-w-[150px]">
+                <span className="text-secondary font-prata text-lg max-w-[150px]">
                   {amenity.name}
                 </span>
               </div>
@@ -368,10 +368,10 @@ export default function FacilitiesPage() {
 
         const contentBlock = (
           <div className="bg-[#f9f7f2] p-10 lg:p-16 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6 font-medium">
+            <h2 className="text-3xl md:text-4xl font-prata text-secondary mb-6 font-medium">
               {section.title}
             </h2>
-            <p className="text-gray-600 text-lg font-light leading-relaxed mb-8">
+            <p className="text-text text-lg font-light leading-relaxed mb-8">
               {section.description}
             </p>
 
@@ -383,7 +383,7 @@ export default function FacilitiesPage() {
                       <div className="flex-shrink-0">
                         <CheckIcon />
                       </div>
-                      <span className="text-gray-700 text-lg font-light">
+                      <span className="text-text text-lg font-light">
                         {item}
                       </span>
                     </li>
@@ -395,7 +395,7 @@ export default function FacilitiesPage() {
                       <div className="flex-shrink-0">
                         <CheckIcon />
                       </div>
-                      <span className="text-gray-700 text-lg font-light">
+                      <span className="text-text text-lg font-light">
                         {item}
                       </span>
                     </li>
@@ -407,7 +407,7 @@ export default function FacilitiesPage() {
                 {section.checklistItems.map((item, i) => (
                   <div key={i} className="flex items-center space-x-4">
                     <CheckIcon />
-                    <span className="text-gray-700 text-lg font-light">
+                    <span className="text-text text-lg font-light">
                       {item}
                     </span>
                   </div>

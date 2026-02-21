@@ -183,7 +183,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
 
   const ExperienceCard = ({ item }: { item: ExperienceItem }) => (
     <div className="flex flex-col">
-      <div className="relative h-64 w-full mb-6 overflow-hidden rounded-sm group">
+      <div className="relative h-64 w-full mb-6 overflow-hidden rounded-none group">
         <Image
           src={item.image.url}
           alt={item.title}
@@ -191,25 +191,25 @@ export default function Experiences({ pageData }: ExperiencesProps) {
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
       </div>
-      <h4 className="text-2xl font-serif text-gray-900 mb-3">{item.title}</h4>
-      <p className="text-gray-600 leading-relaxed text-[15px]">
+      <h4 className="text-2xl font-prata text-secondary mb-3">{item.title}</h4>
+      <p className="text-text leading-relaxed text-[15px]">
         {item.description}
       </p>
     </div>
   );
 
   return (
-    <section className="py-20 bg-white font-sans">
+    <section className="py-20 bg-bg-1 font-sarabun">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header content */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6 font-medium">
+          <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
             {pageData.introTitle}
           </h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-12">
+          <p className="text-text text-lg leading-relaxed mb-12">
             {pageData.introDescription}
           </p>
-          <h3 className="text-3xl md:text-4xl font-serif text-gray-900 font-medium italic">
+          <h3 className="text-3xl md:text-4xl font-prata text-secondary font-medium italic">
             {pageData.inHouseTitle}
           </h3>
         </div>
@@ -247,7 +247,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
       {/* Nearby Experiences Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-24">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 font-medium">
+          <h2 className="text-4xl md:text-5xl font-prata text-secondary font-medium">
             {pageData.nearbyTitle}
           </h2>
         </div>
@@ -259,11 +259,11 @@ export default function Experiences({ pageData }: ExperiencesProps) {
         </div>
 
         {/* Note Section */}
-        <div className="mt-20 bg-amber-50/50 p-8 md:p-12 rounded-sm text-center">
-          <h4 className="text-2xl font-serif text-gray-900 mb-4 font-medium">
+        <div className="mt-20 bg-bg-3/50 p-8 md:p-12 rounded-none text-center">
+          <h4 className="text-2xl font-prata text-secondary mb-4 font-medium">
             {pageData.noteTitle}
           </h4>
-          <p className="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto font-light">
+          <p className="text-text text-lg leading-relaxed max-w-4xl mx-auto font-light">
             {pageData.noteContent}
           </p>
         </div>

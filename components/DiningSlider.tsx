@@ -120,7 +120,7 @@ export default function DiningSlider() {
             <div className="absolute inset-0 z-20 flex items-end">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 flex justify-end">
                 <div className="max-w-2xl text-white text-right">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-4 leading-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-prata text-white mb-4 leading-tight">
                     {slide.title}
                   </h2>
                   <p className="text-lg md:text-xl text-white/90 font-light mb-6">
@@ -128,7 +128,7 @@ export default function DiningSlider() {
                   </p>
                   <Link
                     href={slide.link || "/dining"}
-                    className="inline-block bg-[#C19A6B] hover:bg-[#a88455] text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
+                    className="inline-block bg-accent hover:bg-primary text-white text-lg font-medium px-8 py-3 rounded-none transition-all duration-300 font-sarabun"
                   >
                     Discover More
                   </Link>

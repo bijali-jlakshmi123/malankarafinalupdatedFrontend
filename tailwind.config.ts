@@ -7,20 +7,43 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1025px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#6B46C1', // Purple
-          dark: '#553C9A',
-          light: '#8B5CF6',
+          DEFAULT: "#76297D",
+          hover: "#9B18A7",
         },
         secondary: {
-          DEFAULT: '#25D366', // WhatsApp green
+          DEFAULT: "#292B2D",
         },
+        text: {
+          DEFAULT: "#334155",
+        },
+        accent: {
+          DEFAULT: "#C7A754",
+        },
+        bg: {
+          1: "#FAF9F5",
+          2: "#F2F2EC",
+          3: "#FFFDE4",
+        },
+        white: "#FFFFFF",
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        prata: ["Prata", "serif"],
+        forum: ["Forum", "serif"],
+        sarabun: ["Sarabun", "sans-serif"],
+        nunito: ["Nunito Sans", "sans-serif"],
+      },
+      maxWidth: {
+        container: "1366px",
       },
     },
   },

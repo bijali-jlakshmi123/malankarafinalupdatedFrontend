@@ -123,7 +123,7 @@ export default function GalleryPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white font-sans">
+    <main className="relative min-h-screen bg-white font-sarabun">
       <MetaSEO slug="gallery" />
       <Header />
 
@@ -142,7 +142,7 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 text-white">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-prata mb-6 leading-tight">
               {pageData.heroTitle}
             </h1>
             <p className="text-lg md:text-xl font-light max-w-2xl leading-relaxed">
@@ -159,7 +159,7 @@ export default function GalleryPage() {
             {images.map((item) => (
               <div
                 key={item.id}
-                className="relative h-[300px] md:h-[400px] group overflow-hidden rounded-sm"
+                className="relative h-[300px] md:h-[400px] group overflow-hidden rounded-none"
               >
                 <Image
                   src={item.image.url}

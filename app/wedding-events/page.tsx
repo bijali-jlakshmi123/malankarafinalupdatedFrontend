@@ -153,7 +153,7 @@ export default function WeddingEventsPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white font-sans">
+    <main className="relative min-h-screen bg-white font-sarabun">
       <MetaSEO slug="wedding-events" />
       <Header />
 
@@ -174,7 +174,7 @@ export default function WeddingEventsPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-prata text-white mb-6 leading-tight">
               {pageData.heroTitle}
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -188,13 +188,13 @@ export default function WeddingEventsPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif text-black-500 mb-6 font-medium">
+            <h2 className="text-3xl md:text-4xl font-prata text-black-500 mb-6 font-medium">
               {pageData.introTitle}
             </h2>
-            <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-10 font-medium italic">
+            <h3 className="text-3xl md:text-4xl font-prata text-secondary mb-10 font-medium italic">
               {pageData.introSubtitle}
             </h3>
-            <div className="space-y-6 text-gray-600 text-[17px] md:text-lg font-light leading-relaxed">
+            <div className="space-y-6 text-text text-[17px] md:text-lg font-light leading-relaxed">
               <p>{pageData.introDescription1}</p>
               <p>{pageData.introDescription2}</p>
             </div>
@@ -217,7 +217,7 @@ export default function WeddingEventsPage() {
         </div>
 
         <div className="relative z-10 text-center px-4">
-          <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight">
+          <h2 className="text-4xl md:text-6xl font-prata text-white leading-tight">
             {pageData.parallaxTitle}
           </h2>
         </div>
@@ -227,10 +227,10 @@ export default function WeddingEventsPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-8 font-medium">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-8 font-medium">
               {pageData.settingsTitle}
             </h2>
-            <p className="text-gray-600 text-lg md:text-xl font-light leading-relaxed">
+            <p className="text-text text-lg md:text-xl font-light leading-relaxed">
               {pageData.settingsDescription}
             </p>
           </div>
@@ -244,13 +244,13 @@ export default function WeddingEventsPage() {
                     src={service.image.url}
                     alt={service.title}
                     fill
-                    className="object-cover rounded-sm"
+                    className="object-cover rounded-none"
                   />
                 </div>
-                <h3 className="text-2xl font-serif text-gray-900 mb-4 font-medium">
+                <h3 className="text-2xl font-prata text-secondary mb-4 font-medium">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 font-light leading-relaxed text-justify">
+                <p className="text-text font-light leading-relaxed text-justify">
                   {service.description}
                 </p>
               </div>

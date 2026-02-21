@@ -1,7 +1,7 @@
 export const STRAPI_URL = process.env.STRAPI_API_URL || "http://localhost:1337";
 
 export async function fetchStrapi(endpoint: string, query: string = "") {
-  const url = `${STRAPI_URL}/api/${endpoint}${query ? `?${query}` : ""}`;
+  const url = `${STRAPI_URL}/api/${endpoint}${query ? `?${query}&` : "?"}t=${Date.now()}`;
   console.log(`[Strapi] Fetching: ${url}`);
 
   try {

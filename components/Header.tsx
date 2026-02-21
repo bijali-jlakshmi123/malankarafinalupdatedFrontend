@@ -56,7 +56,7 @@ export default function Header() {
             <div className="flex items-center space-x-4">
               <button
                 suppressHydrationWarning
-                className="hidden md:block bg-purple-600 hover:bg-purple-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200"
+                className="hidden md:block bg-primary hover:bg-primary-hover text-white px-6 py-2.5 font-medium transition-colors duration-200"
               >
                 BOOK NOW
               </button>
@@ -67,17 +67,17 @@ export default function Header() {
                 aria-label="Toggle menu"
               >
                 <span
-                  className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${
+                  className={`block w-6 h-0.5 bg-secondary transition-all duration-300 ${
                     isMenuOpen ? "rotate-45 translate-y-2" : ""
                   }`}
                 />
                 <span
-                  className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${
+                  className={`block w-6 h-0.5 bg-secondary transition-all duration-300 ${
                     isMenuOpen ? "opacity-0" : ""
                   }`}
                 />
                 <span
-                  className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${
+                  className={`block w-6 h-0.5 bg-secondary transition-all duration-300 ${
                     isMenuOpen ? "-rotate-45 -translate-y-2" : ""
                   }`}
                 />

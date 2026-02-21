@@ -108,12 +108,13 @@ export default function HeroSlider() {
             <div className="absolute inset-0 z-20 flex items-end">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
                 <div className="max-w-2xl">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-4 leading-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-prata text-white mb-4 leading-tight">
                     {slide.title.split(" at ")[0]}
                     <span className="text-3xl md:text-4xl lg:text-5xl block mt-2">
                       at {slide.title.split(" at ")[1]}
                     </span>
                   </h2>
+
                   <p className="text-lg md:text-xl text-white/90 font-light max-w-xl">
                     {slide.description}
                   </p>

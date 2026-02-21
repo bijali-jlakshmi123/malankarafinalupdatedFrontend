@@ -145,7 +145,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-prata text-white mb-4 leading-tight">
               {heroTitle}
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -160,7 +160,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-12 items-stretch">
             {/* Left side: Image */}
-            <div className="w-full lg:w-1/2 relative rounded-sm overflow-hidden shadow-lg min-h-[400px]">
+            <div className="w-full lg:w-1/2 relative rounded-none overflow-hidden shadow-lg min-h-[400px]">
               <Image
                 src={connectImage}
                 alt="Malankara Palace"
@@ -172,7 +172,7 @@ export default function ContactPage() {
             {/* Right side: Form */}
             <div className="w-full lg:w-1/2 flex flex-col justify-between">
               <div>
-                <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-10 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 leading-tight">
                   {connectTitle}
                 </h2>
                 <ValidatedContactForm />
@@ -198,23 +198,23 @@ export default function ContactPage() {
       {/* Distances Table Section */}
       <section className="pt-16 pb-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-serif text-gray-900 font-medium mb-10">
+          <h2 className="text-3xl md:text-4xl font-prata text-secondary font-medium mb-10">
             Distance from Major Towns &amp; Travel Hubs
           </h2>
-          <div className="overflow-x-auto shadow-sm border border-gray-200 rounded-sm">
+          <div className="overflow-x-auto shadow-sm border border-gray-200 rounded-none">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-gray-50">
-                  <th className="px-6 py-4 text-sm font-semibold text-gray-900 uppercase tracking-wider border border-gray-200">
+                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
                     Destination / Gateway
                   </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-gray-900 uppercase tracking-wider border border-gray-200">
+                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
                     Distance
                   </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-gray-900 uppercase tracking-wider border border-gray-200">
+                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
                     Estimated Time
                   </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-gray-900 uppercase tracking-wider border border-gray-200">
+                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
                     Category
                   </th>
                 </tr>
@@ -222,16 +222,16 @@ export default function ContactPage() {
               <tbody>
                 {distances.map((item: any, idx: number) => (
                   <tr key={idx} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-sm font-bold text-gray-900 border border-gray-200">
+                    <td className="px-6 py-4 text-sm font-bold text-secondary border border-gray-200">
                       {item.destination}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600 border border-gray-200">
+                    <td className="px-6 py-4 text-sm text-text border border-gray-200">
                       {item.distance}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600 border border-gray-200">
+                    <td className="px-6 py-4 text-sm text-text border border-gray-200">
                       {item.time}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600 border border-gray-200">
+                    <td className="px-6 py-4 text-sm text-text border border-gray-200">
                       {item.category}
                     </td>
                   </tr>
@@ -320,12 +320,12 @@ function ValidatedContactForm() {
   };
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 border ${errors[field] ? "border-red-500" : "border-gray-300"} rounded-sm focus:outline-none focus:border-[#702C8B] transition-colors`;
+    `w-full px-4 py-3 border ${errors[field] ? "border-red-500" : "border-gray-300"} rounded-none focus:outline-none focus:border-[#702C8B] transition-colors`;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm font-medium text-gray-700">Full Name</label>
+        <label className="text-sm font-medium text-text">Full Name</label>
         <input
           type="text"
           name="fullName"
@@ -341,7 +341,7 @@ function ValidatedContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium text-gray-700">Email</label>
+        <label className="text-sm font-medium text-text">Email</label>
         <input
           type="email"
           name="email"
@@ -356,7 +356,7 @@ function ValidatedContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-text">
             Phone Number
           </label>
           <input
@@ -373,7 +373,7 @@ function ValidatedContactForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-text">
             No. of Guests
           </label>
           <input
@@ -393,7 +393,7 @@ function ValidatedContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-text">
             Check-in Date
           </label>
           <input
@@ -412,7 +412,7 @@ function ValidatedContactForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">
+          <label className="text-sm font-medium text-text">
             Check-out Date
           </label>
           <input
@@ -433,7 +433,7 @@ function ValidatedContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium text-gray-700">Message</label>
+        <label className="text-sm font-medium text-text">Message</label>
         <textarea
           name="message"
           rows={4}
@@ -452,7 +452,7 @@ function ValidatedContactForm() {
         type="submit"
         disabled={isSubmitting}
         suppressHydrationWarning
-        className="bg-[#702C8B] text-white px-12 py-4 rounded-sm font-medium uppercase tracking-widest hover:bg-[#5a2370] transition-colors disabled:opacity-50"
+        className="bg-[#702C8B] text-white px-12 py-4 rounded-none font-medium uppercase tracking-widest hover:bg-[#5a2370] transition-colors disabled:opacity-50"
       >
         {isSubmitting ? "Submitting..." : "Submit"}
       </button>

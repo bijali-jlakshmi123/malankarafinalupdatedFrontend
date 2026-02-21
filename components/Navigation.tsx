@@ -89,7 +89,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           <div className="flex justify-end p-6">
             <button
               onClick={onClose}
-              className="w-10 h-10 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
+              className="w-10 h-10 flex items-center justify-center text-text hover:text-secondary transition-colors"
               aria-label="Close menu"
             >
               <svg
@@ -117,8 +117,8 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     href={item.href}
                     className={`block py-3 px-4 text-lg font-medium transition-colors duration-200 ${
                       item.isActive
-                        ? "text-purple-600"
-                        : "text-gray-800 hover:text-purple-600"
+                        ? "text-primary"
+                        : "text-secondary hover:text-primary"
                     }`}
                     onClick={onClose}
                   >
@@ -131,14 +131,14 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
           {/* Book Now Button */}
           <div className="px-8 pb-6">
-            <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3.5 px-6 rounded-md font-semibold text-lg transition-colors duration-200">
+            <button className="w-full bg-primary hover:bg-primary-hover text-white py-3.5 px-6 font-semibold text-lg transition-colors duration-200">
               BOOK NOW
             </button>
           </div>
 
           {/* Contact Information */}
           <div className="px-8 pb-8">
-            <div className="flex items-start space-x-3 text-purple-600">
+            <div className="flex items-start space-x-3 text-primary">
               <svg
                 className="w-6 h-6 mt-1 flex-shrink-0"
                 fill="none"
@@ -157,7 +157,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                   <a
                     key={index}
                     href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="text-purple-600 hover:text-purple-700 font-medium"
+                    className="text-primary hover:text-primary-hover font-medium"
                   >
                     {phone}
                   </a>

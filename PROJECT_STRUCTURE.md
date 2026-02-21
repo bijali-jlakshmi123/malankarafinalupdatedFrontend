@@ -62,6 +62,7 @@ malankara-palace/
 ## Key Features
 
 ### Frontend (Next.js)
+
 - **App Router**: Using Next.js 15 App Router architecture
 - **TypeScript**: Full type safety
 - **Tailwind CSS**: Utility-first styling
@@ -108,21 +109,26 @@ malankara-palace/
    - Booking and WhatsApp URLs
 
 ### Database (PostgreSQL)
+
 - All content stored in PostgreSQL
 - Managed through Strapi admin panel
 - Relational data support
 
 ## Color Scheme
 
-- **Primary Purple**: `#6B46C1` (buttons, active states)
-- **WhatsApp Green**: `#25D366` (WhatsApp button)
-- **Text**: White on dark backgrounds, Gray-800 on light
-- **Background**: White header, dark overlay on hero
+- **Primary**: `#76297D` (buttons, active states, highlights)
+- **Secondary**: `#292B2D` (headings, dark text)
+- **Text**: `#334155` (default body text)
+- **Accent**: `#C7A754` (accents, specific buttons)
+- **Backgrounds**: `#FAF9F5` (BG 1), `#F2F2EC` (BG 2), `#FFFDE4` (BG 3)
+- **Button Hover**: `#9B18A7`
 
 ## Typography
 
-- **Headings**: Playfair Display (serif)
-- **Body**: Inter (sans-serif)
+- **Headings (H1-H6)**: Prata (serif, weight 500)
+- **Secondary / Display**: Forum (serif, weight 400)
+- **Body Text**: Sarabun (sans-serif, weight 400)
+- **Accent Font**: Nunito Sans (sans-serif, weight 500)
 
 ## API Endpoints
 
@@ -131,6 +137,7 @@ malankara-palace/
 - `GET /api/site-setting` - Fetch site settings
 
 All endpoints support:
+
 - Population of relations (`populate=*`)
 - Sorting (`sort=order:asc`)
 - Draft and published content filtering

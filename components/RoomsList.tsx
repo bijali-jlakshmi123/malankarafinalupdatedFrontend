@@ -123,14 +123,14 @@ export default function RoomsList() {
   }, []);
 
   return (
-    <section className="py-20 bg-background-light">
+    <section className="py-20 bg-bg-1">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6 font-medium">
+          <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
             {pageData.sectionTitle}
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl font-light leading-relaxed">
+          <p className="text-text text-lg md:text-xl font-light leading-relaxed">
             {pageData.sectionSubtitle}
           </p>
         </div>
@@ -181,7 +181,7 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
   const contentOrder = index % 2 !== 0 ? "lg:order-first" : "lg:order-last";
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch font-sans">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch font-sarabun">
       {/* Image Slider */}
       <div
         className={`relative h-[300px] sm:h-[400px] lg:h-auto w-full overflow-hidden group ${imageOrder}`}
@@ -239,17 +239,19 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
 
       {/* Content */}
       <div
-        className={`bg-[#F4F4F1] p-8 lg:p-12 flex flex-col justify-center ${contentOrder}`}
+        className={`bg-bg-2 p-8 lg:p-12 flex flex-col justify-center ${contentOrder}`}
       >
-        <h3 className="text-3xl font-serif text-gray-900 mb-6">{room.title}</h3>
-        <div className="space-y-4 text-gray-600 leading-relaxed text-[15px] font-light text-justify mb-8">
+        <h3 className="text-3xl font-prata text-secondary mb-6">
+          {room.title}
+        </h3>
+        <div className="space-y-4 text-text leading-relaxed text-[15px] font-light text-justify mb-8">
           {paragraphs.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
         </div>
 
         <div>
-          <button className="bg-[#702C8B] hover:bg-[#5a2370] text-white px-8 py-3 rounded-sm text-sm tracking-widest font-medium transition-colors uppercase">
+          <button className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-none text-sm tracking-widest font-medium transition-colors uppercase">
             Discover
           </button>
         </div>

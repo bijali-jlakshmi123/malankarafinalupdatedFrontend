@@ -120,7 +120,7 @@ export default function RoomsSuitesSlider() {
             <div className="absolute inset-0 z-20 flex items-end">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
                 <div className="max-w-2xl text-white">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-4 leading-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-prata mb-4 leading-tight">
                     {slide.title}
                   </h2>
                   <p className="text-lg md:text-xl text-white/90 font-light max-w-xl mb-6">

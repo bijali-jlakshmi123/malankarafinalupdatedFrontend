@@ -34,7 +34,7 @@ export default function Footer() {
         ];
 
   return (
-    <footer className="bg-[#f9f7f2] font-sans text-gray-800">
+    <footer className="bg-bg-1 font-sarabun text-text">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
         {/* Top Section: Logo, Quick Enquiry, Follow Us */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-10 gap-8 lg:gap-0">
@@ -54,10 +54,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row gap-12 lg:gap-24 text-center lg:text-right">
             {/* Quick Enquiry */}
             <div className="flex flex-col items-center lg:items-end">
-              <h3 className="font-serif text-2xl text-gray-800 mb-2">
+              <h3 className="font-prata text-2xl text-secondary mb-2">
                 Quick Enquiry
               </h3>
-              <p className="text-lg text-gray-700 font-medium">
+              <p className="text-lg text-text font-medium">
                 {phoneNumbersList.map((phone, idx) => (
                   <span key={phone}>
                     {phone}
@@ -71,14 +71,14 @@ export default function Footer() {
 
             {/* Follow Us */}
             <div className="flex flex-col items-center lg:items-end">
-              <h3 className="font-serif text-2xl text-gray-800 mb-2">
+              <h3 className="font-prata text-2xl text-secondary mb-2">
                 Follow Us
               </h3>
               <div className="flex space-x-3 mt-1">
                 {/* Instagram */}
                 <a
                   href="#"
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-700 hover:bg-purple-100 transition-colors shadow-sm"
+                  className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ export default function Footer() {
                 {/* Facebook */}
                 <a
                   href="#"
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-700 hover:bg-purple-100 transition-colors shadow-sm"
+                  className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ export default function Footer() {
                 {/* YouTube */}
                 <a
                   href="#"
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-700 hover:bg-purple-100 transition-colors shadow-sm"
+                  className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -154,10 +154,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
           {/* Contact Us */}
           <div>
-            <h3 className="font-serif text-2xl text-gray-800 mb-6">
+            <h3 className="font-prata text-2xl text-secondary mb-6">
               Contact Us
             </h3>
-            <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed">
+            <div className="space-y-4 text-text text-[15px] leading-relaxed">
               <p className="whitespace-pre-line">
                 {siteSettings?.address ||
                   "Kudayathoor P.O., Thodupuzha Idukki District,\nKerala, India – 685 590"}
@@ -172,7 +172,7 @@ export default function Footer() {
 
           {/* Rooms & Suites */}
           <div>
-            <h3 className="font-serif text-2xl text-gray-800 mb-6">
+            <h3 className="font-prata text-2xl text-secondary mb-6">
               Rooms & Suites
             </h3>
             <ul className="space-y-3 text-[15px]">
@@ -185,7 +185,7 @@ export default function Footer() {
                 <li key={item}>
                   <Link
                     href="/rooms"
-                    className="text-gray-600 hover:text-purple-700 transition-colors"
+                    className="text-text hover:text-primary transition-colors"
                   >
                     {item}
                   </Link>
@@ -196,7 +196,7 @@ export default function Footer() {
 
           {/* Quick Links Column 1 */}
           <div>
-            <h3 className="font-serif text-2xl text-gray-800 mb-6">
+            <h3 className="font-prata text-2xl text-secondary mb-6">
               Quick Links
             </h3>
             <ul className="space-y-3 text-[15px]">
@@ -209,7 +209,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-purple-700 transition-colors"
+                    className="text-text hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -220,7 +220,7 @@ export default function Footer() {
 
           {/* Quick Links Column 2 */}
           <div>
-            <h3 className="font-serif text-2xl text-gray-800 mb-6">
+            <h3 className="font-prata text-2xl text-secondary mb-6">
               Quick Links
             </h3>
             <ul className="space-y-3 text-[15px]">
@@ -233,7 +233,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-600 hover:text-purple-700 transition-colors"
+                    className="text-text hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -255,19 +255,19 @@ export default function Footer() {
           <div className="flex space-x-6">
             <Link
               href="/terms-conditions"
-              className="hover:text-purple-700 transition-colors"
+              className="hover:text-primary transition-colors"
             >
               Terms & Conditions
             </Link>
             <Link
               href="/privacy-policy"
-              className="hover:text-purple-700 transition-colors"
+              className="hover:text-primary transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/booking-policy"
-              className="hover:text-purple-700 transition-colors"
+              className="hover:text-primary transition-colors"
             >
               Booking Policy
             </Link>
@@ -280,7 +280,7 @@ export default function Footer() {
         {/* Book Now */}
         <button
           suppressHydrationWarning
-          className="bg-[#6A1B9A] hover:bg-[#4A148C] text-white px-6 py-2.5 rounded shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium"
+          className="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-none shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium"
         >
           <svg
             className="w-5 h-5"
@@ -315,7 +315,7 @@ export default function Footer() {
         {/* Scroll to Top */}
         <button
           suppressHydrationWarning
-          className="w-10 h-10 bg-[#6A1B9A] hover:bg-[#4A148C] text-white rounded flex items-center justify-center shadow-lg transition-colors"
+          className="w-10 h-10 bg-primary hover:bg-primary-hover text-white rounded-none flex items-center justify-center shadow-lg transition-colors"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <svg

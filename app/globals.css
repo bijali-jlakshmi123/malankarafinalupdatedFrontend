@@ -2,39 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Forum&family=Sarabun:wght@400;500;600&family=Nunito+Sans:wght@500&display=swap');
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --primary: #76297D;
+  --secondary: #292B2D;
+  --text-main: #334155;
+  --accent: #C7A754;
+  --bg-1: #FAF9F5;
+  --bg-2: #F2F2EC;
+  --bg-3: #FFFDE4;
+  --white: #FFFFFF;
+  --button-hover: #9B18A7;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@layer base {
+  body {
+    @apply font-sarabun text-text bg-bg-1;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Responsive Body Text - Tablet & Mobile (< 1025px) */
+  @media (max-width: 1024px) {
+    body {
+      font-size: 15px;
+    }
+  }
+
+  /* Responsive Body Text - Mobile (< 768px) */
+  @media (max-width: 767px) {
+    body {
+      line-height: 1.75;
+    }
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-prata text-secondary;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 56px;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 18px;
+  }
+
+  /* Responsive Headings - Tablet (768px - 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 44px;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+    h6 {
+      font-size: 16px;
+    }
+  }
+
+  /* Responsive Headings - Mobile (< 768px) */
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 34px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    h5 {
+      font-size: 17px;
+    }
+
+    h6 {
+      font-size: 16px;
+    }
+  }
+
+  /* Links */
+  a {
+    @apply text-text transition-colors duration-300;
+    text-decoration: none;
+  }
+
+  a:hover {
+    @apply text-primary;
+  }
+
+  /* Buttons */
+  button,
+  .btn {
+    @apply font-sarabun text-white bg-primary uppercase transition-all duration-300 inline-block text-center;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    padding: 10px 20px;
+    border-radius: 0;
+    border: none;
+  }
+
+  button:hover,
+  .btn:hover {
+    @apply bg-primary-hover;
+    color: #FFFFFF;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    @apply font-sarabun text-text bg-white border border-text outline-none p-2 w-full;
+    border-radius: 0;
+  }
+
+  label {
+    @apply font-sarabun text-text mb-2 block;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+@layer components {
+  .container-custom {
+    @apply mx-auto px-4;
+    max-width: 1366px;
+    width: 100%;
+  }
 }
 
 /* Custom scrollbar */
@@ -47,10 +199,10 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6B46C1;
+  @apply bg-primary;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #553C9A;
+  @apply bg-primary-hover;
 }

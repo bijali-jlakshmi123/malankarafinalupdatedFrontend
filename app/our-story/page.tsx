@@ -68,7 +68,7 @@ export default function OurStoryPage() {
     return (
       <main className="bg-white min-h-screen">
         <Header />
-        <div className="flex items-center justify-center h-[60vh] text-gray-500 font-serif text-xl">
+        <div className="flex items-center justify-center h-[60vh] text-gray-500 font-prata text-xl">
           Loading our story...
         </div>
         <Footer />
@@ -98,7 +98,7 @@ export default function OurStoryPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-prata text-white mb-6 leading-tight">
               Our Story
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -112,11 +112,11 @@ export default function OurStoryPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-8 font-medium">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-8 font-medium">
               {story?.title}
             </h2>
             <div
-              className="space-y-6 text-gray-600 text-lg md:text-xl font-light leading-relaxed rich-text"
+              className="space-y-6 text-text text-lg md:text-xl font-light leading-relaxed rich-text"
               dangerouslySetInnerHTML={{ __html: story?.mainContent || "" }}
             />
           </div>
@@ -128,7 +128,7 @@ export default function OurStoryPage() {
           <div className="max-w-5xl mx-auto relative group">
             {!isPlaying ? (
               <div
-                className="relative h-[300px] md:h-[600px] w-full cursor-pointer overflow-hidden rounded-sm shadow-xl"
+                className="relative h-[300px] md:h-[600px] w-full cursor-pointer overflow-hidden rounded-none shadow-xl"
                 onClick={() => setIsPlaying(true)}
               >
                 <Image
@@ -149,7 +149,7 @@ export default function OurStoryPage() {
                 </div>
               </div>
             ) : (
-              <div className="relative h-[300px] md:h-[600px] w-full rounded-sm overflow-hidden shadow-2xl">
+              <div className="relative h-[300px] md:h-[600px] w-full rounded-none overflow-hidden shadow-2xl">
                 <iframe
                   className="absolute inset-0 w-full h-full"
                   src="https://www.youtube.com/embed/sOxg2jCJMTQ?autoplay=1"
@@ -167,15 +167,15 @@ export default function OurStoryPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-10 font-medium">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 font-medium">
               {story?.detailedStoryTitle || "The Story Behind the Place"}
             </h2>
             <div
-              className="space-y-8 text-gray-600 text-lg md:text-xl font-light leading-relaxed rich-text"
+              className="space-y-8 text-text text-lg md:text-xl font-light leading-relaxed rich-text"
               dangerouslySetInnerHTML={{ __html: story?.detailedStory || "" }}
             />
             {!story?.detailedStory && (
-              <div className="space-y-8 text-gray-600 text-lg md:text-xl font-light leading-relaxed">
+              <div className="space-y-8 text-text text-lg md:text-xl font-light leading-relaxed">
                 <p>
                   This land was once the beloved family home of Mr. Innacent
                   Kuzhippilli & Mrs. Sigimol Innacent. Long before it welcomed
@@ -193,7 +193,7 @@ export default function OurStoryPage() {
                 </p>
                 <p>
                   Over time, a gentle thought took shape —{" "}
-                  <span className="italic font-medium text-gray-800">
+                  <span className="italic font-medium text-secondary">
                     what if this place could offer the same peace and happiness
                     to others?
                   </span>{" "}
@@ -300,10 +300,10 @@ export default function OurStoryPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-10 font-medium">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 font-medium">
               From Home to Destination
             </h2>
-            <div className="space-y-8 text-gray-600 text-lg md:text-xl font-light leading-relaxed">
+            <div className="space-y-8 text-text text-lg md:text-xl font-light leading-relaxed">
               <p>
                 With care, patience, and respect for the land, the family slowly
                 transformed their cherished home into a welcoming lakeside
@@ -317,7 +317,7 @@ export default function OurStoryPage() {
                 beauty without excess, and luxury that feels warm rather than
                 formal. Today, the resort stands as a continuation of that story
                 —{" "}
-                <span className="font-medium text-gray-800">
+                <span className="font-medium text-secondary">
                   not a replacement of the past, but an extension of it.
                 </span>
               </p>
@@ -328,11 +328,11 @@ export default function OurStoryPage() {
                 welcomed with the same warmth that once filled this home.
               </p>
               <div className="pt-8 space-y-4">
-                <p className="font-medium text-gray-900 uppercase tracking-wide text-base">
+                <p className="font-medium text-secondary uppercase tracking-wide text-base">
                   We invite you to slow down, breathe deeply, and create your
                   own memories by the lake.
                 </p>
-                <p className="text-gray-900 font-medium italic">
+                <p className="text-secondary font-medium italic">
                   Welcome to our story. Welcome to Malankara Palace.
                 </p>
               </div>
