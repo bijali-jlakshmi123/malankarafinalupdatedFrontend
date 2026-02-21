@@ -129,7 +129,7 @@ export default function ContactPage() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      <Header />
+      <Header transparent />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[80vh] w-full flex items-end">
@@ -356,9 +356,7 @@ function ValidatedContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">
-            Phone Number
-          </label>
+          <label className="text-sm font-medium text-text">Phone Number</label>
           <input
             type="tel"
             name="phone"
@@ -373,9 +371,7 @@ function ValidatedContactForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">
-            No. of Guests
-          </label>
+          <label className="text-sm font-medium text-text">No. of Guests</label>
           <input
             type="text"
             name="guests"
@@ -393,9 +389,7 @@ function ValidatedContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">
-            Check-in Date
-          </label>
+          <label className="text-sm font-medium text-text">Check-in Date</label>
           <input
             type="text"
             name="checkIn"

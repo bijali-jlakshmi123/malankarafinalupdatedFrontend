@@ -155,7 +155,7 @@ export default function WeddingEventsPage() {
   return (
     <main className="relative min-h-screen bg-white font-sarabun">
       <MetaSEO slug="wedding-events" />
-      <Header />
+      <Header transparent />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[80vh] w-full flex items-end">

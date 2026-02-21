@@ -125,7 +125,7 @@ export default function GalleryPage() {
   return (
     <main className="relative min-h-screen bg-white font-sarabun">
       <MetaSEO slug="gallery" />
-      <Header />
+      <Header transparent />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] w-full flex items-end">

@@ -21,6 +21,8 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
     { id: 4, label: "Dining", href: "/dining" },
     { id: 5, label: "Experiences", href: "/experiences" },
     { id: 6, label: "Wedding & Events", href: "/wedding-events" },
+    { id: 10, label: "Corporate & MICE", href: "/corporate" },
+    { id: 11, label: "Blog", href: "/blog" },
     { id: 7, label: "Gallery", href: "/gallery" },
     { id: 8, label: "Our Story", href: "/our-story" },
     { id: 9, label: "Contact Us", href: "/contact" },

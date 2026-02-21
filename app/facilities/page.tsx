@@ -241,7 +241,7 @@ export default function FacilitiesPage() {
 
   return (
     <main className="relative min-h-screen bg-[#f9f7f2]">
-      <Header />
+      <Header transparent />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] flex items-end">
@@ -407,9 +407,7 @@ export default function FacilitiesPage() {
                 {section.checklistItems.map((item, i) => (
                   <div key={i} className="flex items-center space-x-4">
                     <CheckIcon />
-                    <span className="text-text text-lg font-light">
-                      {item}
-                    </span>
+                    <span className="text-text text-lg font-light">{item}</span>
                   </div>
                 ))}
               </div>

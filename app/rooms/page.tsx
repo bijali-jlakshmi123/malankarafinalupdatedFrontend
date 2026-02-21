@@ -6,7 +6,7 @@ import RoomsList from "@/components/RoomsList";
 export default function RoomsPage() {
   return (
     <main className="relative min-h-screen">
-      <Header />
+      <Header transparent />
       <RoomsSuitesSlider />
       <RoomsList />
       <Footer />

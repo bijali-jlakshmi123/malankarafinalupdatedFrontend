@@ -255,19 +255,19 @@ export default function Footer() {
           <div className="flex space-x-6">
             <Link
               href="/terms-conditions"
-              className="hover:text-primary transition-colors"
+              className="hover:text-black hover:no-underline transition-all duration-300"
             >
               Terms & Conditions
             </Link>
             <Link
               href="/privacy-policy"
-              className="hover:text-primary transition-colors"
+              className="hover:text-black hover:no-underline transition-all duration-300"
             >
               Privacy Policy
             </Link>
             <Link
               href="/booking-policy"
-              className="hover:text-primary transition-colors"
+              className="hover:text-black hover:no-underline transition-all duration-300"
             >
               Booking Policy
             </Link>

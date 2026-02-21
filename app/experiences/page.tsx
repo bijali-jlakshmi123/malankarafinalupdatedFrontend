@@ -57,7 +57,7 @@ export default function ExperiencesPage() {
   return (
     <main className="relative min-h-screen bg-white">
       <MetaSEO slug="experiences" />
-      <Header />
+      <Header transparent />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] w-full flex items-end font-sarabun">

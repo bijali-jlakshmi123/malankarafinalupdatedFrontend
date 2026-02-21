@@ -9,9 +9,24 @@ import { SiteSettings, getSiteSettings } from "@/lib/api";
 const DEFAULT_LOGO_URL =
   "https://malankarapalace.com/wp-content/uploads/2026/01/Malankara-final-logo-scaled.png";
 
-export default function Header() {
+interface HeaderProps {
+  transparent?: boolean;
+}
+
+export default function Header({ transparent = false }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [siteSettings, setSiteSettings] = useState<SiteSettings | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    if (transparent) {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 20);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [transparent]);
 
   useEffect(() => {
     async function fetchSettings() {
@@ -35,7 +50,15 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          transparent
+            ? isScrolled
+              ? "bg-white/95 backdrop-blur-sm shadow-sm py-0"
+              : "bg-transparent py-2"
+            : "bg-white/95 backdrop-blur-sm shadow-sm py-0"
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -67,18 +90,30 @@ export default function Header() {
                 aria-label="Toggle menu"
               >
                 <span
-                  className={`block w-6 h-0.5 bg-secondary transition-all duration-300 ${
-                    isMenuOpen ? "rotate-45 translate-y-2" : ""
+                  className={`block w-6 h-0.5 transition-all duration-300 ${
+                    isMenuOpen
+                      ? "rotate-45 translate-y-2 bg-secondary"
+                      : transparent && !isScrolled
+                        ? "bg-white"
+                        : "bg-secondary"
                   }`}
                 />
                 <span
-                  className={`block w-6 h-0.5 bg-secondary transition-all duration-300 ${
-                    isMenuOpen ? "opacity-0" : ""
+                  className={`block w-6 h-0.5 transition-all duration-300 ${
+                    isMenuOpen
+                      ? "opacity-0"
+                      : transparent && !isScrolled
+                        ? "bg-white"
+                        : "bg-secondary"
                   }`}
                 />
                 <span
-                  className={`block w-6 h-0.5 bg-secondary transition-all duration-300 ${
-                    isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                  className={`block w-6 h-0.5 transition-all duration-300 ${
+                    isMenuOpen
+                      ? "-rotate-45 -translate-y-2 bg-secondary"
+                      : transparent && !isScrolled
+                        ? "bg-white"
+                        : "bg-secondary"
                   }`}
                 />
               </button>

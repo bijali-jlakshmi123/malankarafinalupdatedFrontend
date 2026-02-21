@@ -79,7 +79,7 @@ export default function OurStoryPage() {
   return (
     <main className="relative min-h-screen bg-white">
       <MetaSEO slug="our-story" />
-      <Header />
+      <Header transparent />
 
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[80vh] w-full flex items-end">
