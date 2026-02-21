@@ -95,7 +95,7 @@ export default function TermsConditionsPage() {
                 Guests are expected to conduct themselves in a respectful manner
                 towards other guests and staff. The management reserves the
                 right to terminate the stay of any guest whose conduct is deemed
-                incompatible with the resort's atmosphere.
+                incompatible with the resort&apos;s atmosphere.
               </p>
             </div>
 
@@ -106,7 +106,8 @@ export default function TermsConditionsPage() {
               <p>
                 Malankara Palace shall not be held liable for any loss, damage,
                 or injury incurred by guests during their stay, unless such loss
-                or damage is directly caused by the resort's gross negligence.
+                or damage is directly caused by the resort&apos;s gross
+                negligence.
               </p>
             </div>
 
