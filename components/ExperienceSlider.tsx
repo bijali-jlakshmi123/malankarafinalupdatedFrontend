@@ -57,7 +57,7 @@ export default function ExperienceSlider() {
 
         if (Array.isArray(data) && data.length > 0) {
           setSlides(data);
-          setCurrentSlide(0); // reset safely
+          setCurrentSlide(0);
         }
       } catch (error) {
         console.error("Error fetching experience slides:", error);
@@ -128,6 +128,24 @@ export default function ExperienceSlider() {
           )}
         </div>
       ))}
+
+      {/* LEFT BUTTON */}
+      <button
+        onClick={() =>
+          setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
+        }
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+      >
+        ‹
+      </button>
+
+      {/* RIGHT BUTTON */}
+      <button
+        onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+      >
+        ›
+      </button>
     </div>
   );
 }

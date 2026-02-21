@@ -7,6 +7,7 @@ import { HeroSlide, getHeroSlides } from "@/lib/api";
 export default function HeroSlider() {
   const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     async function fetchSlides() {
@@ -52,13 +53,12 @@ export default function HeroSlider() {
     fetchSlides();
   }, []);
 
-  const [currentSlide, setCurrentSlide] = useState(0);
   useEffect(() => {
     if (slides.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -108,6 +108,24 @@ export default function HeroSlider() {
           )}
         </div>
       ))}
+
+      {/* LEFT BUTTON */}
+      <button
+        onClick={() =>
+          setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
+        }
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+      >
+        ‹
+      </button>
+
+      {/* RIGHT BUTTON */}
+      <button
+        onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+      >
+        ›
+      </button>
     </div>
   );
 }
