@@ -114,23 +114,23 @@ export default function BookingPolicyPage() {
       </section>
 
       {/* BOOKING POLICY SECTION */}
-      <section className="py-24 bg-bg-1">
+      <section className="py-24 bg-[#fbfbfa]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
+          <div className="flex flex-col lg:flex-row gap-16 items-start mx-6 md:mx-12 lg:mx-24">
             {/* LEFT SIDE */}
             <div className="w-full lg:w-3/5">
               <h2 className="text-4xl md:text-5xl font-prata text-black mb-12">
                 Booking Policies & Stay Information
               </h2>
 
-              <div className="divide-y divide-gray-200 border-t border-b border-gray-200 bg-white">
+              <div className="divide-y bg-[#fbfbfa] border-t border-b border-gray-200 ">
                 {POLICIES.map((policy, index) => (
-                  <div key={policy.title} className="py-5 bg-white">
+                  <div key={policy.title} className="py-5 bg-[#fbfbfa]">
                     <button
                       onClick={() =>
                         setOpenIndex(openIndex === index ? null : index)
                       }
-                      className="w-full flex items-center justify-between text-left group bg-white"
+                      className="w-full flex items-center justify-between text-left group bg-[#fbfbfa] hover:bg-[#fbfbfa] focus:bg-[#fbfbfa] active:bg-[#fbfbfa]"
                     >
                       <span
                         className={`text-xl transition-colors ${
@@ -195,7 +195,6 @@ export default function BookingPolicyPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );

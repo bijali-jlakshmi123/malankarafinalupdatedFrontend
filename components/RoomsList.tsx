@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface RoomImage {
   url: string;
@@ -15,6 +16,7 @@ interface Room {
   image: RoomImage;
   gallery?: RoomImage[];
   link?: string;
+  slug?: string;
   order?: number;
 }
 
@@ -22,6 +24,7 @@ const FALLBACK_ROOMS: Room[] = [
   {
     id: 1,
     title: "The Lakeview Royal Suite",
+    slug: "the-lakeview-royal-suite",
     description:
       "The Lakeview Royal Suite offers a refined luxury stay with a breathtaking 180-degree panoramic view of the Ilaveezhapoonchira Hills and the serene Malankara Lake. Designed for guests who seek privacy, elegance, and uninterrupted scenic beauty, this suite blends spacious interiors with nature-led comfort.\n\nA huge private balcony overlooks the swimming pool and landscaped gardens, creating the perfect setting to unwind while staying connected to the surroundings. Large windows allow abundant natural light throughout the day, while evenings unfold with stunning sunset views that reflect beautifully across the lake.\n\nIdeal for couples and luxury travellers, The Lakeview Royal Suite is a space where calm mornings, golden evenings, and thoughtful details define the stay experience.",
     image: {
@@ -36,6 +39,7 @@ const FALLBACK_ROOMS: Room[] = [
   {
     id: 2,
     title: "The Lakeview Presidential Suite",
+    slug: "the-lakeview-presidential-suite",
     description:
       "The Lakeview Presidential Suite is a spacious interconnected luxury accommodation designed for families and premium guests who value space, privacy, and scenic surroundings. Thoughtfully planned with comfort and functionality in mind, this suite features two interconnected rooms with a single private entrance, offering both togetherness and personal space within the same stay.\n\nA large shared private balcony connects both rooms and opens to beautiful panoramic views of Malankara Lake, along with garden and swimming pool views, and a partial view of the Illavizha Poonchira Hills. The elevated position and open outlook create a relaxed, airy atmosphere throughout the day.\n\nIdeal for families, small groups, and extended-stay guests, The Lakeview Presidential Suite combines scale, comfort, and refined lakeview living for a truly memorable stay experience.",
     image: {
@@ -50,6 +54,7 @@ const FALLBACK_ROOMS: Room[] = [
   {
     id: 3,
     title: "The Lakeview Sunset Mirage",
+    slug: "the-lakeview-sunset-mirage",
     description:
       "The Lakeview Sunset Mirage is a stylish and relaxing lake-facing room designed for guests who want to experience nature's colours at their finest. Carefully positioned to capture some of the most beautiful evening views, this room offers a calm and refreshing stay defined by light, openness, and scenic surroundings.\n\nThe private balcony overlooks Malankara Lake along with garden and swimming pool views, creating a layered landscape that changes throughout the day. As the sun sets, the sky and water glow with warm tones, turning everyday moments into memorable experiences.\n\nIdeal for couples and leisure travellers, The Lakeview Sunset Mirage blends comfort, simplicity, and visual beauty into a peaceful stay experience.",
     image: {
@@ -64,6 +69,7 @@ const FALLBACK_ROOMS: Room[] = [
   {
     id: 4,
     title: "The Lakeview Premium Twin",
+    slug: "the-lakeview-premium-twin",
     description:
       "The Lakeview Premium Twin is a refined luxury accommodation designed for guests who value comfort, elegance, and a peaceful scenic setting. With its twin-bed configuration and thoughtfully planned layout, this room is ideal for friends, colleagues, and travellers who prefer shared space without compromising on privacy and comfort.\n\nThe private balcony overlooks Malankara Lake along with garden and swimming pool views, offering a calm and refreshing outlook throughout the day. Evenings are especially memorable, with soft sunset colours reflecting across the water and surrounding landscape.\n\nBlending premium interiors with nature-facing openness, The Lakeview Premium Twin delivers a relaxed and comfortable lakeview stay experience.",
     image: {
@@ -113,7 +119,17 @@ export default function RoomsList() {
         if (!res.ok) return;
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          setRooms(data);
+          // Add slugs to fetched rooms if they don't have them
+          const processedRooms = data.map((room: any) => ({
+            ...room,
+            slug:
+              room.slug ||
+              room.title
+                .toLowerCase()
+                .replace(/ /g, "-")
+                .replace(/[^\w-]/g, ""),
+          }));
+          setRooms(processedRooms);
         }
       } catch (error) {
         console.error("Error fetching rooms:", error);
@@ -138,7 +154,7 @@ export default function RoomsList() {
         {/* Room Cards */}
         <div className="space-y-24 max-w-4xl mx-auto">
           {rooms.map((room, index) => (
-            <RoomCard key={room.id} room={room} index={index} />
+            <RoomCard key={room.id || index} room={room} index={index} />
           ))}
         </div>
       </div>
@@ -179,6 +195,9 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
   // Determine order classes for alternating layout
   const imageOrder = index % 2 !== 0 ? "lg:order-last" : "lg:order-first";
   const contentOrder = index % 2 !== 0 ? "lg:order-first" : "lg:order-last";
+
+  // Determine the link
+  const roomLink = room.link || (room.slug ? `/rooms/${room.slug}` : "#");
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch font-sarabun">
@@ -251,9 +270,12 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
         </div>
 
         <div>
-          <button className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-none text-sm tracking-widest font-medium transition-colors uppercase">
+          <Link
+            href={roomLink}
+            className="inline-block bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-none text-sm tracking-widest font-medium transition-colors uppercase"
+          >
             Discover
-          </button>
+          </Link>
         </div>
       </div>
     </div>
