@@ -18,9 +18,13 @@ interface Room {
   slug: string;
   heroSlogan: string;
   heroSubtext: string;
+  subtitle: string;
   description: string;
   image: RoomImage;
   gallery?: RoomImage[];
+  beds?: string;
+  size?: string;
+  amenities?: string[];
 }
 
 const FALLBACK_ROOMS: Room[] = [
@@ -31,11 +35,16 @@ const FALLBACK_ROOMS: Room[] = [
     heroSlogan: "Luxury living with a breathtaking 180° panoramic lake view.",
     heroSubtext:
       "A spacious luxury suite with a large private balcony offering uninterrupted 180° panoramic lake views and serene comfort.",
-    description: "Luxury description...",
+    subtitle: "A Panoramic Lakeview Luxury Experience",
+    description:
+      "The Lakeview Royal Suite offers a refined luxury stay with a breathtaking 180-degree panoramic view of the Illavizha Poonchira Hills and the serene Malankara Lake. Designed for guests who seek privacy, elegance, and uninterrupted scenic beauty, this suite blends spacious interiors with nature-led comfort.\n\nA huge private balcony overlooks the swimming pool and landscaped gardens, creating the perfect setting to unwind while staying connected to the surroundings. Large windows allow abundant natural light throughout the day, while evenings unfold with stunning sunset views that reflect beautifully across the lake.\n\nIdeal for couples and luxury travellers, The Lakeview Royal Suite is a space where calm mornings, golden evenings, and thoughtful details define the stay experience.",
     image: {
       url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
     },
     gallery: [
+      {
+        url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
+      },
       {
         url: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2025&auto=format&fit=crop",
       },
@@ -51,8 +60,173 @@ const FALLBACK_ROOMS: Room[] = [
       {
         url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop",
       },
+    ],
+  },
+  {
+    id: 2,
+    title: "The Lakeview Presidential Suite",
+    slug: "the-lakeview-presidential-suite",
+    heroSlogan: "Presidential Comfort by the Lake",
+    heroSubtext:
+      "A Spacious Two-Bedroom Presidential Suite with Interconnected Rooms, Perfect for Families & Group Stays",
+    subtitle:
+      "A spacious presidential suite featuring two interconnected rooms and a long shared private balcony, designed for comfortable family stays.",
+    description:
+      "The Lakeview Presidential Suite is a spacious interconnected luxury accommodation designed for families and premium guests who value space, privacy, and scenic surroundings. Thoughtfully planned with comfort and functionality in mind, this suite features **two interconnected rooms with a single private entrance**, offering both togetherness and personal space within the same stay.\n\nA large shared private balcony connects both rooms and opens to beautiful panoramic views of Malankara Lake, along with garden and swimming pool views, and a partial view of the Illavizha Poonchira Hills. The elevated position and open outlook create a relaxed, airy atmosphere throughout the day.\n\nIdeal for families, small groups, and extended-stay guests, The Lakeview Presidential Suite combines scale, comfort, and refined lakeview living for a truly memorable stay experience.",
+    image: {
+      url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
+    },
+    gallery: [
       {
-        url: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop",
+        url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2074&auto=format&fit=crop",
+      },
+    ],
+    beds: "2 King Size Bed",
+    size: "910 sq.ft",
+    amenities: [
+      "Smart LED TV with Hotstar & Netflix",
+      "Comfortable Seating & Table",
+      "Tea/coffee station",
+      "Mini Refrigerator",
+      "Electronic Safe",
+      "Premium Toiletries",
+      "Hot & Cold water",
+      "Air Conditioning",
+      "Iron & Ironing Board",
+      "Electric kettle",
+      "Private Balcony",
+      "Intercom",
+      "Hair Dryer",
+      "Door peephole",
+    ],
+  },
+  {
+    id: 3,
+    title: "The Lakeview Sunset Mirage",
+    slug: "the-lakeview-sunset-mirage",
+    heroSlogan: "Where Every Evening Becomes a Sunset Experience",
+    heroSubtext:
+      "A serene balcony room crafted for golden-hour views and relaxed stays.",
+    subtitle: "Sunset Views. Lake Calm. Pure Relaxation.",
+    description:
+      "The Lakeview Sunset Mirage is a stylish and relaxing lake-facing room designed for guests who want to experience nature's colours at their finest. Carefully positioned to capture some of the most beautiful evening views, this room offers a calm and refreshing stay defined by light, openness, and scenic surroundings.\n\nThe private balcony overlooks Malankara Lake along with garden and swimming pool views, creating a layered landscape that changes throughout the day. As the sun sets, the sky and water glow with warm tones, turning everyday moments into memorable experiences.\n\nIdeal for couples and leisure travellers, The Lakeview Sunset Mirage blends comfort, simplicity, and visual beauty into a peaceful stay experience.",
+    image: {
+      url: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2574&auto=format&fit=crop",
+    },
+    gallery: [
+      {
+        url: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2574&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2670&auto=format&fit=crop",
+      },
+    ],
+    beds: "1 King Size Bed",
+    size: "380 sq.ft",
+    amenities: [
+      "Smart LED TV with Hotstar & Netflix",
+      "Comfortable Seating & Table",
+      "Tea/coffee station",
+      "Mini Refrigerator",
+      "Electronic Safe",
+      "Premium Toiletries",
+      "Hot & Cold water",
+      "Air Conditioning",
+      "Iron & Ironing Board",
+      "Electric kettle",
+      "Private Balcony",
+      "Intercom",
+      "Hair Dryer",
+      "Door peephole",
+    ],
+  },
+  {
+    id: 4,
+    title: "The Lakeview Premium Twin",
+    slug: "the-lakeview-premium-twin",
+    heroSlogan: "Premium Twin Stay with Sunset Outlook",
+    heroSubtext:
+      "A premium twin-bed room with a private balcony offering peaceful lake, garden, and sunset views.",
+    subtitle: "Refined Twin Comfort with Scenic Lake Views",
+    description:
+      "The Lakeview Premium Twin is a refined luxury accommodation designed for guests who value comfort, elegance, and a peaceful scenic setting. With its twin-bed configuration and thoughtfully planned layout, this room is ideal for friends, colleagues, and travellers who prefer shared space without compromising on privacy and comfort.\n\nThe private balcony overlooks Malankara Lake along with garden and swimming pool views, offering a calm and refreshing outlook throughout the day. Evenings are especially memorable, with soft sunset colours reflecting across the water and surrounding landscape.\n\nBlending premium interiors with nature-facing openness, The Lakeview Premium Twin delivers a relaxed and comfortable lakeview stay experience.",
+    image: {
+      url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2603&auto=format&fit=crop",
+    },
+    gallery: [
+      {
+        url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2603&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=2574&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2074&auto=format&fit=crop",
+      },
+    ],
+    beds: "2 Single Bed",
+    size: "380 sq.ft",
+    amenities: [
+      "Smart LED TV with Hotstar & Netflix",
+      "Comfortable Seating & Table",
+      "Tea/coffee station",
+      "Mini Refrigerator",
+      "Electronic Safe",
+      "Premium Toiletries",
+      "Hot & Cold water",
+      "Air Conditioning",
+      "Iron & Ironing Board",
+      "Electric kettle",
+      "Private Balcony",
+      "Intercom",
+      "Hair Dryer",
+      "Door peephole",
+    ],
+  },
+  {
+    id: 5,
+    title: "The Lakeview Executive Suite",
+    slug: "the-lakeview-executive-suite",
+    heroSlogan: "Executive Elegance with a View",
+    heroSubtext:
+      "Designed for the modern professional or discerning traveller, offering a sophisticated space with panoramic lake views.",
+    subtitle: "A Sophisticated Executive Lakeview Stay",
+    description:
+      "The Lakeview Executive Suite is designed for those who appreciate refined elegance and a professional touch. Featuring a dedicated workspace and a spacious lounge area, this suite offers the perfect balance between productivity and relaxation.\n\nThe private balcony provides a quiet corner to enjoy your morning coffee while overlooking the serene Malankara Lake and the lush green hills. High-speed Wi-Fi and modern amenities ensure you stay connected, while the premium bedding guarantees a restful night's sleep.\n\nIdeal for business travellers and couples, the Executive Suite blends luxury with functionality for a truly seamless stay.",
+    image: {
+      url: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+    },
+    gallery: [
+      {
+        url: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format&fit=crop",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "The Malankara Heritage Suite",
+    slug: "the-malankara-heritage-suite",
+    heroSlogan: "Preserving History in Luxury",
+    heroSubtext:
+      "A unique heritage experience that blends traditional architecture with modern luxury, offering the finest views of the palace grounds.",
+    subtitle: "A Regal Heritage Experience",
+    description:
+      "The Malankara Heritage Suite is our most exclusive accommodation, paying homage to the rich history and culture of the region. Hand-crafted wooden interiors, antique furnishings, and traditional Kerala architecture create an atmosphere of regal comfort.\n\nThis suite features a sprawling private verandah that offers a 270-degree view of the Malankara Lake, the palace gardens, and the infinity pool. Every detail, from the ornate carvings to the curated artwork, tells a story of elegance and tradition.\n\nDesigned for guests who seek a truly unique and immersive stay, the Heritage Suite is the pinnacle of luxury at Malankara Palace.",
+    image: {
+      url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
+    },
+    gallery: [
+      {
+        url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop",
       },
     ],
   },
@@ -200,7 +374,7 @@ export default function RoomDetailPage() {
               </h1>
 
               <p className="text-[24px] font-prata font-medium text-black mb-10">
-                A Panoramic Lakeview Luxury Experience
+                {room.subtitle}
               </p>
 
               <div className="relative">
@@ -208,29 +382,33 @@ export default function RoomDetailPage() {
               </div>
 
               <div className="mt-12 space-y-8">
-                <p className="text-[18px] text-[#4A4A4A] leading-[1.8] font-sarabun text-justify">
-                  The Lakeview Royal Suite offers a refined luxury stay with a
-                  breathtaking 180-degree panoramic view of the Illavizha
-                  Poonchira Hills and the serene Malankara Lake. Designed for
-                  guests who seek privacy, elegance, and uninterrupted scenic
-                  beauty, this suite blends spacious interiors with nature-led
-                  comfort.
-                </p>
+                {room.description.split("\n").map((para, idx) => {
+                  if (!para.trim()) return null;
 
-                <p className="text-[18px] text-[#4A4A4A] leading-[1.8] font-sarabun text-justify">
-                  A huge private balcony overlooks the swimming pool and
-                  landscaped gardens, creating the perfect setting to unwind
-                  while staying connected to the surroundings. Large windows
-                  allow abundant natural light throughout the day, while
-                  evenings unfold with stunning sunset views that reflect
-                  beautifully across the lake.
-                </p>
+                  // Helper function to render text with BOLD tags
+                  const renderWithBold = (text: string) => {
+                    const parts = text.split(/(\*\*.*?\*\*)/g);
+                    return parts.map((part, i) => {
+                      if (part.startsWith("**") && part.endsWith("**")) {
+                        return (
+                          <strong key={i} className="font-bold text-black">
+                            {part.slice(2, -2)}
+                          </strong>
+                        );
+                      }
+                      return part;
+                    });
+                  };
 
-                <p className="text-[18px] text-[#4A4A4A] leading-[1.8] font-sarabun text-justify">
-                  Ideal for couples and luxury travellers, The Lakeview Royal
-                  Suite is a space where calm mornings, golden evenings, and
-                  thoughtful details define the stay experience.
-                </p>
+                  return (
+                    <p
+                      key={idx}
+                      className="text-[18px] text-[#4A4A4A] leading-[1.8] font-sarabun text-justify"
+                    >
+                      {renderWithBold(para)}
+                    </p>
+                  );
+                })}
               </div>
             </div>
 
@@ -259,7 +437,7 @@ export default function RoomDetailPage() {
                       <path d="M2 18h20" />
                     </svg>
                     <span className="text-[16px] font-sarabun font-medium">
-                      1 Large King Size Bed
+                      {room.beds || "2 Single Bed"}
                     </span>
                   </div>
                   <div className="flex items-center gap-4 text-[#234958]">
@@ -280,7 +458,7 @@ export default function RoomDetailPage() {
                       <path d="m3 15 1.5 1.5L9 21l6-6-1.5-1.5L9 15" />
                     </svg>
                     <span className="text-[16px] font-sarabun font-medium">
-                      750 sq.ft
+                      {room.size || "750 sq.ft"}
                     </span>
                   </div>
                 </div>
@@ -290,264 +468,272 @@ export default function RoomDetailPage() {
                   Room Amenities
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
-                  {[
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect
-                            width="20"
-                            height="15"
-                            x="2"
-                            y="3"
-                            rx="2"
-                            ry="2"
-                          />
-                          <path d="M7 18h10" />
-                          <path d="M10 22h4" />
-                        </svg>
-                      ),
-                      text: "Smart LED TV with Hotstar & Netflix",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M18 15V8a4 4 0 0 0-4-4 4 4 0 0 0-4 4v7" />
-                          <path d="M9 20h6" />
-                          <path d="M5 15h14" />
-                        </svg>
-                      ),
-                      text: "Comfortable Seating & Table",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                          <line x1="6" y1="1" x2="6" y2="4" />
-                          <line x1="10" y1="1" x2="10" y2="4" />
-                          <line x1="14" y1="1" x2="14" y2="4" />
-                        </svg>
-                      ),
-                      text: "Tea/coffee station",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect width="14" height="20" x="5" y="2" rx="2" />
-                          <line x1="5" y1="10" x2="19" y2="10" />
-                          <path d="M9 14v2" />
-                        </svg>
-                      ),
-                      text: "Mini Refrigerator",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect width="18" height="12" x="3" y="6" rx="2" />
-                          <circle cx="12" cy="12" r="2" />
-                          <line x1="12" y1="14" x2="12" y2="14" />
-                        </svg>
-                      ),
-                      text: "Electronic Safe",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M7 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7z" />
-                          <path d="M12 18h.01" />
-                        </svg>
-                      ),
-                      text: "Premium Toiletries",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5s-3 3.5-3 5.5a7 7 0 0 0 7 7z" />
-                        </svg>
-                      ),
-                      text: "Hot & Cold water",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect width="20" height="12" x="2" y="6" rx="2" />
-                          <line x1="6" y1="12" x2="18" y2="12" />
-                          <line x1="6" y1="15" x2="18" y2="15" />
-                        </svg>
-                      ),
-                      text: "Air Conditioning",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M12 4v4" />
-                          <path d="M21 21 H3" />
-                          <path d="M18 11V18a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
-                        </svg>
-                      ),
-                      text: "Iron & Ironing Board",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M6 14h.01" />
-                          <path d="M10 14h.01" />
-                          <path d="M14 14h.01" />
-                          <path d="M18 14h.01" />
-                          <rect width="18" height="10" x="3" y="11" rx="2" />
-                          <path d="M8 11V7l4-4 4 4v4" />
-                        </svg>
-                      ),
-                      text: "Electric kettle",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect width="18" height="18" x="3" y="3" rx="2" />
-                          <path d="M3 12h18" />
-                          <path d="M12 3v18" />
-                        </svg>
-                      ),
-                      text: "Private Balcony",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                      ),
-                      text: "Intercom",
-                    },
-                    {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M3 7h1v10H3z" />
-                          <path d="M7 7h12a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H7" />
-                          <path d="M16 17v2" />
-                          <path d="M12 17v2" />
-                        </svg>
-                      ),
-                      text: "Hair Dryer",
-                    },
-                    {
-                      icon: (
+                  {(
+                    room.amenities || [
+                      "Smart LED TV with Hotstar & Netflix",
+                      "Comfortable Seating & Table",
+                      "Tea/coffee station",
+                      "Mini Refrigerator",
+                      "Electronic Safe",
+                      "Premium Toiletries",
+                      "Hot & Cold water",
+                      "Air Conditioning",
+                      "Iron & Ironing Board",
+                      "Electric kettle",
+                      "Private Balcony",
+                      "Intercom",
+                      "Hair Dryer",
+                      "Door peephole",
+                    ]
+                  ).map((amenity, index) => {
+                    const getIcon = (text: string) => {
+                      const lower = text.toLowerCase();
+                      if (lower.includes("tv"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect
+                              width="20"
+                              height="15"
+                              x="2"
+                              y="3"
+                              rx="2"
+                              ry="2"
+                            />
+                            <path d="M7 18h10" />
+                            <path d="M10 22h4" />
+                          </svg>
+                        );
+                      if (lower.includes("seating"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M18 15V8a4 4 0 0 0-4-4 4 4 0 0 0-4 4v7" />
+                            <path d="M9 20h6" />
+                            <path d="M5 15h14" />
+                          </svg>
+                        );
+                      if (lower.includes("tea") || lower.includes("coffee"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                            <line x1="6" y1="1" x2="6" y2="4" />
+                            <line x1="10" y1="1" x2="10" y2="4" />
+                            <line x1="14" y1="1" x2="14" y2="4" />
+                          </svg>
+                        );
+                      if (lower.includes("refrigerator"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect width="14" height="20" x="5" y="2" rx="2" />
+                            <line x1="5" y1="10" x2="19" y2="10" />
+                            <path d="M9 14v2" />
+                          </svg>
+                        );
+                      if (lower.includes("safe"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect width="18" height="12" x="3" y="6" rx="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <line x1="12" y1="14" x2="12" y2="14" />
+                          </svg>
+                        );
+                      if (lower.includes("toiletries"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M7 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7z" />
+                            <path d="M12 18h.01" />
+                          </svg>
+                        );
+                      if (lower.includes("water"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5s-3 3.5-3 5.5a7 7 0 0 0 7 7z" />
+                          </svg>
+                        );
+                      if (lower.includes("conditioning"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect width="20" height="12" x="2" y="6" rx="2" />
+                            <line x1="6" y1="12" x2="18" y2="12" />
+                            <line x1="6" y1="15" x2="18" y2="15" />
+                          </svg>
+                        );
+                      if (lower.includes("iron"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M12 4v4" />
+                            <path d="M21 21 H3" />
+                            <path d="M18 11V18a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
+                          </svg>
+                        );
+                      if (lower.includes("kettle"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M6 14h.01" />
+                            <path d="M10 14h.01" />
+                            <path d="M14 14h.01" />
+                            <path d="M18 14h.01" />
+                            <rect width="18" height="10" x="3" y="11" rx="2" />
+                            <path d="M8 11V7l4-4 4 4v4" />
+                          </svg>
+                        );
+                      if (lower.includes("balcony"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect width="18" height="18" x="3" y="3" rx="2" />
+                            <path d="M3 12h18" />
+                            <path d="M12 3v18" />
+                          </svg>
+                        );
+                      if (lower.includes("intercom"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                          </svg>
+                        );
+                      if (lower.includes("dryer"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M3 7h1v10H3z" />
+                            <path d="M7 7h12a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H7" />
+                            <path d="M16 17v2" />
+                            <path d="M12 17v2" />
+                          </svg>
+                        );
+                      if (lower.includes("peephole"))
+                        return (
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="1" />
+                          </svg>
+                        );
+                      return (
                         <svg
                           width="24"
                           height="24"
@@ -559,24 +745,25 @@ export default function RoomDetailPage() {
                           strokeLinejoin="round"
                         >
                           <circle cx="12" cy="12" r="10" />
-                          <circle cx="12" cy="12" r="1" />
+                          <polyline points="12 6 12 12 16 14" />
                         </svg>
-                      ),
-                      text: "Door peephole",
-                    },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-4 text-[#234958]"
-                    >
-                      <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
-                        {item.icon}
+                      );
+                    };
+
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center gap-4 text-[#234958]"
+                      >
+                        <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                          {getIcon(amenity)}
+                        </div>
+                        <span className="text-[15px] font-sarabun text-[#4A4A4A] leading-tight">
+                          {amenity}
+                        </span>
                       </div>
-                      <span className="text-[15px] font-sarabun text-[#4A4A4A] leading-tight">
-                        {item.text}
-                      </span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Resort Amenities */}
@@ -874,7 +1061,7 @@ export default function RoomDetailPage() {
 
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-3 bg-[#A43493] text-white px-8 py-4 rounded-[4px] font-sarabun font-semibold tracking-wide hover:bg-[#8e2d7f] transition-all duration-300 group"
+                  className="inline-flex items-center gap-3  bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-[4px] font-sarabun font-semibold tracking-wide transition-all duration-300 group"
                 >
                   BOOK NOW
                   <svg
@@ -994,7 +1181,7 @@ function RoomImageSlider({ images }: { images: { url: string }[] }) {
 
   return (
     <div className="flex flex-col">
-      <div className="relative w-full aspect-[4/3] overflow-hidden group">
+      <div className="relative w-full aspect-[3/2] overflow-hidden group">
         <div
           className="flex transition-transform duration-700 ease-in-out h-full"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -1023,17 +1210,14 @@ function RoomImageSlider({ images }: { images: { url: string }[] }) {
         </button>
       </div>
 
-      {/* 6 Pagination DOTS */}
-
-      <div className="flex justify-center items-center gap-2 mt-6">
-        {Array.from({ length: Math.min(6, images.length) }).map((_, idx) => (
+      {/* Pagination DOTS */}
+      <div className="flex justify-center items-center gap-2 mt-4">
+        {images.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              currentIndex === idx
-                ? "bg-gray-800 scale-110"
-                : "bg-gray-300 hover:bg-gray-400"
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              currentIndex === idx ? "bg-black" : "bg-gray-300"
             }`}
           />
         ))}
