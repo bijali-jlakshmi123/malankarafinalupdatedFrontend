@@ -117,17 +117,17 @@ export default function FacilitiesSlider() {
         onClick={() =>
           setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
         }
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
       >
-        ‹
+        <i className="las la-angle-left"></i>
       </button>
 
       {/* RIGHT BUTTON */}
       <button
         onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
       >
-        ›
+        <i className="las la-angle-right"></i>
       </button>
     </div>
   );

@@ -24,6 +24,8 @@ interface Room {
   gallery?: RoomImage[];
   beds?: string;
   size?: string;
+  occupancy?: string;
+  view?: string;
   amenities?: string[];
 }
 
@@ -41,6 +43,10 @@ const FALLBACK_ROOMS: Room[] = [
     image: {
       url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
     },
+    beds: "1 King Size Bed",
+    size: "450 sq.ft",
+    occupancy: "2 Adults",
+    view: "180° Lake View",
     gallery: [
       {
         url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
@@ -55,11 +61,24 @@ const FALLBACK_ROOMS: Room[] = [
         url: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070&auto=format&fit=crop",
       },
       {
-        url: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070&auto=format&fit=crop",
+        url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
       },
-      {
-        url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop",
-      },
+    ],
+    amenities: [
+      "Smart LED TV with Hotstar & Netflix",
+      "Comfortable Seating & Table",
+      "Tea/coffee station",
+      "Mini Refrigerator",
+      "Electronic Safe",
+      "Premium Toiletries",
+      "Hot & Cold water",
+      "Air Conditioning",
+      "Iron & Ironing Board",
+      "Electric kettle",
+      "Private Balcony",
+      "Intercom",
+      "Hair Dryer",
+      "Door peephole",
     ],
   },
   {
@@ -86,6 +105,8 @@ const FALLBACK_ROOMS: Room[] = [
     ],
     beds: "2 King Size Bed",
     size: "910 sq.ft",
+    occupancy: "4-5 Adults",
+    view: "Panoramic Lake View",
     amenities: [
       "Smart LED TV with Hotstar & Netflix",
       "Comfortable Seating & Table",
@@ -126,6 +147,8 @@ const FALLBACK_ROOMS: Room[] = [
     ],
     beds: "1 King Size Bed",
     size: "380 sq.ft",
+    occupancy: "2 Adults",
+    view: "Lake & Sunset View",
     amenities: [
       "Smart LED TV with Hotstar & Netflix",
       "Comfortable Seating & Table",
@@ -169,6 +192,8 @@ const FALLBACK_ROOMS: Room[] = [
     ],
     beds: "2 Single Bed",
     size: "380 sq.ft",
+    occupancy: "2 Adults",
+    view: "Lake & Garden View",
     amenities: [
       "Smart LED TV with Hotstar & Netflix",
       "Comfortable Seating & Table",
@@ -199,6 +224,10 @@ const FALLBACK_ROOMS: Room[] = [
     image: {
       url: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
     },
+    beds: "1 King Size Bed",
+    size: "420 sq.ft",
+    occupancy: "2 Adults",
+    view: "Panoramic Lake View",
     gallery: [
       {
         url: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2070&auto=format&fit=crop",
@@ -206,6 +235,22 @@ const FALLBACK_ROOMS: Room[] = [
       {
         url: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2070&auto=format&fit=crop",
       },
+    ],
+    amenities: [
+      "Smart LED TV with Hotstar & Netflix",
+      "Comfortable Seating & Table",
+      "Tea/coffee station",
+      "Mini Refrigerator",
+      "Electronic Safe",
+      "Premium Toiletries",
+      "Hot & Cold water",
+      "Air Conditioning",
+      "Iron & Ironing Board",
+      "Electric kettle",
+      "Private Balcony",
+      "Intercom",
+      "Hair Dryer",
+      "Door peephole",
     ],
   },
   {
@@ -221,6 +266,10 @@ const FALLBACK_ROOMS: Room[] = [
     image: {
       url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
     },
+    beds: "1 Royal King Bed",
+    size: "550 sq.ft",
+    occupancy: "2 Adults",
+    view: "270° Panoramic Lake View",
     gallery: [
       {
         url: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
@@ -228,6 +277,22 @@ const FALLBACK_ROOMS: Room[] = [
       {
         url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop",
       },
+    ],
+    amenities: [
+      "Smart LED TV with Hotstar & Netflix",
+      "Comfortable Seating & Table",
+      "Tea/coffee station",
+      "Mini Refrigerator",
+      "Electronic Safe",
+      "Premium Toiletries",
+      "Hot & Cold water",
+      "Air Conditioning",
+      "Iron & Ironing Board",
+      "Electric kettle",
+      "Private Balcony",
+      "Intercom",
+      "Hair Dryer",
+      "Door peephole",
     ],
   },
 ];
@@ -419,46 +484,29 @@ export default function RoomDetailPage() {
                 <h2 className="text-[32px] font-prata text-[#234958] mb-8">
                   Room Details
                 </h2>
-                <div className="grid grid-cols-2 gap-8 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
                   <div className="flex items-center gap-4 text-[#234958]">
-                    <svg
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" />
-                      <path d="M4 10V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5" />
-                      <path d="M12 4v6" />
-                      <path d="M2 18h20" />
-                    </svg>
+                    <i className="las la-bed text-3xl"></i>
                     <span className="text-[16px] font-sarabun font-medium">
                       {room.beds || "2 Single Bed"}
                     </span>
                   </div>
                   <div className="flex items-center gap-4 text-[#234958]">
-                    <svg
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="m21 3-6.5 6.5" />
-                      <path d="M19 10.5 10.5 19" />
-                      <path d="M3 21l6.5-6.5" />
-                      <path d="M14 5l1.5-1.5L21 3l6 6-1.5 1.5L21 9" />
-                      <path d="m3 15 1.5 1.5L9 21l6-6-1.5-1.5L9 15" />
-                    </svg>
+                    <i className="las la-expand-arrows-alt text-3xl"></i>
                     <span className="text-[16px] font-sarabun font-medium">
                       {room.size || "750 sq.ft"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 text-[#234958]">
+                    <i className="las la-users text-3xl"></i>
+                    <span className="text-[16px] font-sarabun font-medium">
+                      {room.occupancy || "2 Adults"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 text-[#234958]">
+                    <i className="las la-water text-3xl"></i>
+                    <span className="text-[16px] font-sarabun font-medium">
+                      {room.view || "Lake View"}
                     </span>
                   </div>
                 </div>
@@ -489,265 +537,34 @@ export default function RoomDetailPage() {
                     const getIcon = (text: string) => {
                       const lower = text.toLowerCase();
                       if (lower.includes("tv"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <rect
-                              width="20"
-                              height="15"
-                              x="2"
-                              y="3"
-                              rx="2"
-                              ry="2"
-                            />
-                            <path d="M7 18h10" />
-                            <path d="M10 22h4" />
-                          </svg>
-                        );
+                        return <i className="las la-tv text-2xl"></i>;
                       if (lower.includes("seating"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M18 15V8a4 4 0 0 0-4-4 4 4 0 0 0-4 4v7" />
-                            <path d="M9 20h6" />
-                            <path d="M5 15h14" />
-                          </svg>
-                        );
+                        return <i className="las la-chair text-2xl"></i>;
                       if (lower.includes("tea") || lower.includes("coffee"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                            <line x1="6" y1="1" x2="6" y2="4" />
-                            <line x1="10" y1="1" x2="10" y2="4" />
-                            <line x1="14" y1="1" x2="14" y2="4" />
-                          </svg>
-                        );
+                        return <i className="las la-mug-hot text-2xl"></i>;
                       if (lower.includes("refrigerator"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <rect width="14" height="20" x="5" y="2" rx="2" />
-                            <line x1="5" y1="10" x2="19" y2="10" />
-                            <path d="M9 14v2" />
-                          </svg>
-                        );
+                        return <i className="las la-snowflake text-2xl"></i>;
                       if (lower.includes("safe"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <rect width="18" height="12" x="3" y="6" rx="2" />
-                            <circle cx="12" cy="12" r="2" />
-                            <line x1="12" y1="14" x2="12" y2="14" />
-                          </svg>
-                        );
+                        return <i className="las la-safe text-2xl"></i>;
                       if (lower.includes("toiletries"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M7 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7z" />
-                            <path d="M12 18h.01" />
-                          </svg>
-                        );
+                        return <i className="las la-pump-soap text-2xl"></i>;
                       if (lower.includes("water"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5s-3 3.5-3 5.5a7 7 0 0 0 7 7z" />
-                          </svg>
-                        );
+                        return <i className="las la-faucet text-2xl"></i>;
                       if (lower.includes("conditioning"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <rect width="20" height="12" x="2" y="6" rx="2" />
-                            <line x1="6" y1="12" x2="18" y2="12" />
-                            <line x1="6" y1="15" x2="18" y2="15" />
-                          </svg>
-                        );
+                        return <i className="las la-snowflake text-2xl"></i>;
                       if (lower.includes("iron"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M12 4v4" />
-                            <path d="M21 21 H3" />
-                            <path d="M18 11V18a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
-                          </svg>
-                        );
+                        return <i className="las la-tshirt text-2xl"></i>;
                       if (lower.includes("kettle"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M6 14h.01" />
-                            <path d="M10 14h.01" />
-                            <path d="M14 14h.01" />
-                            <path d="M18 14h.01" />
-                            <rect width="18" height="10" x="3" y="11" rx="2" />
-                            <path d="M8 11V7l4-4 4 4v4" />
-                          </svg>
-                        );
+                        return <i className="las la-coffee text-2xl"></i>;
                       if (lower.includes("balcony"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <rect width="18" height="18" x="3" y="3" rx="2" />
-                            <path d="M3 12h18" />
-                            <path d="M12 3v18" />
-                          </svg>
-                        );
+                        return <i className="las la-door-open text-2xl"></i>;
                       if (lower.includes("intercom"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                          </svg>
-                        );
+                        return <i className="las la-phone text-2xl"></i>;
                       if (lower.includes("dryer"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M3 7h1v10H3z" />
-                            <path d="M7 7h12a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H7" />
-                            <path d="M16 17v2" />
-                            <path d="M12 17v2" />
-                          </svg>
-                        );
+                        return <i className="las la-wind text-2xl"></i>;
                       if (lower.includes("peephole"))
-                        return (
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <circle cx="12" cy="12" r="10" />
-                            <circle cx="12" cy="12" r="1" />
-                          </svg>
-                        );
-                      return (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                      );
+                        return <i className="las la-eye text-2xl"></i>;
+                      return <i className="las la-check-circle text-2xl"></i>;
                     };
 
                     return (
@@ -755,7 +572,7 @@ export default function RoomDetailPage() {
                         key={index}
                         className="flex items-center gap-4 text-[#234958]"
                       >
-                        <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
                           {getIcon(amenity)}
                         </div>
                         <span className="text-[15px] font-sarabun text-[#4A4A4A] leading-tight">
@@ -773,283 +590,83 @@ export default function RoomDetailPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-12">
                   {[
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M2 13a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v5Z" />
-                          <path d="M12 21a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6Z" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-swimming-pool text-3xl"></i>,
                       text: "Infinity Pool",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M2 15a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v6Z" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-umbrella-beach text-3xl"></i>,
                       text: "Kids Pool",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M5 12.55a11 11 0 0 1 14.08 0" />
-                          <path d="M1.42 9a16 16 0 0 1 21.16 0" />
-                          <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
-                          <circle cx="12" cy="20" r="1" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-wifi text-3xl"></i>,
                       text: "High-Speed WI-FI",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                          <circle cx="9" cy="7" r="4" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-concierge-bell text-3xl"></i>,
                       text: "24/7 Front Desk",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M3 15h18l-2.04-1.71A4 4 0 0 0 16.3 12H7.7a4 4 0 0 0-2.66 1.29L3 15Z" />
-                          <path d="M12 12V5" />
-                          <path d="M9 5h6" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-utensils text-3xl"></i>,
                       text: "Room Service",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M12 10c4.42 0 8-3.58 8-8" />
-                          <path d="M20 10c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8" />
-                          <path d="M4 10c-4.42 0-8-3.58-8-8" />
-                          <path d="M12 18c0 4.42 3.58 8 8 8s8-3.58 8-8" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-spa text-3xl"></i>,
                       text: "Wellness Spa",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M11.8 3.1c1.2-1.2 3.1-1.2 4.3 0s1.2 3.1 0 4.3l-8.6 8.6c-1.2 1.2-3.1 1.2-4.3 0s-1.2-3.1 0-4.3l8.6-8.6Z" />
-                          <path d="M13 13h4" />
-                          <path d="M13 17h4" />
-                          <path d="M13 21h4" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-gamepad text-3xl"></i>,
                       text: "Indoor Games",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M18 2v20" />
-                          <path d="M2 12h14" />
-                          <path d="M2 2v10" />
-                          <path d="M2 22h14" />
-                          <line x1="18" y1="12" x2="22" y2="12" />
-                          <line x1="18" y1="2" x2="22" y2="2" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-utensils text-3xl"></i>,
                       text: "Multi-Cuisine Restaurant",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7Z" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-leaf text-3xl"></i>,
                       text: "Outdoor Games",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />
-                          <path d="M15 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />
-                          <path d="M3 13v-3a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3" />
-                          <path d="M12 2v7" />
-                          <path d="M8 5h8" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-child text-3xl"></i>,
                       text: "Kids Play Area",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <circle cx="7" cy="17" r="2" />
-                          <circle cx="17" cy="17" r="2" />
-                          <path d="M5 17h-2v-4l2-8h11l4 7v5h-2" />
-                          <path d="M15 17h-6" />
-                          <path d="M13 5v8h7" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-shuttle-van text-3xl"></i>,
                       text: "Pick-up & Drop",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v11Z" />
-                          <circle cx="12" cy="13" r="4" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-video text-3xl"></i>,
                       text: "CCTV Surveillance",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M3 6h18" />
-                          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                          <circle cx="12" cy="13" r="3" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-tshirt text-3xl"></i>,
                       text: "Laundry Services",
                     },
                     {
-                      icon: (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <rect width="18" height="18" x="3" y="3" rx="2" />
-                          <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
-                        </svg>
-                      ),
+                      icon: <i className="las la-parking text-3xl"></i>,
                       text: "Parking Area",
+                    },
+                    {
+                      icon: <i className="las la-om text-3xl"></i>,
+                      text: "Yoga & Meditation",
+                    },
+                    {
+                      icon: <i className="las la-water text-3xl"></i>,
+                      text: "Lake View Seating",
+                    },
+                    {
+                      icon: <i className="las la-fire text-3xl"></i>,
+                      text: "BBQ Station",
+                    },
+                    {
+                      icon: <i className="las la-users text-3xl"></i>,
+                      text: "Banquet Hall",
                     },
                   ].map((item, index) => (
                     <div
                       key={index}
                       className="flex items-center gap-4 text-[#234958]"
                     >
-                      <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                      <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
                         {item.icon}
                       </div>
                       <span className="text-[15px] font-sarabun text-[#4A4A4A] leading-tight">
@@ -1064,20 +681,7 @@ export default function RoomDetailPage() {
                   className="inline-flex items-center gap-3  bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-[4px] font-sarabun font-semibold tracking-wide transition-all duration-300 group"
                 >
                   BOOK NOW
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
+                  <i className="las la-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
                 </Link>
               </div>
             </div>
@@ -1196,17 +800,17 @@ function RoomImageSlider({ images }: { images: { url: string }[] }) {
         {/* LEFT BUTTON */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          ‹
+          <i className="las la-angle-left"></i>
         </button>
 
         {/* RIGHT BUTTON */}
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-3xl bg-black/30 hover:bg-black/50 px-3 py-2 rounded-full"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          ›
+          <i className="las la-angle-right"></i>
         </button>
       </div>
 

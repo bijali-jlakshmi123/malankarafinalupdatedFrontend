@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  NavigationItem,
-  SiteSettings,
-  getNavigationItems,
-  getSiteSettings,
-} from "@/lib/api";
+import { NavigationItem, getNavigationItems, getSiteSettings } from "@/lib/api";
 
 interface NavigationProps {
   isOpen: boolean;
@@ -21,8 +16,6 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
     { id: 4, label: "Dining", href: "/dining" },
     { id: 5, label: "Experiences", href: "/experiences" },
     { id: 6, label: "Wedding & Events", href: "/wedding-events" },
-    { id: 10, label: "Corporate & MICE", href: "/corporate" },
-    { id: 11, label: "Blog", href: "/blog" },
     { id: 7, label: "Gallery", href: "/gallery" },
     { id: 8, label: "Our Story", href: "/our-story" },
     { id: 9, label: "Contact Us", href: "/contact" },
@@ -42,29 +35,24 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           getSiteSettings(),
         ]);
 
-        if (navItems.length > 0) {
-          setMenuItems(navItems);
-        }
+        if (navItems?.length) setMenuItems(navItems);
 
         if (settings?.phoneNumbers) {
-          setPhoneNumbers(
-            Array.isArray(settings.phoneNumbers) ? settings.phoneNumbers : [],
-          );
+          const numbers = Array.isArray(settings.phoneNumbers)
+            ? settings.phoneNumbers
+            : [settings.phoneNumbers];
+          setPhoneNumbers(numbers);
         }
       } catch (error) {
-        console.error("Error loading navigation data:", error);
+        console.error(error);
       }
     }
+
     fetchData();
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -82,88 +70,83 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-2xl transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-screen w-full sm:w-[380px] bg-[#f5f3ef] z-50 shadow-2xl transform transition-transform duration-300 ease-in-out overflow-hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full">
-          {/* Close Button */}
-          <div className="flex justify-end p-6">
-            <button
-              onClick={onClose}
-              className="w-10 h-10 flex items-center justify-center text-text hover:text-secondary transition-colors"
-              aria-label="Close menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+        {/* Full height layout */}
+        <div className="flex flex-col justify-between h-full">
+          {/* Top Section */}
+          <div>
+            {/* Close Button */}
+            <div className="flex justify-end p-6">
+              <button
+                onClick={onClose}
+                className="w-12 h-12 flex items-center justify-center border border-gray-300 text-gray-600 hover:text-[#7a2d8a] hover:border-[#7a2d8a] transition"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
+                <i className="la la-times text-xl"></i>
+              </button>
+            </div>
 
-          {/* Navigation Links */}
-          <nav className="flex-1 px-8 pb-8">
-            <ul className="space-y-1">
-              {menuItems.map((item) => (
-                <li key={item.id || item.href}>
-                  <a
-                    href={item.href}
-                    className={`block py-3 px-4 text-lg font-medium transition-colors duration-200 ${
-                      item.isActive
-                        ? "text-primary"
-                        : "text-secondary hover:text-primary"
-                    }`}
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Book Now Button */}
-          <div className="px-8 pb-6">
-            <button className="w-full bg-primary hover:bg-primary-hover text-white py-3.5 px-6 font-semibold text-lg transition-colors duration-200">
-              BOOK NOW
-            </button>
-          </div>
-
-          {/* Contact Information */}
-          <div className="px-8 pb-8">
-            <div className="flex items-start space-x-3 text-primary">
-              <svg
-                className="w-6 h-6 mt-1 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <div className="flex flex-col space-y-1">
-                {phoneNumbers.map((phone, index) => (
-                  <a
-                    key={index}
-                    href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="text-primary hover:text-primary-hover font-medium"
-                  >
-                    {phone}
-                  </a>
+            {/* Menu */}
+            <nav className="px-10">
+              <ul className="space-y-5">
+                {menuItems.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={item.href}
+                      onClick={onClose}
+                      className={`block font-prata text-[22px] transition ${
+                        item.isActive
+                          ? "text-[#7a2d8a]"
+                          : "text-[#374151] hover:text-[#7a2d8a]"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
                 ))}
+
+                {/* Book Button */}
+                <li className="pt-4">
+                  <button className="bg-[#7a2d8a] text-white px-8 py-4 font-semibold tracking-wide hover:bg-[#682577] transition">
+                    BOOK NOW
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          {/* Bottom Section (Phone numbers fixed at bottom) */}
+          <div className="px-10 pb-10">
+            <div className="flex items-start gap-4">
+              <i className="la la-phone text-[28px] text-[#7a2d8a] rotate-[135deg] mt-1"></i>
+
+              <div className="text-[18px] text-[#374151] space-y-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href={`tel:${phoneNumbers[0]}`}
+                    className="hover:text-[#7a2d8a]"
+                  >
+                    {phoneNumbers[0]}
+                  </a>
+
+                  <span className="text-gray-400">|</span>
+
+                  <a
+                    href={`tel:${phoneNumbers[1]}`}
+                    className="hover:text-[#7a2d8a]"
+                  >
+                    {phoneNumbers[1]}
+                  </a>
+                </div>
+
+                <a
+                  href={`tel:${phoneNumbers[2]}`}
+                  className="hover:text-[#7a2d8a] block"
+                >
+                  {phoneNumbers[2]}
+                </a>
               </div>
             </div>
           </div>

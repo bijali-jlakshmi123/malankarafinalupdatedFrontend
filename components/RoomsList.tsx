@@ -213,43 +213,20 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
         />
 
         {/* Slider Controls */}
+        {/* LEFT BUTTON */}
         <button
           onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 hover:text-white/80 text-white p-2 transition-all z-10"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-8 h-8"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
-          </svg>
+          <i className="las la-angle-left"></i>
         </button>
+
+        {/* RIGHT BUTTON */}
         <button
           onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 hover:text-white/80 text-white p-2 transition-all z-10"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-8 h-8"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
+          <i className="las la-angle-right"></i>
         </button>
 
         {/* Overlay */}
