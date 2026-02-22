@@ -245,39 +245,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Floating Action Buttons (Fixed Bottom Right) */}
-      <div className="fixed bottom-4 right-4 z-50 flex flex-col space-y-3 items-end">
-        {/* Book Now */}
-        <button
-          suppressHydrationWarning
-          className="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-none shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium"
-        >
-          <i className="la la-calendar text-xl"></i>
-          <span className="uppercase tracking-wide">Book Now</span>
-        </button>
-
-        {/* WhatsApp */}
-        <a
-          href="https://wa.me/917510200444"
-          target="_blank"
-          rel="noopener noreferrer"
-          suppressHydrationWarning
-          className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2.5 rounded shadow-lg transition-colors duration-200 flex items-center space-x-2 text-sm font-medium"
-        >
-          <i className="lab la-whatsapp text-xl"></i>
-          <span className="tracking-wide">WhatsApp</span>
-        </a>
-
-        {/* Scroll to Top */}
-        <button
-          suppressHydrationWarning
-          className="w-10 h-10 bg-primary hover:bg-primary-hover text-white rounded-none flex items-center justify-center shadow-lg transition-colors"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          <i className="la la-arrow-up text-lg"></i>
-        </button>
-      </div>
     </footer>
   );
 }

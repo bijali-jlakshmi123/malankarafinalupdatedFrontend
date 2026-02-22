@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import FloatingActions from "@/components/FloatingActions";
 
 export const metadata: Metadata = {
   title: "Malankara Palace - Lake View Resort & Spa",
@@ -20,8 +21,12 @@ export default function RootLayout({
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
         />
       </head>
+
       <body className="antialiased" suppressHydrationWarning={true}>
         {children}
+
+        {/* ✅ Global Floating Actions */}
+        <FloatingActions />
       </body>
     </html>
   );

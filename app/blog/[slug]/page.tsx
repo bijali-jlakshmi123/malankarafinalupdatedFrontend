@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import MetaSEO from "@/components/MetaSEO";
 import Link from "next/link";
+import Preloader from "@/components/Preloader";
 
 interface BlogPost {
   id: number;
@@ -176,11 +177,7 @@ export default function BlogDetailPage() {
   }, [slug]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        Loading...
-      </div>
-    );
+    return <Preloader />;
   }
 
   if (!post) {

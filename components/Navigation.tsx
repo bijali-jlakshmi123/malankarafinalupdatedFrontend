@@ -62,7 +62,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
     <>
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 z-[100] transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
@@ -70,7 +70,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-screen w-full sm:w-[380px] bg-[#f5f3ef] z-50 shadow-2xl transform transition-transform duration-300 ease-in-out overflow-hidden ${
+        className={`fixed top-0 right-0 h-screen w-full sm:w-[380px] bg-[#f5f3ef] z-[110] shadow-2xl transform transition-transform duration-300 ease-in-out overflow-hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -107,46 +107,44 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                   </li>
                 ))}
 
-                {/* Book Button */}
-                <li className="pt-4">
-                  <button className="bg-[#7a2d8a] text-white px-8 py-4 font-semibold tracking-wide hover:bg-[#682577] transition">
-                    BOOK NOW
-                  </button>
-                </li>
+                {/* Remove Book Button from here */}
               </ul>
             </nav>
           </div>
 
-          {/* Bottom Section (Phone numbers fixed at bottom) */}
-          <div className="px-10 pb-10">
-            <div className="flex items-start gap-4">
-              <i className="la la-phone text-[28px] text-[#7a2d8a] rotate-[135deg] mt-1"></i>
+          {/* Bottom Section (Matching Screenshot) */}
+          <div className="px-10 pb-12">
+            <button className="bg-[#7a2d8a] text-white px-7 py-3 font-semibold tracking-wider hover:bg-[#682577] transition mb-8 text-[15px] uppercase">
+              BOOK NOW
+            </button>
 
-              <div className="text-[18px] text-[#374151] space-y-1">
-                <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-start gap-4">
+              <i className="la la-phone-volume text-[28px] text-[#7a2d8a] mt-0.5"></i>
+
+              <div className="text-[18px] text-[#374151] font-medium leading-relaxed">
+                <div className="flex items-center gap-2 whitespace-nowrap">
                   <a
                     href={`tel:${phoneNumbers[0]}`}
-                    className="hover:text-[#7a2d8a]"
+                    className="hover:text-[#7a2d8a] transition-colors"
                   >
                     {phoneNumbers[0]}
                   </a>
-
                   <span className="text-gray-400">|</span>
-
                   <a
                     href={`tel:${phoneNumbers[1]}`}
-                    className="hover:text-[#7a2d8a]"
+                    className="hover:text-[#7a2d8a] transition-colors"
                   >
                     {phoneNumbers[1]}
                   </a>
                 </div>
-
-                <a
-                  href={`tel:${phoneNumbers[2]}`}
-                  className="hover:text-[#7a2d8a] block"
-                >
-                  {phoneNumbers[2]}
-                </a>
+                <div className="">
+                  <a
+                    href={`tel:${phoneNumbers[2]}`}
+                    className="hover:text-[#7a2d8a] transition-colors block"
+                  >
+                    {phoneNumbers[2]}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
