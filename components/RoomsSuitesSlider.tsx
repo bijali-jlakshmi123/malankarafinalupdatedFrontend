@@ -107,7 +107,7 @@ export default function RoomsSuitesSlider() {
                   </p>
                   <Link
                     href={slide.link || "/rooms"}
-                    className="inline-block bg-[#234958] hover:bg-[#2c5b6d] text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
+                    className="inline-block  bg-primary hover:bg-primary-hover text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
                   >
                     Discover More
                   </Link>

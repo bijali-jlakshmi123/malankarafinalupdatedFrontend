@@ -107,7 +107,7 @@ export default function DiningSlider() {
                   </p>
                   <Link
                     href={slide.link || "/dining"}
-                    className="inline-block bg-accent hover:bg-primary text-white text-lg font-medium px-8 py-3 rounded-none transition-all duration-300 font-sarabun"
+                    className="inline-block  bg-primary hover:bg-primary-hover text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
                   >
                     Discover More
                   </Link>
