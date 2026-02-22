@@ -114,7 +114,7 @@ export default function BookingPolicyPage() {
       </section>
 
       {/* BOOKING POLICY SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-bg-1">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* LEFT SIDE */}
