@@ -226,39 +226,43 @@ export default function WeddingEventsPage() {
       {/* Setting for Celebrations Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-8 font-medium">
-              {pageData.settingsTitle}
-            </h2>
-            <p className="text-text text-lg md:text-xl font-light leading-relaxed">
-              {pageData.settingsDescription}
-            </p>
-          </div>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-5xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-8 font-medium">
+                {pageData.settingsTitle}
+              </h2>
 
-          {/* Event Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-20">
-            {events.map((service) => (
-              <div key={service.id} className="flex flex-col">
-                <div className="relative h-[250px] w-full mb-6">
-                  <Image
-                    src={service.image.url}
-                    alt={service.title}
-                    fill
-                    className="object-cover rounded-none"
-                  />
+              <p className="text-text text-lg md:text-xl font-light leading-relaxed">
+                {pageData.settingsDescription}
+              </p>
+            </div>
+
+            {/* Event Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-20">
+              {events.map((service) => (
+                <div key={service.id} className="flex flex-col">
+                  <div className="relative h-[250px] w-full mb-6">
+                    <Image
+                      src={service.image.url}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <h3 className="text-2xl font-prata text-secondary mb-4 font-medium">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-text font-light leading-relaxed text-justify">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-prata text-secondary mb-4 font-medium">
-                  {service.title}
-                </h3>
-                <p className="text-text font-light leading-relaxed text-justify">
-                  {service.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );

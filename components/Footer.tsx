@@ -136,17 +136,29 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-[15px]">
               {[
-                "The Lakeview Royal Suite",
-                "The Lakeview Presidential Suite",
-                "The Lakeview Sunset Mirage",
-                "The Lakeview Premium Twin",
+                {
+                  label: "The Lakeview Royal Suite",
+                  href: "/rooms/the-lakeview-royal-suite",
+                },
+                {
+                  label: "The Lakeview Presidential Suite",
+                  href: "/rooms/the-lakeview-presidential-suite",
+                },
+                {
+                  label: "The Lakeview Sunset Mirage",
+                  href: "/rooms/the-lakeview-sunset-mirage",
+                },
+                {
+                  label: "The Lakeview Premium Twin",
+                  href: "/rooms/the-lakeview-premium-twin",
+                },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.label}>
                   <Link
-                    href="/rooms"
+                    href={item.href}
                     className="text-text hover:text-primary transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

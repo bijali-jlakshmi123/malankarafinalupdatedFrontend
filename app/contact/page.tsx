@@ -154,28 +154,31 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
       {/* Contact Form Section */}
+
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-12 items-stretch">
-            {/* Left side: Image */}
-            <div className="w-full lg:w-1/2 relative rounded-none overflow-hidden shadow-lg min-h-[400px]">
-              <Image
-                src={connectImage}
-                alt="Malankara Palace"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+              {/* Left side: Image */}
+              <div className="w-full lg:w-1/2 relative overflow-hidden min-h-[400px]">
+                <Image
+                  src={connectImage}
+                  alt="Malankara Palace"
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
-            {/* Right side: Form */}
-            <div className="w-full lg:w-1/2 flex flex-col justify-between">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 leading-tight">
-                  {connectTitle}
-                </h2>
-                <ValidatedContactForm />
+              {/* Right side: Form */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 leading-tight">
+                    {connectTitle}
+                  </h2>
+
+                  <ValidatedContactForm />
+                </div>
               </div>
             </div>
           </div>
@@ -183,62 +186,73 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="w-full h-[450px] relative">
-        <iframe
-          src={mapUrl}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="w-full h-[450px] relative shadow-sm">
+              <iframe
+                src={mapUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Distances Table Section */}
       <section className="pt-16 pb-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-prata text-secondary font-medium mb-10">
-            Distance from Major Towns &amp; Travel Hubs
-          </h2>
-          <div className="overflow-x-auto shadow-sm border border-gray-200 rounded-none">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
-                    Destination / Gateway
-                  </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
-                    Distance
-                  </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
-                    Estimated Time
-                  </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
-                    Category
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {distances.map((item: any, idx: number) => (
-                  <tr key={idx} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-sm font-bold text-secondary border border-gray-200">
-                      {item.destination}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-text border border-gray-200">
-                      {item.distance}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-text border border-gray-200">
-                      {item.time}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-text border border-gray-200">
-                      {item.category}
-                    </td>
+          {/* ADD THIS WRAPPER */}
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-prata text-secondary font-medium mb-10">
+              Distance from Major Towns &amp; Travel Hubs
+            </h2>
+
+            <div className="overflow-x-auto shadow-sm border border-gray-200">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-gray-50">
+                    <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
+                      Destination / Gateway
+                    </th>
+                    <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
+                      Distance
+                    </th>
+                    <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
+                      Estimated Time
+                    </th>
+                    <th className="px-6 py-4 text-sm font-semibold text-secondary uppercase tracking-wider border border-gray-200">
+                      Category
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+
+                <tbody>
+                  {distances.map((item: any, idx: number) => (
+                    <tr key={idx} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 text-sm font-bold text-secondary border border-gray-200">
+                        {item.destination}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-text border border-gray-200">
+                        {item.distance}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-text border border-gray-200">
+                        {item.time}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-text border border-gray-200">
+                        {item.category}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+          {/* END WRAPPER */}
         </div>
       </section>
 

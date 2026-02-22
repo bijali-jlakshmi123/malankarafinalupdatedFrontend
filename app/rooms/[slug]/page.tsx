@@ -43,10 +43,8 @@ const FALLBACK_ROOMS: Room[] = [
     image: {
       url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
     },
-    beds: "1 King Size Bed",
-    size: "450 sq.ft",
-    occupancy: "2 Adults",
-    view: "180° Lake View",
+    beds: "1 Large King Size Bed",
+    size: "750 sq.ft",
     gallery: [
       {
         url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
@@ -488,25 +486,13 @@ export default function RoomDetailPage() {
                   <div className="flex items-center gap-4 text-[#234958]">
                     <i className="las la-bed text-3xl"></i>
                     <span className="text-[16px] font-sarabun font-medium">
-                      {room.beds || "2 Single Bed"}
+                      {room.beds || "1 Large King Size Bed"}
                     </span>
                   </div>
                   <div className="flex items-center gap-4 text-[#234958]">
                     <i className="las la-expand-arrows-alt text-3xl"></i>
                     <span className="text-[16px] font-sarabun font-medium">
                       {room.size || "750 sq.ft"}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 text-[#234958]">
-                    <i className="las la-users text-3xl"></i>
-                    <span className="text-[16px] font-sarabun font-medium">
-                      {room.occupancy || "2 Adults"}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 text-[#234958]">
-                    <i className="las la-water text-3xl"></i>
-                    <span className="text-[16px] font-sarabun font-medium">
-                      {room.view || "Lake View"}
                     </span>
                   </div>
                 </div>
@@ -545,9 +531,9 @@ export default function RoomDetailPage() {
                       if (lower.includes("refrigerator"))
                         return <i className="las la-snowflake text-2xl"></i>;
                       if (lower.includes("safe"))
-                        return <i className="las la-safe text-2xl"></i>;
+                        return <i className="las la-vault text-2xl"></i>;
                       if (lower.includes("toiletries"))
-                        return <i className="las la-pump-soap text-2xl"></i>;
+                        return <i className="las la-soap text-2xl"></i>;
                       if (lower.includes("water"))
                         return <i className="las la-faucet text-2xl"></i>;
                       if (lower.includes("conditioning"))
@@ -644,22 +630,6 @@ export default function RoomDetailPage() {
                     {
                       icon: <i className="las la-parking text-3xl"></i>,
                       text: "Parking Area",
-                    },
-                    {
-                      icon: <i className="las la-om text-3xl"></i>,
-                      text: "Yoga & Meditation",
-                    },
-                    {
-                      icon: <i className="las la-water text-3xl"></i>,
-                      text: "Lake View Seating",
-                    },
-                    {
-                      icon: <i className="las la-fire text-3xl"></i>,
-                      text: "BBQ Station",
-                    },
-                    {
-                      icon: <i className="las la-users text-3xl"></i>,
-                      text: "Banquet Hall",
                     },
                   ].map((item, index) => (
                     <div

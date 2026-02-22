@@ -118,38 +118,44 @@ export default function BlogPage() {
       {/* Blog List Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary leading-tight">
-              Moments, Places & Meaningful Journeys
-            </h2>
-          </div>
+          {/* ADD THIS WRAPPER */}
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-prata text-secondary leading-tight">
+                Moments, Places & Meaningful Journeys
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {posts.map((post) => (
-              <Link
-                key={post.id}
-                href={`/blog/${post.slug}`}
-                className="group flex flex-col"
-              >
-                <div className="relative h-[250px] w-full mb-6 overflow-hidden">
-                  <Image
-                    src={post.image.url}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-xl md:text-[22px] font-prata text-secondary mb-6 font-medium leading-relaxed">
-                  {post.title}
-                </h3>
-                <div className="mt-auto">
-                  <span className="text-secondary font-sarabun text-sm font-medium hover:text-primary transition-colors cursor-pointer border-b border-transparent hover:border-primary">
-                    Read More
-                  </span>
-                </div>
-              </Link>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {posts.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col"
+                >
+                  <div className="relative h-[250px] w-full mb-6 overflow-hidden">
+                    <Image
+                      src={post.image.url}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <h3 className="text-xl md:text-[22px] font-prata text-secondary mb-6 font-medium leading-relaxed">
+                    {post.title}
+                  </h3>
+
+                  <div className="mt-auto">
+                    <span className="text-secondary font-sarabun text-sm font-medium hover:text-primary transition-colors cursor-pointer border-b border-transparent hover:border-primary">
+                      Read More
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
+          {/* END WRAPPER */}
         </div>
       </section>
 
