@@ -163,17 +163,29 @@ export default function BlogDetailPage() {
   useEffect(() => {
     async function fetchPost() {
       try {
-        const foundPost = FALLBACK_POSTS.find((p) => p.slug === slug);
-        if (foundPost) {
-          setPost(foundPost);
+        const res = await fetch(`/api/blog-posts?slug=${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data) {
+            setPost(data);
+          } else {
+            // Fallback to local data if not found in Strapi
+            const foundPost = FALLBACK_POSTS.find((p) => p.slug === slug);
+            if (foundPost) setPost(foundPost);
+          }
+        } else {
+          const foundPost = FALLBACK_POSTS.find((p) => p.slug === slug);
+          if (foundPost) setPost(foundPost);
         }
       } catch (error) {
         console.error("Error fetching post:", error);
+        const foundPost = FALLBACK_POSTS.find((p) => p.slug === slug);
+        if (foundPost) setPost(foundPost);
       } finally {
         setLoading(false);
       }
     }
-    fetchPost();
+    if (slug) fetchPost();
   }, [slug]);
 
   if (loading) {

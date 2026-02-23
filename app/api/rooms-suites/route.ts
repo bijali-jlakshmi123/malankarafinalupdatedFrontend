@@ -7,17 +7,24 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const type = searchParams.get("type"); // "hero" or "room"
+    const slug = searchParams.get("slug");
 
-    const data = await fetchStrapi("rooms-suites", "populate=*&sort=order:asc");
+    const strapidata = await fetchStrapi(
+      "rooms-suites",
+      slug
+        ? `filters[slug][$eq]=${slug}&populate=*`
+        : "populate=*&sort=order:asc",
+    );
 
-    if (!data) {
-      return NextResponse.json([], { status: 200 });
+    if (!strapidata || (Array.isArray(strapidata) && strapidata.length === 0)) {
+      return NextResponse.json(slug ? null : [], { status: 200 });
     }
 
-    let items = data.map((item: any) => ({
+    const mapItem = (item: any) => ({
       id: item.id,
       documentId: item.documentId,
       title: item.title,
+      slug: item.slug,
       subtitle: item.subtitle,
       description: item.description,
       image: { url: getStrapiImageUrl(item.image?.url) },
@@ -27,7 +34,21 @@ export async function GET(request: Request) {
       link: item.link ?? undefined,
       order: item.order,
       displayIn: item.displayIn || "both",
-    }));
+      heroSlogan: item.heroSlogan,
+      heroSubtext: item.heroSubtext,
+      beds: item.beds,
+      size: item.size,
+      occupancy: item.occupancy,
+      view: item.view,
+      amenities: item.amenities,
+    });
+
+    if (slug) {
+      const item = Array.isArray(strapidata) ? strapidata[0] : strapidata;
+      return NextResponse.json(mapItem(item), { status: 200 });
+    }
+
+    let items = strapidata.map(mapItem);
 
     // Filter by type if specified
     if (type === "hero") {

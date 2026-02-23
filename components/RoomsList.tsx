@@ -119,7 +119,6 @@ export default function RoomsList() {
         if (!res.ok) return;
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          // Add slugs to fetched rooms if they don't have them
           const processedRooms = data.map((room: any) => ({
             ...room,
             slug:
@@ -139,20 +138,29 @@ export default function RoomsList() {
   }, []);
 
   return (
-    <section className="py-20 bg-bg-1">
+    <section className="py-20" style={{ backgroundColor: "#f5f3ee" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
+          <h2
+            className="text-4xl md:text-5xl mb-6 font-medium"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "#1a1226",
+            }}
+          >
             {pageData.sectionTitle}
           </h2>
-          <p className="text-text text-lg md:text-xl font-light leading-relaxed">
+          <p
+            className="text-lg md:text-xl font-light leading-relaxed"
+            style={{ color: "#5a5060" }}
+          >
             {pageData.sectionSubtitle}
           </p>
         </div>
 
         {/* Room Cards */}
-        <div className="space-y-24 max-w-4xl mx-auto">
+        <div className="space-y-16 max-w-5xl mx-auto">
           {rooms.map((room, index) => (
             <RoomCard key={room.id || index} room={room} index={index} />
           ))}
@@ -163,7 +171,6 @@ export default function RoomsList() {
 }
 
 function RoomCard({ room, index }: { room: Room; index: number }) {
-  // Build images array from Strapi: main image + gallery
   const images: string[] = [];
   if (room.image?.url) images.push(room.image.url);
   if (room.gallery && room.gallery.length > 0) {
@@ -179,77 +186,101 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const nextImage = () => {
+  const nextImage = () =>
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
 
-  const prevImage = () => {
+  const prevImage = () =>
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
 
-  // Split description by newlines into paragraphs
   const paragraphs = room.description
     ? room.description.split("\n").filter((p) => p.trim() !== "")
     : [room.description];
 
-  // Determine order classes for alternating layout
-  const imageOrder = index % 2 !== 0 ? "lg:order-last" : "lg:order-first";
-  const contentOrder = index % 2 !== 0 ? "lg:order-first" : "lg:order-last";
+  // Alternating layout: even index → image left, odd → image right
+  const isReversed = index % 2 !== 0;
 
-  // Determine the link
   const roomLink = room.link || (room.slug ? `/rooms/${room.slug}` : "#");
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch font-sarabun">
+    <div
+      className="flex flex-col lg:flex-row items-stretch overflow-hidden"
+      style={{ backgroundColor: "#f5f3ee" }}
+    >
       {/* Image Slider */}
       <div
-        className={`relative h-[300px] sm:h-[400px] lg:h-auto w-full overflow-hidden group ${imageOrder}`}
+        className={`relative w-full lg:w-[55%] min-h-[320px] sm:min-h-[400px] lg:min-h-[460px] flex-shrink-0 overflow-hidden ${
+          isReversed ? "lg:order-last" : "lg:order-first"
+        }`}
       >
         <Image
           src={images[currentImageIndex]}
           alt={room.title}
           fill
-          className="object-cover transition-transform duration-500"
+          className="object-cover transition-opacity duration-500"
+          sizes="(max-width: 1024px) 100vw, 55vw"
         />
-
-        {/* Slider Controls */}
-        {/* LEFT BUTTON */}
+        {/* Slider Controls */} {/* LEFT BUTTON */}{" "}
         <button
           onClick={prevImage}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          <i className="las la-angle-left"></i>
-        </button>
-
-        {/* RIGHT BUTTON */}
+          {" "}
+          <i className="las la-angle-left"></i>{" "}
+        </button>{" "}
+        {/* RIGHT BUTTON */}{" "}
         <button
           onClick={nextImage}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          <i className="las la-angle-right"></i>
+          {" "}
+          <i className="las la-angle-right"></i>{" "}
         </button>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        {/* Subtle overlay */}
+        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
       </div>
 
-      {/* Content */}
+      {/* Content Panel */}
       <div
-        className={`bg-bg-2 p-8 lg:p-12 flex flex-col justify-center ${contentOrder}`}
+        className={`w-full lg:w-[45%] flex flex-col justify-center px-10 py-12 lg:px-14 ${
+          isReversed ? "lg:order-first" : "lg:order-last"
+        }`}
+        style={{ backgroundColor: "#edeae3" }}
       >
-        <h3 className="text-3xl font-prata text-secondary mb-6">
+        {/* Title */}
+        <h3
+          className="text-3xl mb-6 font-medium leading-snug"
+          style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            color: "#1a1226",
+            letterSpacing: "-0.01em",
+          }}
+        >
           {room.title}
         </h3>
-        <div className="space-y-4 text-text leading-relaxed text-[15px] font-light text-justify mb-8">
+
+        {/* Description paragraphs */}
+        <div
+          className="space-y-4 leading-relaxed text-[15px] font-light mb-8"
+          style={{
+            color: "#3d3540",
+            fontFamily: "'Lato', 'Helvetica Neue', sans-serif",
+          }}
+        >
           {paragraphs.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
         </div>
 
+        {/* Discover button */}
         <div>
           <Link
             href={roomLink}
-            className="inline-block bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-none text-sm tracking-widest font-medium transition-colors uppercase"
+            className="inline-block text-white text-sm font-semibold tracking-widest uppercase px-8 py-3 transition-all duration-200 hover:brightness-90"
+            style={{
+              backgroundColor: "#6b2d6b",
+              fontFamily: "'Lato', sans-serif",
+              letterSpacing: "0.12em",
+            }}
           >
             Discover
           </Link>

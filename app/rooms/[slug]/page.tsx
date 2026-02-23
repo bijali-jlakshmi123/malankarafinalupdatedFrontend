@@ -376,14 +376,31 @@ export default function RoomDetailPage() {
 
   useEffect(() => {
     async function fetchRoom() {
-      const foundRoom = FALLBACK_ROOMS.find((r) => r.slug === slug);
-
-      if (foundRoom) setRoom(foundRoom);
-
-      setLoading(false);
+      try {
+        const res = await fetch(`/api/rooms-suites?slug=${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data) {
+            setRoom(data);
+          } else {
+            // Fallback
+            const foundRoom = FALLBACK_ROOMS.find((r) => r.slug === slug);
+            if (foundRoom) setRoom(foundRoom);
+          }
+        } else {
+          const foundRoom = FALLBACK_ROOMS.find((r) => r.slug === slug);
+          if (foundRoom) setRoom(foundRoom);
+        }
+      } catch (error) {
+        console.error("Error fetching room:", error);
+        const foundRoom = FALLBACK_ROOMS.find((r) => r.slug === slug);
+        if (foundRoom) setRoom(foundRoom);
+      } finally {
+        setLoading(false);
+      }
     }
 
-    fetchRoom();
+    if (slug) fetchRoom();
   }, [slug]);
 
   if (loading) {

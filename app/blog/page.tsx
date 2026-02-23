@@ -65,24 +65,54 @@ const FALLBACK_POSTS: BlogPost[] = [
   },
 ];
 
+interface BlogPageData {
+  heroTitle: string;
+  heroSubtitle: string;
+  heroImage: { url: string } | null;
+  introTitle: string;
+}
+
+const FALLBACK_PAGE: BlogPageData = {
+  heroTitle: "Travel Stories & Destination Guides",
+  heroSubtitle:
+    "Discover local attractions, hidden spots, and travel tips around the lake and hills.",
+  heroImage: {
+    url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+  },
+  introTitle: "Moments, Places & Meaningful Journeys",
+};
+
 export default function BlogPage() {
+  const [pageData, setPageData] = useState<BlogPageData>(FALLBACK_PAGE);
   const [posts, setPosts] = useState<BlogPost[]>(FALLBACK_POSTS);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPosts() {
+    async function fetchData() {
       try {
-        const res = await fetch("/api/blog-posts");
-        if (res.ok) {
-          const data = await res.json();
+        const [pageRes, postsRes] = await Promise.all([
+          fetch("/api/blog-page"),
+          fetch("/api/blog-posts"),
+        ]);
+
+        if (pageRes.ok) {
+          const data = await pageRes.json();
+          if (data) setPageData(data);
+        }
+
+        if (postsRes.ok) {
+          const data = await postsRes.json();
           if (Array.isArray(data) && data.length > 0) {
             setPosts(data);
           }
         }
       } catch (error) {
-        console.error("Error fetching blog posts:", error);
+        console.error("Error fetching blog data:", error);
+      } finally {
+        setIsLoading(false);
       }
     }
-    fetchPosts();
+    fetchData();
   }, []);
 
   return (
@@ -93,8 +123,8 @@ export default function BlogPage() {
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[80vh] w-full flex items-end">
         <Image
-          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
-          alt="Travel Stories & Destination Guides"
+          src={pageData.heroImage?.url || FALLBACK_PAGE.heroImage!.url}
+          alt={pageData.heroTitle}
           fill
           className="object-cover"
           priority
@@ -104,12 +134,10 @@ export default function BlogPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-prata text-white mb-6 leading-tight">
-              Travel Stories & Destination
-              <br className="hidden md:block" /> Guides
+              {pageData.heroTitle}
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
-              Discover local attractions, hidden spots, and travel
-              <br className="hidden md:block" /> tips around the lake and hills.
+              {pageData.heroSubtitle}
             </p>
           </div>
         </div>
@@ -118,11 +146,10 @@ export default function BlogPage() {
       {/* Blog List Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* ADD THIS WRAPPER */}
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-prata text-secondary leading-tight">
-                Moments, Places & Meaningful Journeys
+                {pageData.introTitle}
               </h2>
             </div>
 
@@ -155,7 +182,6 @@ export default function BlogPage() {
               ))}
             </div>
           </div>
-          {/* END WRAPPER */}
         </div>
       </section>
 

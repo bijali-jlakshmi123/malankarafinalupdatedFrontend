@@ -80,27 +80,44 @@ export default function Footer() {
                 Follow Us
               </h3>
               <div className="flex space-x-3 mt-1">
-                {/* Instagram */}
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                >
-                  <i className="lab la-instagram text-xl"></i>
-                </a>
-                {/* Facebook */}
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                >
-                  <i className="lab la-facebook-f text-xl"></i>
-                </a>
-                {/* YouTube */}
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                >
-                  <i className="lab la-youtube text-xl"></i>
-                </a>
+                {siteSettings?.socialLinks &&
+                Array.isArray(siteSettings.socialLinks) ? (
+                  siteSettings.socialLinks.map((link: any, idx: number) => (
+                    <a
+                      key={idx}
+                      href={link.url || "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
+                    >
+                      <i
+                        className={`lab la-${link.platform || "instagram"} text-xl`}
+                      ></i>
+                    </a>
+                  ))
+                ) : (
+                  <>
+                    {/* Fallback to original social links if none in Strapi */}
+                    <a
+                      href="#"
+                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
+                    >
+                      <i className="lab la-instagram text-xl"></i>
+                    </a>
+                    <a
+                      href="#"
+                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
+                    >
+                      <i className="lab la-facebook-f text-xl"></i>
+                    </a>
+                    <a
+                      href="#"
+                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
+                    >
+                      <i className="lab la-youtube text-xl"></i>
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>

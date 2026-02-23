@@ -1,12 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import MetaSEO from "@/components/MetaSEO";
 
-const POLICIES = [
+interface Policy {
+  title: string;
+  content: string[];
+}
+
+interface BookingPolicyData {
+  title: string;
+  policies: Policy[];
+  image: { url: string } | null;
+}
+
+const FALLBACK_POLICIES: Policy[] = [
   {
     title: "Reservation & Confirmation",
     content: [
@@ -78,6 +89,34 @@ const POLICIES = [
 
 export default function BookingPolicyPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [pageData, setPageData] = useState<BookingPolicyData>({
+    title: "Booking Policies & Stay Information",
+    policies: FALLBACK_POLICIES,
+    image: {
+      url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop",
+    },
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch("/api/booking-policy");
+        if (res.ok) {
+          const data = await res.json();
+          if (data) {
+            setPageData({
+              title: data.title || pageData.title,
+              policies: data.policies || FALLBACK_POLICIES,
+              image: data.image || pageData.image,
+            });
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching booking policy:", error);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <main className="relative min-h-screen bg-white font-sarabun">
@@ -120,11 +159,11 @@ export default function BookingPolicyPage() {
             {/* LEFT SIDE */}
             <div className="w-full lg:w-3/5">
               <h2 className="text-4xl md:text-5xl font-prata text-black mb-12">
-                Booking Policies & Stay Information
+                {pageData.title}
               </h2>
 
               <div className="divide-y bg-[#fbfbfa] border-t border-b border-gray-200 ">
-                {POLICIES.map((policy, index) => (
+                {pageData.policies.map((policy, index) => (
                   <div key={policy.title} className="py-5 bg-[#fbfbfa]">
                     <button
                       onClick={() =>
@@ -186,7 +225,10 @@ export default function BookingPolicyPage() {
             {/* RIGHT SIDE IMAGE */}
             <div className="w-full lg:w-2/5 relative h-[550px] lg:h-[750px]">
               <Image
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop"
+                src={
+                  pageData.image?.url ||
+                  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop"
+                }
                 alt="Stay Information"
                 fill
                 className="object-cover shadow-2xl"
