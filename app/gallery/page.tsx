@@ -142,10 +142,10 @@ export default function GalleryPage() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 text-white">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-prata mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-prata text-white mb-6 leading-tight">
               {pageData.heroTitle}
             </h1>
-            <p className="text-lg md:text-xl font-light max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-white font-light max-w-2xl leading-relaxed">
               {pageData.heroSubtitle}
             </p>
           </div>
