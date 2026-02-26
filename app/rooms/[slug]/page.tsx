@@ -504,7 +504,7 @@ export default function RoomDetailPage() {
                     </span>
                   </div>
                   <div className="flex items-center gap-4 text-[#234958]">
-                    <i className="las la-expand-arrows-alt text-3xl"></i>
+                    <i className="las la-compress-arrows-alt text-3xl"></i>
                     <span className="text-[16px] font-sarabun font-medium">
                       {room.size || "750 sq.ft"}
                     </span>
@@ -537,34 +537,40 @@ export default function RoomDetailPage() {
                     const getIcon = (text: string) => {
                       const lower = text.toLowerCase();
                       if (lower.includes("tv"))
-                        return <i className="las la-tv text-2xl"></i>;
+                        return <i className="las la-tv text-3xl"></i>;
                       if (lower.includes("seating"))
-                        return <i className="las la-chair text-2xl"></i>;
+                        return <i className="las la-couch text-3xl"></i>;
                       if (lower.includes("tea") || lower.includes("coffee"))
-                        return <i className="las la-mug-hot text-2xl"></i>;
+                        return <i className="las la-coffee text-3xl"></i>;
                       if (lower.includes("refrigerator"))
-                        return <i className="las la-snowflake text-2xl"></i>;
+                        return <i className="las la-door-open text-3xl"></i>;
                       if (lower.includes("safe"))
-                        return <i className="las la-vault text-2xl"></i>;
+                        return <i className="las la-door-closed text-3xl"></i>;
                       if (lower.includes("toiletries"))
-                        return <i className="las la-soap text-2xl"></i>;
+                        return <i className="las la-toilet-paper text-3xl"></i>;
                       if (lower.includes("water"))
-                        return <i className="las la-faucet text-2xl"></i>;
+                        return (
+                          <i className="mdi mdi-water-outline text-3xl"></i>
+                        );
                       if (lower.includes("conditioning"))
-                        return <i className="las la-snowflake text-2xl"></i>;
+                        return <i className="las la-box text-3xl"></i>;
                       if (lower.includes("iron"))
-                        return <i className="las la-tshirt text-2xl"></i>;
+                        return (
+                          <i
+                            className="las la-tshirt
+ text-3xl"
+                          ></i>
+                        );
                       if (lower.includes("kettle"))
-                        return <i className="las la-coffee text-2xl"></i>;
+                        return <i className="las la-mug-hot text-3xl"></i>;
                       if (lower.includes("balcony"))
-                        return <i className="las la-door-open text-2xl"></i>;
+                        return <i className="la la-windows text-3xl"></i>;
                       if (lower.includes("intercom"))
-                        return <i className="las la-phone text-2xl"></i>;
+                        return <i className="las la-phone-volume text-3xl"></i>;
                       if (lower.includes("dryer"))
-                        return <i className="las la-wind text-2xl"></i>;
+                        return <i className="la la-dot-circle-o text-3xl"></i>;
                       if (lower.includes("peephole"))
-                        return <i className="las la-eye text-2xl"></i>;
-                      return <i className="las la-check-circle text-2xl"></i>;
+                        return <i className="la la-dot-circle-o text-3xl"></i>;
                     };
 
                     return (
@@ -590,11 +596,11 @@ export default function RoomDetailPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 mb-12">
                   {[
                     {
-                      icon: <i className="las la-swimming-pool text-3xl"></i>,
+                      icon: <i className=" las la-swimming-pool text-3xl"></i>,
                       text: "Infinity Pool",
                     },
                     {
-                      icon: <i className="las la-umbrella-beach text-3xl"></i>,
+                      icon: <i className=" las la-swimming-pool text-3xl"></i>,
                       text: "Kids Pool",
                     },
                     {
@@ -606,7 +612,7 @@ export default function RoomDetailPage() {
                       text: "24/7 Front Desk",
                     },
                     {
-                      icon: <i className="las la-utensils text-3xl"></i>,
+                      icon: <i className="las la-concierge-bell text-3xl"></i>,
                       text: "Room Service",
                     },
                     {
@@ -614,35 +620,40 @@ export default function RoomDetailPage() {
                       text: "Wellness Spa",
                     },
                     {
-                      icon: <i className="las la-gamepad text-3xl"></i>,
+                      icon: (
+                        <i
+                          className="las la-chess-knight
+ text-3xl"
+                        ></i>
+                      ),
                       text: "Indoor Games",
                     },
                     {
-                      icon: <i className="las la-utensils text-3xl"></i>,
+                      icon: <i className="la la-cutlery text-3xl"></i>,
                       text: "Multi-Cuisine Restaurant",
                     },
                     {
-                      icon: <i className="las la-leaf text-3xl"></i>,
+                      icon: <i className="las la-table-tennis text-3xl"></i>,
                       text: "Outdoor Games",
                     },
                     {
-                      icon: <i className="las la-child text-3xl"></i>,
+                      icon: <i className="las la-skating text-3xl"></i>,
                       text: "Kids Play Area",
                     },
                     {
-                      icon: <i className="las la-shuttle-van text-3xl"></i>,
+                      icon: <i className="las la-car text-3xl"></i>,
                       text: "Pick-up & Drop",
                     },
                     {
-                      icon: <i className="las la-video text-3xl"></i>,
+                      icon: <i className="la la-video-camera text-3xl"></i>,
                       text: "CCTV Surveillance",
                     },
                     {
-                      icon: <i className="las la-tshirt text-3xl"></i>,
+                      icon: <i className="lab la-bitbucket text-3xl"></i>,
                       text: "Laundry Services",
                     },
                     {
-                      icon: <i className="las la-parking text-3xl"></i>,
+                      icon: <i className=" las la-parking text-3xl"></i>,
                       text: "Parking Area",
                     },
                   ].map((item, index) => (

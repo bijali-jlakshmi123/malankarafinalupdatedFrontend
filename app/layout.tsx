@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import FloatingActions from "@/components/FloatingActions";
+import "@mdi/font/css/materialdesignicons.min.css";
 
 export const metadata: Metadata = {
   title: "Malankara Palace - Lake View Resort & Spa",
