@@ -49,7 +49,7 @@ export default function Preloader() {
 
         {/* Minimalist Text */}
         <p className="mt-4 text-secondary font-prata text-lg tracking-[0.2em] uppercase opacity-70 animate-fade-in">
-          Malankara Palace
+          
         </p>
       </div>
 
