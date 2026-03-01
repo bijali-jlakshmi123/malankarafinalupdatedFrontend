@@ -95,7 +95,7 @@ export default function Header({ transparent = false }: HeaderProps) {
                       ? "rotate-45 translate-y-2 bg-secondary"
                       : transparent && !isScrolled
                         ? "bg-white"
-                        : "bg-secondary"
+                        : "bg-black"
                   }`}
                 />
                 <span

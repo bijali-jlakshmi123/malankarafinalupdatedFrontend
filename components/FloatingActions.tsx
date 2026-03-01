@@ -50,7 +50,9 @@ export default function FloatingActions() {
         <i className="lab la-whatsapp text-xl"></i>
         <span>WhatsApp</span>
       </a>
-
+      <div>
+        <br />
+      </div>
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
