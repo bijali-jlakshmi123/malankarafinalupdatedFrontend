@@ -138,8 +138,8 @@ export default function RoomsList() {
   }, []);
 
   return (
-    <section className="py-20" style={{ backgroundColor: "#f5f3ee" }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24" style={{ backgroundColor: "#ffffff" }}>
+      <div className="max-w-[1200px] mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
           <h2
@@ -160,7 +160,7 @@ export default function RoomsList() {
         </div>
 
         {/* Room Cards */}
-        <div className="space-y-16 max-w-5xl mx-auto">
+        <div className="space-y-32 max-w-[1200px] mx-auto">
           {rooms.map((room, index) => (
             <RoomCard key={room.id || index} room={room} index={index} />
           ))}
@@ -203,86 +203,83 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
 
   return (
     <div
-      className="flex flex-col lg:flex-row items-stretch overflow-hidden"
-      style={{ backgroundColor: "#f5f3ee" }}
+      className={`relative flex flex-col lg:flex-row items-center py-12 lg:py-16 ${
+        isReversed ? "lg:flex-row-reverse" : ""
+      }`}
     >
-      {/* Image Slider */}
+      {/* Image Slider - Horizontally Rectangled */}
       <div
-        className={`relative w-full lg:w-[55%] min-h-[320px] sm:min-h-[400px] lg:min-h-[460px] flex-shrink-0 overflow-hidden ${
-          isReversed ? "lg:order-last" : "lg:order-first"
-        }`}
+        className={`relative w-full lg:w-[55%] aspect-[1.5/1] flex-shrink-0 overflow-hidden shadow-2xl z-20`}
       >
         <Image
           src={images[currentImageIndex]}
           alt={room.title}
           fill
-          className="object-cover transition-opacity duration-500"
-          sizes="(max-width: 1024px) 100vw, 55vw"
+          className="object-cover transition-all duration-700 hover:scale-105"
+          sizes="(max-width: 1024px) 100vw, 58vw"
         />
-        {/* Slider Controls */} {/* LEFT BUTTON */}{" "}
+        {/* Slider Controls */}
         <button
           onClick={prevImage}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          {" "}
-          <i className="las la-angle-left"></i>{" "}
-        </button>{" "}
-        {/* RIGHT BUTTON */}{" "}
+          <i className="las la-angle-left"></i>
+        </button>
+
+        {/* RIGHT BUTTON */}
         <button
           onClick={nextImage}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
         >
-          {" "}
-          <i className="las la-angle-right"></i>{" "}
+          <i className="las la-angle-right"></i>
         </button>
-        {/* Subtle overlay */}
-        <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/[0.01] pointer-events-none" />
       </div>
 
-      {/* Content Panel */}
+      {/* Content Panel - Strictly Square Shape and Overlapping */}
       <div
-        className={`w-full lg:w-[45%] flex flex-col justify-center px-10 py-12 lg:px-14 ${
-          isReversed ? "lg:order-first" : "lg:order-last"
-        }`}
-        style={{ backgroundColor: "#edeae3" }}
+        className={`relative w-[95%] lg:w-[60%] aspect-square z-10 -mt-12 lg:mt-0 ${
+          isReversed
+            ? "lg:-mr-[10%] lg:pr-40 lg:pl-16"
+            : "lg:-ml-[10%] lg:pl-40 lg:pr-16"
+        } flex flex-col justify-center px-10 sm:px-16 py-12 shadow-sm overflow-hidden`}
+        style={{ backgroundColor: "#f6f5f0" }}
       >
         {/* Title */}
         <h3
-          className="text-3xl mb-6 font-medium leading-snug"
+          className="text-3xl md:text-[40px] mb-8 font-serif leading-tight"
           style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             color: "#1a1226",
-            letterSpacing: "-0.01em",
+            fontWeight: 400,
           }}
         >
           {room.title}
         </h3>
 
-        {/* Description paragraphs */}
+        {/* Single unified block description - no paragraph breaks */}
         <div
-          className="space-y-4 leading-relaxed text-[15px] font-light mb-8"
+          className="leading-relaxed text-[14px] lg:text-[15px] font-light mb-10 text-justify"
           style={{
-            color: "#3d3540",
-            fontFamily: "'Lato', 'Helvetica Neue', sans-serif",
+            color: "#4a4a4a",
+            fontFamily: "'Lato', sans-serif",
+            lineHeight: "1.7",
           }}
         >
-          {paragraphs.map((paragraph, idx) => (
-            <p key={idx}>{paragraph}</p>
-          ))}
+          {room.description.replace(/\n\n/g, " ").replace(/\n/g, " ")}
         </div>
 
         {/* Discover button */}
         <div>
           <Link
             href={roomLink}
-            className="inline-block text-white text-sm font-semibold tracking-widest uppercase px-8 py-3 transition-all duration-200 hover:brightness-90"
+            className="inline-block text-white text-[13px] font-medium tracking-[0.1em] uppercase px-10 py-3.5 transition-all duration-300 hover:bg-opacity-90 active:scale-95"
             style={{
-              backgroundColor: "#6b2d6b",
+              backgroundColor: "#7c317c",
               fontFamily: "'Lato', sans-serif",
-              letterSpacing: "0.12em",
             }}
           >
-            Discover
+            DISCOVER
           </Link>
         </div>
       </div>
