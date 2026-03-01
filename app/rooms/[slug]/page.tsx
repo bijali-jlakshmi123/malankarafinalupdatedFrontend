@@ -35,9 +35,9 @@ const FALLBACK_ROOMS: Room[] = [
     id: 1,
     title: "The Lakeview Royal Suite",
     slug: "the-lakeview-royal-suite",
-    heroSlogan: "Luxury living with a breathtaking 180° panoramic lake view.",
+    heroSlogan: "Premium Twin Stay with Sunset Outlook",
     heroSubtext:
-      "A spacious luxury suite with a large private balcony offering uninterrupted 180° panoramic lake views and serene comfort.",
+      "A premium twin-bed room with a private balcony offering peaceful lake, garden, and sunset views.",
     subtitle: "A Panoramic Lakeview Luxury Experience",
     description:
       "The Lakeview Royal Suite offers a refined luxury stay with a breathtaking 180-degree panoramic view of the Illavizha Poonchira Hills and the serene Malankara Lake. Designed for guests who seek privacy, elegance, and uninterrupted scenic beauty, this suite blends spacious interiors with nature-led comfort.\n\nA huge private balcony overlooks the swimming pool and landscaped gardens, creating the perfect setting to unwind while staying connected to the surroundings. Large windows allow abundant natural light throughout the day, while evenings unfold with stunning sunset views that reflect beautifully across the lake.\n\nIdeal for couples and luxury travellers, The Lakeview Royal Suite is a space where calm mornings, golden evenings, and thoughtful details define the stay experience.",
@@ -416,8 +416,8 @@ export default function RoomDetailPage() {
     <main className="relative min-h-screen bg-white font-sarabun">
       <MetaSEO slug={`rooms/${room.slug}`} />
       <Header transparent />
-      {/* HERO SECTION (UNCHANGED) */}
-      <section className="relative h-screen w-full flex items-end justify-start overflow-hidden">
+      {/* HERO SECTION */}
+      <section className="relative h-[60vh] md:h-[70vh] w-full flex items-end justify-start overflow-hidden">
         <Image
           src={room.image.url}
           alt={room.title}

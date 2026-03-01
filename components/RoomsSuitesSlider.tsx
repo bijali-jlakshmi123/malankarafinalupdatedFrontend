@@ -42,7 +42,11 @@ function getImageUrl(image: { url: string } | string | undefined): string {
   return image.url || (FALLBACK_SLIDES[0].image as string);
 }
 
-export default function RoomsSuitesSlider() {
+export default function RoomsSuitesSlider({
+  className,
+}: {
+  className?: string;
+}) {
   const [slides, setSlides] = useState<RoomSlide[]>(FALLBACK_SLIDES);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -72,7 +76,9 @@ export default function RoomsSuitesSlider() {
   }, [slides.length]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div
+      className={`relative w-full overflow-hidden ${className || "h-screen"}`}
+    >
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
