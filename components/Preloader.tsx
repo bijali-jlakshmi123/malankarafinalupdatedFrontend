@@ -12,7 +12,6 @@ export default function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(false);
-      // Remove from DOM after transition completes
       const removeTimer = setTimeout(() => setShouldRender(false), 700);
       return () => clearTimeout(removeTimer);
     }, 1500);
@@ -29,7 +28,9 @@ export default function Preloader() {
       }`}
     >
       <div
-        className={`relative flex flex-col items-center transition-transform duration-700 ${show ? "scale-100" : "scale-95"}`}
+        className={`relative flex flex-col items-center transition-transform duration-700 ${
+          show ? "scale-100" : "scale-95"
+        }`}
       >
         {/* Animated Logo */}
         <div className="relative w-64 h-24 mb-6 animate-pulse scale-110 transition-transform">
@@ -41,8 +42,6 @@ export default function Preloader() {
             priority
           />
         </div>
-
-        {/* Subtle Loading bar */}
 
         {/* Minimalist Text */}
         <p className="mt-4 text-secondary font-prata text-lg tracking-[0.2em] uppercase opacity-70 animate-fade-in"></p>
