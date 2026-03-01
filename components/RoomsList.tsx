@@ -32,7 +32,22 @@ const FALLBACK_ROOMS: Room[] = [
     },
     gallery: [
       {
+        url: "https://images.unsplash.com/photo-1591088398332-6177805c7460?q=80&w=2070&auto=format&fit=crop",
+      },
+      {
         url: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2025&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2074&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=2070&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
       },
     ],
   },
@@ -41,7 +56,7 @@ const FALLBACK_ROOMS: Room[] = [
     title: "The Lakeview Presidential Suite",
     slug: "the-lakeview-presidential-suite",
     description:
-      "The Lakeview Presidential Suite is a spacious interconnected luxury accommodation designed for families and premium guests who value space, privacy, and scenic surroundings. Thoughtfully planned with comfort and functionality in mind, this suite features two interconnected rooms with a single private entrance, offering both togetherness and personal space within the same stay.\n\nA large shared private balcony connects both rooms and opens to beautiful panoramic views of Malankara Lake, along with garden and swimming pool views, and a partial view of the Illavizha Poonchira Hills. The elevated position and open outlook create a relaxed, airy atmosphere throughout the day.\n\nIdeal for families, small groups, and extended-stay guests, The Lakeview Presidential Suite combines scale, comfort, and refined lakeview living for a truly memorable stay experience.",
+      "The Lakeview Presidential Suite is a spacious interconnected luxury accommodation designed for families and premium guests who value space, privacy, and scenic surroundings. Thoughtfully planned with comfort and functionality in mind, this suite features **two interconnected rooms with a single private entrance**, offering both togetherness and personal space within the same stay.\n\nA large shared private balcony connects both rooms and opens to beautiful panoramic views of Malankara Lake, along with garden and swimming pool views, and a partial view of the Illavizha Poonchira Hills. The elevated position and open outlook create a relaxed, airy atmosphere throughout the day.\n\nIdeal for families, small groups, and extended-stay guests, The Lakeview Presidential Suite combines scale, comfort, and refined lakeview living for a truly memorable stay experience.",
     image: {
       url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
     },
@@ -77,7 +92,13 @@ const FALLBACK_ROOMS: Room[] = [
     },
     gallery: [
       {
+        url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2603&auto=format&fit=crop",
+      },
+      {
         url: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=2574&auto=format&fit=crop",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2074&auto=format&fit=crop",
       },
     ],
   },
@@ -171,30 +192,34 @@ export default function RoomsList() {
 }
 
 function RoomCard({ room, index }: { room: Room; index: number }) {
-  const images: string[] = [];
-  if (room.image?.url) images.push(room.image.url);
+  const slides: string[] = [];
+  if (room.image?.url) slides.push(room.image.url);
   if (room.gallery && room.gallery.length > 0) {
     room.gallery.forEach((img) => {
-      if (img.url) images.push(img.url);
+      if (img.url && !slides.includes(img.url)) slides.push(img.url);
     });
   }
-  if (images.length === 0) {
-    images.push(
+  if (slides.length === 0) {
+    slides.push(
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070",
     );
   }
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextImage = () =>
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  const nextImage = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
-  const prevImage = () =>
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  const prevImage = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   const paragraphs = room.description
     ? room.description.split("\n").filter((p) => p.trim() !== "")
-    : [room.description];
+    : [];
 
   // Alternating layout: even index → image left, odd → image right
   const isReversed = index % 2 !== 0;
@@ -207,33 +232,57 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
         isReversed ? "lg:flex-row-reverse" : ""
       }`}
     >
-      {/* Image Slider - Horizontally Rectangled */}
-      <div
-        className={`relative w-full lg:w-[55%] aspect-[1.5/1] flex-shrink-0 overflow-hidden shadow-2xl z-20`}
-      >
-        <Image
-          src={images[currentImageIndex]}
-          alt={room.title}
-          fill
-          className="object-cover transition-all duration-700 hover:scale-105"
-          sizes="(max-width: 1024px) 100vw, 58vw"
-        />
-        {/* Slider Controls */}
-        <button
-          onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
-        >
-          <i className="las la-angle-left"></i>
-        </button>
+      {/* Image Slider - Sliding Implementation matching Detail Page */}
+      <div className="relative w-full lg:w-[55%] aspect-[3/2] flex-shrink-0 z-20">
+        <div className="relative w-full h-full overflow-hidden shadow-2xl group">
+          <div
+            className="flex transition-transform duration-700 ease-in-out h-full"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {slides.map((imgUrl, idx) => (
+              <div
+                key={idx}
+                className="relative min-w-full h-full overflow-hidden"
+              >
+                <Image
+                  src={imgUrl}
+                  alt={room.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  priority={index === 0 && idx === 0}
+                />
+              </div>
+            ))}
+          </div>
 
-        {/* RIGHT BUTTON */}
-        <button
-          onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
-        >
-          <i className="las la-angle-right"></i>
-        </button>
-        <div className="absolute inset-0 bg-black/[0.01] pointer-events-none" />
+          {/* Slider Controls */}
+          {slides.length > 1 && (
+            <>
+              {/* LEFT BUTTON */}
+              <button
+                onClick={() =>
+                  setCurrentSlide((prev) =>
+                    prev === 0 ? slides.length - 1 : prev - 1,
+                  )
+                }
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
+              >
+                <i className="las la-angle-left"></i>
+              </button>
+
+              {/* RIGHT BUTTON */}
+              <button
+                onClick={() =>
+                  setCurrentSlide((prev) => (prev + 1) % slides.length)
+                }
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 text-white text-4xl bg-black/30 hover:bg-black/50 w-12 h-12 flex items-center justify-center rounded-full transition-all"
+              >
+                <i className="las la-angle-right"></i>
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Content Panel - Strictly Square Shape and Overlapping */}
@@ -266,7 +315,21 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
             lineHeight: "1.7",
           }}
         >
-          {room.description.replace(/\n\n/g, " ").replace(/\n/g, " ")}
+          {room.description
+            ? room.description
+                .replace(/\n\n/g, " ")
+                .replace(/\n/g, " ")
+                .split(/(\*\*.*?\*\*)/g)
+                .map((part, i) =>
+                  part.startsWith("**") && part.endsWith("**") ? (
+                    <strong key={i} className="font-bold text-black/90">
+                      {part.slice(2, -2)}
+                    </strong>
+                  ) : (
+                    part
+                  ),
+                )
+            : ""}
         </div>
 
         {/* Discover button */}
