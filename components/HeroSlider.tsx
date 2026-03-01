@@ -93,7 +93,7 @@ export default function HeroSlider() {
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
                 <div className="max-w-2xl">
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-prata text-white mb-4 leading-tight">
-                    <span className="whitespace-nowrap">
+                    <span className="block sm:inline whitespace-normal sm:whitespace-nowrap">
                       A Tranquil Lakeside Escape
                     </span>
 

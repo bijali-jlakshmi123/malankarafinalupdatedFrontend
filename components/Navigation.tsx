@@ -70,7 +70,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 right-0 h-screen w-full sm:w-[380px] bg-[#f5f3ef] z-[110] shadow-2xl transform transition-transform duration-300 ease-in-out overflow-hidden ${
+        className={`fixed top-0 right-0 h-screen w-full sm:w-[380px] bg-bg-1 z-[110] shadow-2xl transform transition-transform duration-300 ease-in-out overflow-hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -82,7 +82,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
             <div className="flex justify-end p-6">
               <button
                 onClick={onClose}
-                className="w-12 h-12 flex items-center justify-center border border-gray-300 text-gray-600 hover:text-[#7a2d8a] hover:border-[#7a2d8a] transition"
+                className="w-12 h-12 flex items-center justify-center border border-gray-300 text-gray-600 hover:text-primary hover:border-primary transition"
               >
                 <i className="la la-times text-xl"></i>
               </button>
@@ -98,8 +98,8 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                       onClick={onClose}
                       className={`block font-prata text-[22px] transition ${
                         item.isActive
-                          ? "text-[#7a2d8a]"
-                          : "text-[#374151] hover:text-[#7a2d8a]"
+                          ? "text-primary"
+                          : "text-text hover:text-primary"
                       }`}
                     >
                       {item.label}
@@ -114,25 +114,23 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
           {/* Bottom Section (Matching Screenshot) */}
           <div className="px-10 pb-12">
-            <button className="bg-[#7a2d8a] text-white px-7 py-3 font-semibold tracking-wider hover:bg-[#682577] transition mb-8 text-[15px] uppercase">
-              BOOK NOW
-            </button>
+            <button className="btn mb-8">BOOK NOW</button>
 
             <div className="flex items-start gap-4">
-              <i className="la la-phone-volume text-[28px] text-[#7a2d8a] mt-0.5"></i>
+              <i className="la la-phone-volume text-[28px] text-primary mt-0.5"></i>
 
-              <div className="text-[18px] text-[#374151] font-medium leading-relaxed">
-                <div className="flex items-center gap-2 whitespace-nowrap">
+              <div className="text-[18px] text-text font-medium leading-relaxed">
+                <div className="flex items-center flex-wrap sm:flex-nowrap gap-2 whitespace-normal sm:whitespace-nowrap">
                   <a
                     href={`tel:${phoneNumbers[0]}`}
-                    className="hover:text-[#7a2d8a] transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     {phoneNumbers[0]}
                   </a>
                   <span className="text-gray-400">|</span>
                   <a
                     href={`tel:${phoneNumbers[1]}`}
-                    className="hover:text-[#7a2d8a] transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     {phoneNumbers[1]}
                   </a>
@@ -140,7 +138,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                 <div className="">
                   <a
                     href={`tel:${phoneNumbers[2]}`}
-                    className="hover:text-[#7a2d8a] transition-colors block"
+                    className="hover:text-primary transition-colors block"
                   >
                     {phoneNumbers[2]}
                   </a>

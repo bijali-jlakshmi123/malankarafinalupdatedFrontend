@@ -6,7 +6,7 @@
 
 :root {
   --primary: #76297D;
-  --primary-hover: #5e1f63;
+  --primary-hover: #9B18A7;
   --secondary: #292B2D;
   --text-main: #334155;
   --accent: #C7A754;
@@ -153,6 +153,11 @@
   a {
     @apply text-text;
     text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    @apply text-primary;
   }
 
   /* Buttons */

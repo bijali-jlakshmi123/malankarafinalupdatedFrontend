@@ -334,7 +334,7 @@ function ValidatedContactForm() {
   };
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 border ${errors[field] ? "border-red-500" : "border-gray-300"} rounded-none focus:outline-none focus:border-[#702C8B] transition-colors`;
+    `w-full px-4 py-3 border ${errors[field] ? "border-red-500" : "border-gray-300"} rounded-none focus:outline-none focus:border-primary transition-colors`;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -460,7 +460,7 @@ function ValidatedContactForm() {
         type="submit"
         disabled={isSubmitting}
         suppressHydrationWarning
-        className="bg-[#702C8B] text-white px-12 py-4 rounded-none font-medium uppercase tracking-widest hover:bg-[#5a2370] transition-colors disabled:opacity-50"
+        className="btn px-12 py-4 tracking-widest disabled:opacity-50 w-full"
       >
         {isSubmitting ? "Submitting..." : "Submit"}
       </button>

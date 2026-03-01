@@ -34,10 +34,10 @@ export default function FloatingActions() {
       {/* Book Now Button */}
       <a
         href={bookNowUrl}
-        className="pointer-events-auto flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-none shadow-xl transition-all hover:scale-105 font-sarabun text-sm font-semibold tracking-widest uppercase"
+        className="pointer-events-auto flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-4 sm:px-6 py-3 rounded-none shadow-xl transition-all hover:scale-105 font-sarabun text-sm font-semibold tracking-widest uppercase"
       >
         <i className="las la-calendar-check text-xl"></i>
-        <span>Book Now</span>
+        <span className="hidden sm:inline">Book Now</span>
       </a>
 
       {/* WhatsApp Button */}
@@ -45,10 +45,10 @@ export default function FloatingActions() {
         href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="pointer-events-auto flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3 rounded-none shadow-xl transition-all hover:scale-105 font-sarabun text-sm font-semibold tracking-widest uppercase"
+        className="pointer-events-auto flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-4 sm:px-6 py-3 rounded-none shadow-xl transition-all hover:scale-105 font-sarabun text-sm font-semibold tracking-widest uppercase"
       >
         <i className="lab la-whatsapp text-xl"></i>
-        <span>WhatsApp</span>
+        <span className="hidden sm:inline">WhatsApp</span>
       </a>
       <div>
         <br />

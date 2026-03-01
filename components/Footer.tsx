@@ -34,18 +34,21 @@ export default function Footer() {
         ];
 
   return (
-    <footer className="bg-[#f8f8eb] font-sarabun text-text">
+    <footer className="bg-bg-2 font-sarabun text-text">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
         {/* Top Section: Logo, Quick Enquiry, Follow Us */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-10 gap-8 lg:gap-0">
           {/* Logo (Left) */}
           <div className="flex-shrink-0">
-            <Link href="/" className="block relative w-64 h-20">
+            <Link
+              href="/"
+              className="block relative w-48 md:w-64 h-16 md:h-20 transition-all duration-300"
+            >
               <Image
                 src={siteSettings?.logo?.url || DEFAULT_LOGO_URL}
                 alt={siteSettings?.siteName || "Malankara Palace"}
                 fill
-                className="object-contain object-left"
+                className="object-contain object-left md:object-center lg:object-left"
               />
             </Link>
           </div>

@@ -62,6 +62,9 @@ const FALLBACK_ROOMS: Room[] = [
       {
         url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
       },
+      {
+        url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop",
+      },
     ],
     amenities: [
       "Smart LED TV with Hotstar & Netflix",
