@@ -7,7 +7,7 @@ export default function RoomsPage() {
   return (
     <main className="relative min-h-screen">
       <Header transparent />
-      <RoomsSuitesSlider />
+      <RoomsSuitesSlider isHero={true} className="h-[60vh] md:h-[70vh]" />
       <RoomsList />
       <Footer />
     </main>
