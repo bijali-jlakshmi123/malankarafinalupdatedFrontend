@@ -101,7 +101,7 @@ export default function FacilitiesSlider() {
                   </p>
                   <Link
                     href="/facilities"
-                    className="inline-block  bg-primary hover:bg-primary-hover text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
+                    className="inline-block bg-primary text-white text-lg font-medium px-8 py-3 rounded"
                   >
                     Discover More
                   </Link>

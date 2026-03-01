@@ -86,7 +86,7 @@ export default function WellnessSlider() {
 
                   <Link
                     href={slide.link}
-                    className="inline-block bg-[#C19A6B] hover:bg-[#a88455] text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
+                    className="inline-block bg-primary text-white text-lg font-medium px-8 py-3 rounded"
                   >
                     Discover More
                   </Link>

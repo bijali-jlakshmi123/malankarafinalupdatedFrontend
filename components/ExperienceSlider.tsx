@@ -118,7 +118,7 @@ export default function ExperienceSlider() {
 
                   <Link
                     href={slide.link || "/experiences"}
-                    className="inline-block  bg-primary hover:bg-primary-hover text-white text-lg font-medium px-8 py-3 rounded transition-all duration-300"
+                    className="inline-block bg-primary text-white text-lg font-medium px-8 py-3 rounded"
                   >
                     Discover More
                   </Link>

@@ -127,7 +127,7 @@ const FALLBACK_EXPERIENCES: ExperienceItem[] = [
     id: 10,
     title: "Nature & Village Walks",
     description:
-      "Guided walks through the scenic lanes of Kudayathoor, a renowned film village where over 100 movies have been shot, showcasing timeless rural charm, natural landscapes, and authentic village life.",
+      "Guided walks through the scenic lanes of Kudayathoor, a renowned film village where over 100 movies have been shot.",
     image: {
       url: "https://images.unsplash.com/photo-1541367777749-8c290197d096?q=80&w=2070&auto=format&fit=crop",
     },
@@ -138,7 +138,7 @@ const FALLBACK_EXPERIENCES: ExperienceItem[] = [
     id: 11,
     title: "Farm & Plantation Visit",
     description:
-      "Explore nearby farms and spice plantations, experiencing the sights and aromas of cardamom, pepper, and nutmeg while learning about traditional cultivation and rural life in the region.",
+      "Explore nearby farms and spice plantations, experiencing traditional cultivation and rural life.",
     image: {
       url: "https://images.unsplash.com/photo-1596568461757-5586617a2a5e?q=80&w=2070&auto=format&fit=crop",
     },
@@ -149,12 +149,78 @@ const FALLBACK_EXPERIENCES: ExperienceItem[] = [
     id: 12,
     title: "Trekking",
     description:
-      "Experience scenic trekking trails across open hill landscapes, offering wide valley views, dramatic skies, and a refreshing escape into nature at Ilaveezhapoonchira.",
+      "Experience scenic trekking trails across open hill landscapes at Ilaveezhapoonchira.",
     image: {
       url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
     },
     category: "Nearby",
     order: 12,
+  },
+  {
+    id: 13,
+    title: "Yoga & Meditation",
+    description:
+      "Peaceful sessions designed to relax the mind and restore inner balance.",
+    image: {
+      url: "https://images.unsplash.com/photo-1544766023-c901235b0b2e?q=80&w=2008&auto=format&fit=crop",
+    },
+    category: "Recreation",
+    order: 13,
+  },
+  {
+    id: 14,
+    title: "Cultural Performances",
+    description:
+      "Evening cultural performances showcasing traditional art forms such as Kathakali and Mohiniyattom.",
+    image: {
+      url: "https://images.unsplash.com/photo-1544766023-c901235b0b2e?q=80&w=2008&auto=format&fit=crop",
+    },
+    category: "Recreation",
+    order: 14,
+  },
+  {
+    id: 15,
+    title: "Cooking Demonstration",
+    description:
+      "Experience local flavours through interactive cooking demonstrations and live preparations.",
+    image: {
+      url: "https://images.unsplash.com/photo-1544766023-c901235b0b2e?q=80&w=2008&auto=format&fit=crop",
+    },
+    category: "Recreation",
+    order: 15,
+  },
+  {
+    id: 16,
+    title: "Off-Road Drive",
+    description:
+      "Enjoy an adventurous off-road drive through rugged hill tracks leading to Ilaveezhapoonchira, offering raw landscapes, panoramic views, and a thrilling nature escape.",
+    image: {
+      url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
+    },
+    category: "Nearby",
+    order: 16,
+  },
+  {
+    id: 17,
+    title: "Temple & Local Heritage Visits",
+    description:
+      "Visit nearby temples and heritage sites including Saramkuthi Temple, Vayanakkavu, and historic churches, offering a glimpse into the region’s spiritual traditions, architecture, and local culture.",
+    image: {
+      url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
+    },
+    category: "Nearby",
+    order: 17,
+  },
+  {
+    id: 18,
+    title: "Dam & Viewpoint Visits",
+    description:
+      "Explore the Malankara Dam area with its multiple viewpoints, scenic bridges, lakeside green lawns, and open spaces, perfect for relaxed walks, photography, and peaceful sightseeing.",
+    image: {
+      url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
+    },
+    category: "Nearby",
+    order: 18,
   },
 ];
 
@@ -183,7 +249,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
 
   const ExperienceCard = ({ item }: { item: ExperienceItem }) => (
     <div className="flex flex-col">
-      <div className="relative h-64 w-full mb-6 overflow-hidden rounded-none group">
+      <div className="relative h-64 w-full mb-6 overflow-hidden group">
         <Image
           src={item.image.url}
           alt={item.title}
@@ -191,7 +257,9 @@ export default function Experiences({ pageData }: ExperiencesProps) {
           className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
       </div>
+
       <h4 className="text-2xl font-prata text-secondary mb-3">{item.title}</h4>
+
       <p className="text-text leading-relaxed text-[15px]">
         {item.description}
       </p>
@@ -199,73 +267,70 @@ export default function Experiences({ pageData }: ExperiencesProps) {
   );
 
   return (
-    <section className="py-20 bg-bg-1 font-sarabun">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header content */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
-            {pageData.introTitle}
-          </h2>
-          <p className="text-text text-lg leading-relaxed mb-12">
-            {pageData.introDescription}
-          </p>
-          <h3 className="text-3xl md:text-4xl font-prata text-secondary font-medium italic">
-            {pageData.inHouseTitle}
-          </h3>
-        </div>
+    <section className="py-20 font-sarabun">
+      {/* White Section */}
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6">
+              {pageData.introTitle}
+            </h2>
 
-        {/* In-House Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {inHouse.map((item) => (
-            <ExperienceCard key={item.id} item={item} />
-          ))}
-        </div>
+            <p className="text-text text-lg leading-relaxed mb-12">
+              {pageData.introDescription}
+            </p>
 
-        {/* Lake Activities Section */}
-        {lake.length > 0 && (
-          <div className="mt-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {lake.map((item) => (
-                <ExperienceCard key={item.id} item={item} />
-              ))}
-            </div>
+            <h3 className="text-3xl md:text-4xl font-prata text-secondary italic">
+              {pageData.inHouseTitle}
+            </h3>
           </div>
-        )}
 
-        {/* Recreation & Kids Section */}
-        {recreation.length > 0 && (
-          <div className="mt-20">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {recreation.map((item) => (
-                <ExperienceCard key={item.id} item={item} />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {inHouse.map((item) => (
+              <ExperienceCard key={item.id} item={item} />
+            ))}
           </div>
-        )}
+
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+            {lake.map((item) => (
+              <ExperienceCard key={item.id} item={item} />
+            ))}
+          </div>
+
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+            {recreation.map((item) => (
+              <ExperienceCard key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
+      <div>
+        <br />
+      </div>
+      {/* Nearby */}
+      <div className="bg-bg-1 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-prata text-secondary">
+              {pageData.nearbyTitle}
+            </h2>
+          </div>
 
-      {/* Nearby Experiences Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-prata text-secondary font-medium">
-            {pageData.nearbyTitle}
-          </h2>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {nearby.map((item) => (
+              <ExperienceCard key={item.id} item={item} />
+            ))}
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {nearby.map((item) => (
-            <ExperienceCard key={item.id} item={item} />
-          ))}
-        </div>
+          <div className="mt-20 bg-bg-3/50 p-8 md:p-12 text-center">
+            <h4 className="text-2xl font-prata text-secondary mb-4">
+              {pageData.noteTitle}
+            </h4>
 
-        {/* Note Section */}
-        <div className="mt-20 bg-bg-3/50 p-8 md:p-12 rounded-none text-center">
-          <h4 className="text-2xl font-prata text-secondary mb-4 font-medium">
-            {pageData.noteTitle}
-          </h4>
-          <p className="text-text text-lg leading-relaxed max-w-4xl mx-auto font-light">
-            {pageData.noteContent}
-          </p>
+            <p className="text-text text-lg leading-relaxed max-w-4xl mx-auto">
+              {pageData.noteContent}
+            </p>
+          </div>
         </div>
       </div>
     </section>
