@@ -17,8 +17,8 @@ export async function GET() {
     return NextResponse.json(
       slides.map((s: any) => ({
         id: s.id,
-        documentId: s.documentId,
         title: s.title,
+        subtitle: s.subtitle, // add this
         description: s.description,
         image: { url: getStrapiImageUrl(s.image?.url) },
         order: s.order,

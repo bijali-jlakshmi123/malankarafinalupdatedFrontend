@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     screens: {
       sm: "640px",
@@ -14,39 +15,43 @@ const config: Config = {
       xl: "1280px",
       "2xl": "1536px",
     },
+
     extend: {
       colors: {
         primary: {
           DEFAULT: "#76297D",
           hover: "#9B18A7",
         },
-        secondary: {
-          DEFAULT: "#292B2D",
-        },
-        text: {
-          DEFAULT: "#334155",
-        },
-        accent: {
-          DEFAULT: "#C7A754",
-        },
+
+        secondary: "#292B2D",
+
+        text: "#334155",
+
+        accent: "#C7A754",
+
         bg: {
           1: "#FAF9F5",
           2: "#F2F2EC",
           3: "#FFFDE4",
         },
+
         white: "#FFFFFF",
       },
+
       fontFamily: {
         prata: ["Prata", "serif"],
         forum: ["Forum", "serif"],
         sarabun: ["Sarabun", "sans-serif"],
         nunito: ["Nunito Sans", "sans-serif"],
       },
+
       maxWidth: {
         container: "1366px",
       },
     },
   },
+
   plugins: [],
 };
+
 export default config;

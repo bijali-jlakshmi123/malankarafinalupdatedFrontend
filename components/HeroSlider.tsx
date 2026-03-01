@@ -13,21 +13,21 @@ export default function HeroSlider() {
     async function fetchSlides() {
       try {
         const data = await getHeroSlides();
+
         if (data.length > 0) {
           setSlides(data);
         } else {
-          // Fallback to default slides if no data from Strapi
           setSlides([
             {
               id: 1,
-              title: "A Tranquil Lakeside Escape at Malankara Palace",
+              title: "A Tranquil Lakeside Escape",
               description:
                 "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
               image: { url: "/images/hero-1.jpg" },
             },
             {
               id: 2,
-              title: "A Tranquil Lakeside Escape at Malankara Palace",
+              title: "A Tranquil Lakeside Escape",
               description:
                 "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
               image: { url: "/images/hero-2.jpg" },
@@ -36,11 +36,11 @@ export default function HeroSlider() {
         }
       } catch (error) {
         console.error("Error loading slides:", error);
-        // Fallback slides
+
         setSlides([
           {
             id: 1,
-            title: "A Tranquil Lakeside Escape at Malankara Palace",
+            title: "A Tranquil Lakeside Escape",
             description:
               "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
             image: { url: "/images/hero-1.jpg" },
@@ -50,6 +50,7 @@ export default function HeroSlider() {
         setIsLoading(false);
       }
     }
+
     fetchSlides();
   }, []);
 
@@ -65,7 +66,6 @@ export default function HeroSlider() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -77,13 +77,13 @@ export default function HeroSlider() {
           <div className="absolute inset-0">
             <Image
               src={slide.image?.url || "/images/hero-1.jpg"}
-              alt={slide.image?.alternativeText || slide.title}
+              alt={slide.title}
               fill
               priority={index === 0}
               className="object-cover"
               sizes="100vw"
             />
-            {/* Dark Overlay */}
+
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
@@ -93,9 +93,12 @@ export default function HeroSlider() {
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
                 <div className="max-w-2xl">
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-prata text-white mb-4 leading-tight">
-                    {slide.title.split(" at ")[0]}
-                    <span className="text-3xl md:text-4xl lg:text-5xl block mt-2 text-white">
-                      {slide.title.split(" at ")[1]}
+                    <span className="whitespace-nowrap">
+                      A Tranquil Lakeside Escape
+                    </span>
+
+                    <span className="block text-3xl md:text-4xl lg:text-5xl mt-2">
+                      at Malankara Palace
                     </span>
                   </h2>
 

@@ -2,6 +2,7 @@ export interface HeroSlide {
   id: number;
   documentId?: string;
   title: string;
+  subtitle?: string; // ✅ add this
   description: string;
   image: {
     url: string;
