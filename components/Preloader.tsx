@@ -43,14 +43,9 @@ export default function Preloader() {
         </div>
 
         {/* Subtle Loading bar */}
-        <div className="w-48 h-0.5 bg-gray-100 rounded-full overflow-hidden">
-          <div className="h-full bg-primary animate-loading-bar shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]"></div>
-        </div>
 
         {/* Minimalist Text */}
-        <p className="mt-4 text-secondary font-prata text-lg tracking-[0.2em] uppercase opacity-70 animate-fade-in">
-          Malankara Palace
-        </p>
+        <p className="mt-4 text-secondary font-prata text-lg tracking-[0.2em] uppercase opacity-70 animate-fade-in"></p>
       </div>
 
       <style jsx>{`
