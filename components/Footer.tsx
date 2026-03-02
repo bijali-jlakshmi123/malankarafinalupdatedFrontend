@@ -191,7 +191,7 @@ export default function Footer() {
                 { label: "Facilities", href: "/facilities" },
                 { label: "Experiences", href: "/experiences" },
                 { label: "Dining", href: "/dining" },
-                { label: "Nearby Destinations", href: "/experiences" },
+                { label: "Nearby Destinations", href: "/nearbydestinations" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
