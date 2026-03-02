@@ -79,12 +79,13 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           {/* Top Section */}
           <div>
             {/* Close Button */}
-            <div className="flex justify-end p-6">
+
+            <div className="flex justify-end px-8 mb-10">
               <button
                 onClick={onClose}
-                className="w-12 h-12 flex items-center justify-center border border-gray-300 text-gray-600 hover:text-primary hover:border-primary transition"
+                className="w-10 h-10 flex items-center justify-center border border-gray-100 bg-white text-gray-400 hover:text-primary transition-all duration-300"
               >
-                <i className="la la-times text-xl"></i>
+                <i className="las la-times text-lg"></i>
               </button>
             </div>
 
