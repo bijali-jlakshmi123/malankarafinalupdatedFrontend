@@ -13,6 +13,8 @@ interface Policy {
 
 interface BookingPolicyData {
   title: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
   policies: Policy[];
   image: { url: string } | null;
 }
@@ -91,9 +93,12 @@ export default function BookingPolicyPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [pageData, setPageData] = useState<BookingPolicyData>({
     title: "Booking Policies & Stay Information",
+    heroTitle: "Booking Policy",
+    heroSubtitle:
+      "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
     policies: FALLBACK_POLICIES,
     image: {
-      url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2070&auto=format&fit=crop",
+      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop",
     },
   });
 
@@ -105,9 +110,15 @@ export default function BookingPolicyPage() {
           const data = await res.json();
           if (data) {
             setPageData({
-              title: data.title || pageData.title,
+              title: data.title || "Booking Policies & Stay Information",
+              heroTitle: data.heroTitle || "Booking Policy",
+              heroSubtitle:
+                data.heroSubtitle ||
+                "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
               policies: data.policies || FALLBACK_POLICIES,
-              image: data.image || pageData.image,
+              image: data.image || {
+                url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop",
+              },
             });
           }
         }
@@ -127,7 +138,10 @@ export default function BookingPolicyPage() {
       {/* HERO SECTION */}
       <section className="relative h-[80vh] w-full flex items-end">
         <Image
-          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop"
+          src={
+            pageData.image?.url ||
+            "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop"
+          }
           alt="Malankara Palace Reception"
           fill
           className="object-cover"
@@ -136,17 +150,16 @@ export default function BookingPolicyPage() {
 
         <div className="absolute inset-0 bg-black/40" />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-5xl">
-            <h1 className="text-4xl md:text-7xl font-primary text-white mb-6 drop-shadow-lg">
-              A Tranquil Lakeside Escape at Malankara Palace
+            <h1 className="text-5xl md:text-[56px] font-primary text-white mb-6 drop-shadow-lg leading-tight uppercase">
+              {pageData.heroTitle}
             </h1>
 
             <p className="text-lg md:text-2xl text-white/95 font-light drop-shadow-md">
-              Wake up to calm waters, gentle breezes, and unforgettable moments
-              by Malankara Dam.
+              {pageData.heroSubtitle}
             </p>
           </div>
         </div>
@@ -158,7 +171,7 @@ export default function BookingPolicyPage() {
           <div className="flex flex-col lg:flex-row gap-16 items-start mx-6 md:mx-12 lg:mx-24">
             {/* LEFT SIDE */}
             <div className="w-full lg:w-3/5">
-              <h2 className="text-4xl md:text-5xl font-primary text-black mb-12">
+              <h2 className="text-4xl md:text-[40px] font-primary text-secondary mb-12">
                 {pageData.title}
               </h2>
 
@@ -174,8 +187,8 @@ export default function BookingPolicyPage() {
                       <span
                         className={`text-xl transition-colors ${
                           openIndex === index
-                            ? "text-black font-semibold"
-                            : "text-black/80 group-hover:text-black"
+                            ? "text-secondary font-semibold"
+                            : "text-text/80 group-hover:text-secondary"
                         }`}
                       >
                         {policy.title}
@@ -209,9 +222,9 @@ export default function BookingPolicyPage() {
                         {policy.content.map((item, i) => (
                           <li
                             key={i}
-                            className="text-black/70 text-[17px] leading-relaxed flex items-start gap-3"
+                            className="text-text/70 text-[17px] leading-relaxed flex items-start gap-3"
                           >
-                            <span className="text-black mt-1.5 h-1.5 w-1.5 rounded-full bg-black shrink-0" />
+                            <span className="text-secondary mt-1.5 h-1.5 w-1.5 rounded-full bg-secondary shrink-0" />
                             <span>{item}</span>
                           </li>
                         ))}

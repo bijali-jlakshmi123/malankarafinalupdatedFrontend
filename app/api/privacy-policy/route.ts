@@ -3,7 +3,7 @@ import { fetchStrapi, getStrapiImageUrl } from "@/lib/strapi";
 
 export async function GET() {
   try {
-    const data = await fetchStrapi("terms-conditions-page", "populate=*");
+    const data = await fetchStrapi("privacy-policy-page", "populate=*");
 
     if (!data) {
       return NextResponse.json(null, { status: 200 });
@@ -25,9 +25,9 @@ export async function GET() {
       { status: 200 },
     );
   } catch (error) {
-    console.error("[API] terms-conditions-page GET error:", error);
+    console.error("[API] privacy-policy-page GET error:", error);
     return NextResponse.json(
-      { error: "Failed to load terms & conditions" },
+      { error: "Failed to load privacy policy" },
       { status: 500 },
     );
   }

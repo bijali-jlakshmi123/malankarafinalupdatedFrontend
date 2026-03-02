@@ -11,7 +11,7 @@ interface Section {
   content: string;
 }
 
-interface TermsData {
+interface PrivacyData {
   title: string;
   heroTitle?: string;
   heroSubtitle?: string;
@@ -23,80 +23,76 @@ interface TermsData {
 
 const FALLBACK_SECTIONS: Section[] = [
   {
-    title: "Acceptance of Terms",
+    title: "Information Collection",
     content:
-      "By accessing and using the services of Malankara Palace Lake View Resort & Spa, you agree to be bound by these Terms & Conditions. These terms apply to all visitors, guests, and others who access or use our services.",
+      "We collect information you provide directly to us, such as when you make a reservation, sign up for our newsletter, or contact us for support. This personal information may include your name, email address, phone number, and payment information.",
   },
   {
-    title: "Use of the Website",
+    title: "Use of Information",
     content:
-      "Our website is intended to provide information about our resort and facilitate bookings. You agree not to use this site for any unlawful purpose or any purpose prohibited by these terms.",
+      "We use the information we collect to provide, maintain, and improve our services, including processing your reservations, sending you confirmations and invoices, and communicating with you about your stay.",
   },
   {
-    title: "Intellectual Property",
+    title: "Data Security",
     content:
-      "All content on this website, including text, graphics, logos, images, and software, is the property of Malankara Palace or its content suppliers and is protected by international copyright laws.",
+      "We implement robust security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, please note that no method of transmission over the internet is 100% secure.",
   },
   {
-    title: "Guest Conduct",
+    title: "Cookies and Tracking",
     content:
-      "Guests are expected to conduct themselves in a respectful manner towards other guests and staff. The management reserves the right to terminate the stay of any guest whose conduct is deemed incompatible with the resort's atmosphere.",
+      "Our website uses cookies and similar tracking technologies to enhance your browsing experience, personalize content, and analyze our site traffic. You can choose to disable cookies through your browser settings, though this may affect site functionality.",
   },
   {
-    title: "Liability Disclaimer",
+    title: "Third-Party Disclosure",
     content:
-      "Malankara Palace shall not be held liable for any loss, damage, or injury incurred by guests during their stay, unless such loss or damage is directly caused by the resort's gross negligence.",
+      "We do not sell or trade your personal information to outside parties. We may share information with trusted third-party service providers who assist us in operating our resort and website, so long as those parties agree to keep this information confidential.",
   },
   {
-    title: "Governing Law",
+    title: "Updates to This Policy",
     content:
-      "These terms shall be governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Idukki, Kerala.",
+      "Malankara Palace reserves the right to update this privacy policy at any time. We will notify you of any significant changes by posting the new policy on this page and updating the modification date above.",
   },
 ];
 
-export default function TermsConditionsPage() {
-  const [pageData, setPageData] = useState<TermsData>({
-    title: "Terms & Conditions",
-    heroTitle: "Terms & Conditions",
+export default function PrivacyPolicyPage() {
+  const [pageData, setPageData] = useState<PrivacyData>({
+    title: "Privacy Policy",
+    heroTitle: "Privacy Policy",
     heroSubtitle:
-      "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
+      "Your privacy and security are our top priorities at Malankara Palace",
     sections: FALLBACK_SECTIONS,
-    image: {
-      url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop",
-    },
+    image: { url: "/images/hero-1.jpg" },
   });
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("/api/terms-conditions");
+        const res = await fetch("/api/privacy-policy");
         if (res.ok) {
           const data = await res.json();
           if (data) {
             setPageData({
-              title: data.title || "Terms & Conditions",
-              heroTitle: data.heroTitle || "Terms & Conditions",
+              title: data.title || "Privacy Policy",
+              heroTitle: data.heroTitle || "Privacy Policy",
               heroSubtitle:
                 data.heroSubtitle ||
-                "Wake up to calm waters, gentle breezes, and unforgettable moments by Malankara Dam.",
+                "Your privacy and security are our top priorities at Malankara Palace",
               sections: data.sections || FALLBACK_SECTIONS,
               content: data.content,
-              image: data.image || {
-                url: "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop",
-              },
+              image: data.image || { url: "/images/hero-1.jpg" },
               updatedAt: data.updatedAt,
             });
           }
         }
       } catch (error) {
-        console.error("Error fetching terms:", error);
+        console.error("Error fetching privacy policy:", error);
       }
     }
     fetchData();
   }, []);
 
   const formatDate = (dateString?: string) => {
-    if (!dateString) return "Jan 2026";
+    if (!dateString) return "March 2026";
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
       month: "long",
@@ -106,18 +102,17 @@ export default function TermsConditionsPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-white font-body">
-      <MetaSEO slug="terms-conditions" />
+    <main className="relative min-h-screen bg-white font-body selection:bg-primary/10 selection:text-primary">
+      <MetaSEO slug="privacy-policy" />
+
+      {/* HEADER */}
       <Header transparent />
 
       {/* HERO SECTION */}
       <section className="relative h-[80vh] w-full flex items-end">
         <Image
-          src={
-            pageData.image?.url ||
-            "https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop"
-          }
-          alt="Malankara Palace Exterior"
+          src={pageData.image?.url || "/images/hero-1.jpg"}
+          alt="Malankara Palace Privacy Policy"
           fill
           className="object-cover"
           priority
@@ -137,7 +132,7 @@ export default function TermsConditionsPage() {
         </div>
       </section>
 
-      {/* TERMS & CONDITIONS CONTENT */}
+      {/* CONTENT SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
@@ -148,6 +143,7 @@ export default function TermsConditionsPage() {
               Last Modified: {formatDate(pageData.updatedAt)}
             </p>
           </div>
+
           {pageData.content && (
             <div className="max-w-4xl mb-12">
               <div
@@ -156,6 +152,7 @@ export default function TermsConditionsPage() {
               />
             </div>
           )}
+
           <div className="space-y-12 text-text/80 text-lg leading-relaxed">
             {pageData.sections?.map((section, idx) => (
               <div key={idx} className="space-y-4">
@@ -169,6 +166,7 @@ export default function TermsConditionsPage() {
         </div>
       </section>
 
+      {/* FOOTER */}
       <Footer />
     </main>
   );

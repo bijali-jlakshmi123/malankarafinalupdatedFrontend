@@ -13,6 +13,8 @@ export async function GET() {
       {
         id: data.id,
         title: data.title,
+        heroTitle: data.heroTitle,
+        heroSubtitle: data.heroSubtitle,
         policies: data.policies,
         image: data.image?.url
           ? { url: getStrapiImageUrl(data.image.url) }
