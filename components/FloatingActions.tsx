@@ -30,14 +30,14 @@ export default function FloatingActions() {
   const bookNowUrl = siteSettings?.bookNowUrl || "#";
 
   return (
-    <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 pointer-events-none">
+    <div className="fixed bottom-10 right-10 z-[60] flex flex-col items-end gap-2.5 pointer-events-none">
       {/* Book Now Button */}
       <a
         href={bookNowUrl}
-        className="pointer-events-auto flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-4 sm:px-6 py-3 rounded-none shadow-xl transition-all hover:scale-105 font-body text-sm font-semibold tracking-widest uppercase"
+        className="pointer-events-auto flex items-center gap-3 bg-primary hover:brightness-110 text-white min-w-[155px] px-5 py-3 rounded-[8px] shadow-xl transition-all hover:translate-y-[-2px] font-body text-[16px] font-semibold"
       >
-        <i className="las la-calendar-check text-xl"></i>
-        <span className="hidden sm:inline">Book Now</span>
+        <i className="las la-calendar text-[22px]"></i>
+        <span className="">Book Now</span>
       </a>
 
       {/* WhatsApp Button */}
@@ -45,24 +45,24 @@ export default function FloatingActions() {
         href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="pointer-events-auto flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-4 sm:px-6 py-3 rounded-none shadow-xl transition-all hover:scale-105 font-body text-sm font-semibold tracking-widest uppercase"
+        className="pointer-events-auto flex items-center gap-3 bg-[#22D36E] hover:brightness-110 text-white min-w-[155px] px-5 py-3 rounded-[8px] shadow-xl transition-all hover:translate-y-[-2px] font-body text-[16px] font-semibold"
       >
-        <i className="lab la-whatsapp text-xl"></i>
-        <span className="hidden sm:inline">WhatsApp</span>
+        <i className="lab la-whatsapp text-[24px]"></i>
+        <span className="">WhatsApp</span>
       </a>
-      <div>
-        <br />
-      </div>
+
       {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="pointer-events-auto bg-primary hover:bg-primary-hover text-white w-12 h-12 flex items-center justify-center rounded-none shadow-xl transition-all hover:scale-105 mt-1"
-          aria-label="Scroll to top"
-        >
-          <i className="las la-arrow-up text-xl"></i>
-        </button>
-      )}
+      <div className="mt-8">
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            className="pointer-events-auto bg-primary hover:brightness-110 text-white w-11 h-11 flex items-center justify-center rounded-[6px] shadow-lg transition-all hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <i className="las la-chevron-up text-xl"></i>
+          </button>
+        )}
+      </div>
     </div>
   );
 }

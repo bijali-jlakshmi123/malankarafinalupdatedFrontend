@@ -37,7 +37,7 @@ export default function Footer() {
     <footer className="bg-bg-2 font-body text-text">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
         {/* Top Section: Logo, Quick Enquiry, Follow Us */}
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-10 gap-8 lg:gap-0">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8">
           {/* Logo (Left) */}
           <div className="flex-shrink-0">
             <Link
@@ -53,74 +53,61 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Right Side Group */}
-          <div className="flex flex-col md:flex-row gap-12 lg:gap-24 text-center lg:text-right">
+          {/* Right Side: Quick Enquiry & Follow Us */}
+          <div className="flex flex-col md:flex-row items-end gap-16 lg:gap-24 text-right">
             {/* Quick Enquiry */}
-            <div className="flex flex-col items-center lg:items-end">
-              <h3 className="font-primary text-2xl text-secondary mb-2">
+            <div className="flex flex-col items-end">
+              <h3 className="font-primary text-[22px] md:text-[26px] text-secondary mb-3 leading-tight">
                 Quick Enquiry
               </h3>
-              <p className="text-lg text-text font-medium">
-                {phoneNumbersList.map((phone, idx) => (
-                  <span key={phone}>
-                    <a
-                      href={`tel:${phone.replace(/\s/g, "")}`}
-                      className="hover:text-primary transition-colors"
-                    >
-                      {phone}
-                    </a>
-                    {idx < phoneNumbersList.length - 1 && (
-                      <span className="mx-1">|</span>
-                    )}
-                  </span>
-                ))}
+              <p className="text-[17px] md:text-[21px] text-text font-normal tracking-wide font-body">
+                <a
+                  href="tel:04862204400"
+                  className="hover:text-primary transition-colors"
+                >
+                  04862 204400
+                </a>
+                <span className="mx-2 text-gray-300">|</span>
+                <a
+                  href="tel:+917510200444"
+                  className="hover:text-primary transition-colors"
+                >
+                  +91 75102 00444
+                </a>
+                <span className="mx-2 text-gray-300">|</span>
+                <a
+                  href="tel:+918086200404"
+                  className="hover:text-primary transition-colors"
+                >
+                  +91 80862 00404
+                </a>
               </p>
             </div>
 
             {/* Follow Us */}
-            <div className="flex flex-col items-center lg:items-end">
-              <h3 className="font-primary text-2xl text-secondary mb-2">
+            <div className="flex flex-col items-end">
+              <h3 className="font-primary text-[22px] md:text-[26px] text-secondary mb-3 leading-tight">
                 Follow Us
               </h3>
-              <div className="flex space-x-3 mt-1">
-                {siteSettings?.socialLinks &&
-                Array.isArray(siteSettings.socialLinks) ? (
-                  siteSettings.socialLinks.map((link: any, idx: number) => (
-                    <a
-                      key={idx}
-                      href={link.url || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                    >
-                      <i
-                        className={`lab la-${link.platform || "instagram"} text-xl`}
-                      ></i>
-                    </a>
-                  ))
-                ) : (
-                  <>
-                    {/* Fallback to original social links if none in Strapi */}
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                    >
-                      <i className="lab la-instagram text-xl"></i>
-                    </a>
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                    >
-                      <i className="lab la-facebook-f text-xl"></i>
-                    </a>
-                    <a
-                      href="#"
-                      className="w-10 h-10 bg-white rounded-none flex items-center justify-center text-primary hover:bg-bg-2 transition-colors shadow-sm"
-                    >
-                      <i className="lab la-youtube text-xl"></i>
-                    </a>
-                  </>
-                )}
+              <div className="flex space-x-3">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary border border-gray-100 shadow-sm hover:bg-primary hover:text-white transition-all"
+                >
+                  <i className="lab la-instagram text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary border border-gray-100 shadow-sm hover:bg-primary hover:text-white transition-all"
+                >
+                  <i className="lab la-facebook-f text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary border border-gray-100 shadow-sm hover:bg-primary hover:text-white transition-all"
+                >
+                  <i className="lab la-youtube text-xl"></i>
+                </a>
               </div>
             </div>
           </div>
@@ -130,31 +117,33 @@ export default function Footer() {
         <hr className="border-gray-200 mb-10" />
 
         {/* Middle Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 mb-16">
           {/* Contact Us */}
           <div>
-            <h3 className="font-primary text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
               Contact Us
             </h3>
-            <div className="space-y-4 text-text text-[15px] leading-relaxed">
-              <p className="whitespace-pre-line">
-                {siteSettings?.address ||
-                  "Kudayathoor P.O., Thodupuzha Idukki District,\nKerala, India – 685 590"}
-              </p>
-              <p>Phone: {phoneNumbersList.join(" ")}</p>
+            <div className="space-y-4 text-text text-[15.5px] leading-relaxed font-body">
               <p>
-                Email:{" "}
-                {siteSettings?.email || "reservations@malankarapalace.com"}
+                Kudayathoor P.O., Thodupuzha Idukki District,
+                <br />
+                Kerala, India – 685 590
               </p>
+              <p>
+                Phone: 04862 204400 +91 75102 00444
+                <br />
+                +91 80862 00404
+              </p>
+              <p>Email: reservations@malankarapalace.com</p>
             </div>
           </div>
 
           {/* Rooms & Suites */}
           <div>
-            <h3 className="font-primary text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
               Rooms & Suites
             </h3>
-            <ul className="space-y-3 text-[15px]">
+            <ul className="space-y-3.5 text-[15.5px] font-body">
               {[
                 {
                   label: "The Lakeview Royal Suite",
@@ -187,15 +176,16 @@ export default function Footer() {
 
           {/* Quick Links Column 1 */}
           <div>
-            <h3 className="font-primary text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
               Quick Links
             </h3>
-            <ul className="space-y-3 text-[15px]">
+            <ul className="space-y-3.5 text-[15.5px] font-body">
               {[
                 { label: "Our Story", href: "/our-story" },
                 { label: "Facilities", href: "/facilities" },
                 { label: "Experiences", href: "/experiences" },
                 { label: "Dining", href: "/dining" },
+                { label: "Nearby Destinations", href: "/experiences" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
@@ -211,10 +201,10 @@ export default function Footer() {
 
           {/* Quick Links Column 2 */}
           <div>
-            <h3 className="font-primary text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
               Quick Links
             </h3>
-            <ul className="space-y-3 text-[15px]">
+            <ul className="space-y-3.5 text-[15.5px] font-body">
               {[
                 { label: "Blog", href: "/blog" },
                 { label: "Wedding & Events", href: "/wedding-events" },
@@ -238,7 +228,7 @@ export default function Footer() {
         <hr className="border-gray-200 mb-8" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="flex flex-col md:flex-row justify-between items-center text-[15px] font-body text-gray-600">
           <p className="mb-4 md:mb-0">
             &copy; {currentYear} Malankara Palace Lake View Resort & Spa. All
             rights reserved.
@@ -246,19 +236,19 @@ export default function Footer() {
           <div className="flex space-x-6">
             <Link
               href="/terms-conditions"
-              className="hover:text-black hover:no-underline transition-all duration-300"
+              className="hover:text-primary transition-colors"
             >
               Terms & Conditions
             </Link>
             <Link
               href="/privacy-policy"
-              className="hover:text-black hover:no-underline transition-all duration-300"
+              className="hover:text-primary transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/booking-policy"
-              className="hover:text-black hover:no-underline transition-all duration-300"
+              className="hover:text-primary transition-colors"
             >
               Booking Policy
             </Link>
