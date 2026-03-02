@@ -8,7 +8,7 @@ const DEFAULT_LOGO_URL =
   "https://malankarapalace.com/wp-content/uploads/2026/01/Malankara-final-logo-scaled.png";
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(2024);
+  const [currentYear, setCurrentYear] = useState(2026);
   const [siteSettings, setSiteSettings] = useState<SiteSettings | null>(null);
 
   useEffect(() => {
@@ -35,14 +35,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-bg-2 font-body text-text">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
         {/* Top Section: Logo, Quick Enquiry, Follow Us */}
         <div className="flex flex-col lg:flex-row justify-between items-end mb-10 gap-8">
           {/* Logo (Left) */}
           <div className="flex-shrink-0">
             <Link
               href="/"
-              className="block relative w-48 md:w-64 h-16 md:h-20 transition-all duration-300"
+              className="block relative w-56 md:w-64 h-16 md:h-20 transition-all duration-300"
             >
               <Image
                 src={siteSettings?.logo?.url || DEFAULT_LOGO_URL}
@@ -54,27 +54,27 @@ export default function Footer() {
           </div>
 
           {/* Right Side: Quick Enquiry & Follow Us */}
-          <div className="flex flex-col md:flex-row items-end gap-16 lg:gap-24 text-right">
+          <div className="flex flex-col md:flex-row items-end gap-14 lg:gap-20 text-right">
             {/* Quick Enquiry */}
             <div className="flex flex-col items-end">
               <h3 className="font-primary text-[22px] md:text-[26px] text-secondary mb-3 leading-tight">
                 Quick Enquiry
               </h3>
-              <p className="text-[17px] md:text-[21px] text-text font-normal tracking-wide font-body">
+              <p className="text-[17px] md:text-[20px] text-text font-normal tracking-wide font-body">
                 <a
                   href="tel:04862204400"
                   className="hover:text-primary transition-colors"
                 >
                   04862 204400
                 </a>
-                <span className="mx-2 text-gray-300">|</span>
+                <span className="mx-2 md:mx-3 text-gray-400">|</span>
                 <a
                   href="tel:+917510200444"
                   className="hover:text-primary transition-colors"
                 >
                   +91 75102 00444
                 </a>
-                <span className="mx-2 text-gray-300">|</span>
+                <span className="mx-2 md:mx-3 text-gray-400">|</span>
                 <a
                   href="tel:+918086200404"
                   className="hover:text-primary transition-colors"
@@ -89,24 +89,30 @@ export default function Footer() {
               <h3 className="font-primary text-[22px] md:text-[26px] text-secondary mb-3 leading-tight">
                 Follow Us
               </h3>
-              <div className="flex space-x-3">
+              <div className="flex space-x-3.5">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/malankarapalace/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary border border-gray-100 shadow-sm hover:bg-primary hover:text-white transition-all"
                 >
-                  <i className="lab la-instagram text-xl"></i>
+                  <i className="lab la-instagram text-[22px]"></i>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/malankarapalace/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary border border-gray-100 shadow-sm hover:bg-primary hover:text-white transition-all"
                 >
-                  <i className="lab la-facebook-f text-xl"></i>
+                  <i className="lab la-facebook-f text-[22px]"></i>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/@malankarapalace"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary border border-gray-100 shadow-sm hover:bg-primary hover:text-white transition-all"
                 >
-                  <i className="lab la-youtube text-xl"></i>
+                  <i className="lab la-youtube text-[22px]"></i>
                 </a>
               </div>
             </div>
@@ -114,13 +120,13 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <hr className="border-gray-200 mb-10" />
+        <hr className="border-gray-300 mb-12" />
 
-        {/* Middle Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 mb-16">
+        {/* Middle Links Grid: 12-col layout for precise spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 lg:gap-x-12 mb-16">
           {/* Contact Us */}
-          <div>
-            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
+          <div className="md:col-span-5 lg:col-span-4">
+            <h3 className="font-primary text-[26px] lg:text-[28px] text-secondary mb-7 leading-tight">
               Contact Us
             </h3>
             <div className="space-y-4 text-text text-[15.5px] leading-relaxed font-body">
@@ -139,8 +145,8 @@ export default function Footer() {
           </div>
 
           {/* Rooms & Suites */}
-          <div>
-            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
+          <div className="md:col-span-7 lg:col-span-4 pl-0 lg:pl-6">
+            <h3 className="font-primary text-[26px] lg:text-[28px] text-secondary mb-7 leading-tight">
               Rooms & Suites
             </h3>
             <ul className="space-y-3.5 text-[15.5px] font-body">
@@ -175,8 +181,8 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column 1 */}
-          <div>
-            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
+          <div className="md:col-span-6 lg:col-span-2">
+            <h3 className="font-primary text-[26px] lg:text-[28px] text-secondary mb-7 leading-tight">
               Quick Links
             </h3>
             <ul className="space-y-3.5 text-[15.5px] font-body">
@@ -200,8 +206,8 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column 2 */}
-          <div>
-            <h3 className="font-primary text-[28px] text-secondary mb-8 leading-tight">
+          <div className="md:col-span-6 lg:col-span-2">
+            <h3 className="font-primary text-[26px] lg:text-[28px] text-secondary mb-7 leading-tight">
               Quick Links
             </h3>
             <ul className="space-y-3.5 text-[15.5px] font-body">
@@ -225,10 +231,10 @@ export default function Footer() {
         </div>
 
         {/* Separator */}
-        <hr className="border-gray-200 mb-8" />
+        <hr className="border-gray-300 mb-8" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-[15px] font-body text-gray-600">
+        <div className="flex flex-col md:flex-row justify-between items-center text-[15.5px] font-body text-gray-700">
           <p className="mb-4 md:mb-0">
             &copy; {currentYear} Malankara Palace Lake View Resort & Spa. All
             rights reserved.
