@@ -186,9 +186,61 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-17 bg-white">
+        <div className="container-custom mx-auto px-4">
           <div className="max-w-7xl mx-auto">
+            {/* Address Details Above Map (Matching Screenshot) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24 mb-20 pt-10">
+              {/* Column 1: Let's talk */}
+              <div className="flex items-center justify-between border-t border-gray-100 md:border-t-0 pt-10 md:pt-0">
+                <div className="flex-1">
+                  <h3 className="font-primary text-[32px] text-secondary mb-5 leading-tight">
+                    Let's talk
+                  </h3>
+                  <div className="space-y-1 text-[16px] font-body text-text font-light">
+                    <p>Phone : 04862 204400</p>
+                    <p>Mobile : +91 75102 00444</p>
+                    <p>Whatsapp : +91 80862 00404</p>
+                  </div>
+                </div>
+                <div className="bg-primary w-16 h-16 flex items-center justify-center flex-shrink-0 ml-6 self-center">
+                  <i className="las la-phone text-white text-3xl transform -rotate-90"></i>
+                </div>
+              </div>
+
+              {/* Column 2: Email support */}
+              <div className="flex items-center justify-between border-t border-gray-100 md:border-t-0 pt-10 md:pt-0">
+                <div className="flex-1">
+                  <h3 className="font-primary text-[32px] text-secondary mb-5 leading-tight">
+                    Email support
+                  </h3>
+                  <div className="space-y-1 text-[16px] font-body text-text font-light">
+                    <p>reservations@malankarapalace.com</p>
+                    <p>gm@malankarapalace.com</p>
+                  </div>
+                </div>
+                <div className="bg-primary w-16 h-16 flex items-center justify-center flex-shrink-0 ml-6 self-center">
+                  <i className="las la-envelope text-white text-3xl"></i>
+                </div>
+              </div>
+
+              {/* Column 3: Address */}
+              <div className="flex items-center justify-between border-t border-gray-100 md:border-t-0 pt-10 md:pt-0">
+                <div className="flex-1">
+                  <h3 className="font-primary text-[32px] text-secondary mb-5 leading-tight">
+                    Address
+                  </h3>
+                  <div className="space-y-1 text-[16px] font-body text-text leading-relaxed font-light">
+                    <p>Kudayathoor P.O., Thodupuzha Idukki</p>
+                    <p>District, Kerala, India – 685 590</p>
+                  </div>
+                </div>
+                <div className="bg-primary w-16 h-16 flex items-center justify-center flex-shrink-0 ml-6 self-center">
+                  <i className="las la-map-marker-alt text-white text-3xl"></i>
+                </div>
+              </div>
+            </div>
+
             <div className="w-full h-[450px] relative shadow-sm">
               <iframe
                 src={mapUrl}
@@ -339,7 +391,7 @@ function ValidatedContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm font-medium text-text">Full Name</label>
+        <label>Full Name</label>
         <input
           type="text"
           name="fullName"
@@ -355,7 +407,7 @@ function ValidatedContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium text-text">Email</label>
+        <label>Email</label>
         <input
           type="email"
           name="email"
@@ -370,7 +422,7 @@ function ValidatedContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">Phone Number</label>
+          <label>Phone Number</label>
           <input
             type="tel"
             name="phone"
@@ -385,7 +437,7 @@ function ValidatedContactForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">No. of Guests</label>
+          <label>No. of Guests</label>
           <input
             type="text"
             name="guests"
@@ -403,7 +455,7 @@ function ValidatedContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">Check-in Date</label>
+          <label>Check-in Date</label>
           <input
             type="text"
             name="checkIn"
@@ -420,9 +472,7 @@ function ValidatedContactForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-text">
-            Check-out Date
-          </label>
+          <label>Check-out Date</label>
           <input
             type="text"
             name="checkOut"
@@ -441,7 +491,7 @@ function ValidatedContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium text-text">Message</label>
+        <label>Message</label>
         <textarea
           name="message"
           rows={4}
@@ -460,9 +510,9 @@ function ValidatedContactForm() {
         type="submit"
         disabled={isSubmitting}
         suppressHydrationWarning
-        className="btn px-12 py-4 tracking-widest disabled:opacity-50 w-full"
+        className="btn min-w-[180px] h-[54px] text-[16px] tracking-[2px]"
       >
-        {isSubmitting ? "Submitting..." : "Submit"}
+        {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
       </button>
 
       {status === "success" && (
