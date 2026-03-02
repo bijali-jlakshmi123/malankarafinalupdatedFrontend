@@ -195,7 +195,7 @@ export default function ContactPage() {
               <div className="flex items-center justify-between border-t border-gray-100 md:border-t-0 pt-10 md:pt-0">
                 <div className="flex-1">
                   <h3 className="font-primary text-[32px] text-secondary mb-5 leading-tight">
-                    Let's talk
+                    Let&apos;s talk
                   </h3>
                   <div className="space-y-1 text-[16px] font-body text-text font-light">
                     <p>Phone : 04862 204400</p>
