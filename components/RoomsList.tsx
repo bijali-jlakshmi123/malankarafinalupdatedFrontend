@@ -159,29 +159,20 @@ export default function RoomsList() {
   }, []);
 
   return (
-    <section className="py-24" style={{ backgroundColor: "#ffffff" }}>
-      <div className="max-w-[1200px] mx-auto px-4">
+    <section className="py-16 md:py-24 bg-white">
+      <div className="container-custom mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 max-w-4xl mx-auto">
-          <h2
-            className="text-4xl md:text-5xl mb-6 font-medium"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "#1a1226",
-            }}
-          >
+          <h2 className="text-4xl md:text-5xl mb-6 font-primary text-secondary">
             {pageData.sectionTitle}
           </h2>
-          <p
-            className="text-lg md:text-xl font-light leading-relaxed"
-            style={{ color: "#5a5060" }}
-          >
+          <p className="text-lg md:text-xl font-body text-text font-light leading-relaxed">
             {pageData.sectionSubtitle}
           </p>
         </div>
 
         {/* Room Cards */}
-        <div className="space-y-32 max-w-[1200px] mx-auto">
+        <div className="space-y-24 md:space-y-32">
           {rooms.map((room, index) => (
             <RoomCard key={room.id || index} room={room} index={index} />
           ))}
@@ -228,7 +219,7 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
 
   return (
     <div
-      className={`relative flex flex-col lg:flex-row items-center py-12 lg:py-16 ${
+      className={`relative flex flex-col lg:flex-row items-center py-8 lg:py-16 ${
         isReversed ? "lg:flex-row-reverse" : ""
       }`}
     >
@@ -287,34 +278,19 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
 
       {/* Content Panel - Strictly Square Shape and Overlapping */}
       <div
-        className={`relative w-[95%] lg:w-[60%] aspect-square z-10 -mt-12 lg:mt-0 ${
+        className={`relative w-[95%] lg:w-[60%] aspect-auto lg:aspect-square z-10 -mt-12 lg:mt-0 ${
           isReversed
-            ? "lg:-mr-[10%] lg:pr-40 lg:pl-16"
-            : "lg:-ml-[10%] lg:pl-40 lg:pr-16"
-        } flex flex-col justify-center px-10 sm:px-16 py-12 shadow-sm overflow-hidden`}
-        style={{ backgroundColor: "#f6f5f0" }}
+            ? "lg:-mr-[10%] lg:pr-32 xl:pr-40 lg:pl-12 xl:pl-16"
+            : "lg:-ml-[10%] lg:pl-32 xl:pl-40 lg:pr-12 xl:pr-16"
+        } flex flex-col justify-center px-6 sm:px-12 py-12 lg:py-0 shadow-sm overflow-hidden bg-bg-2`}
       >
         {/* Title */}
-        <h3
-          className="text-3xl md:text-[40px] mb-8 font-serif leading-tight"
-          style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            color: "#1a1226",
-            fontWeight: 400,
-          }}
-        >
+        <h3 className="text-3xl md:text-4xl mb-6 font-primary text-secondary font-medium leading-tight">
           {room.title}
         </h3>
 
         {/* Single unified block description - no paragraph breaks */}
-        <div
-          className="leading-relaxed text-[14px] lg:text-[15px] font-light mb-10 text-justify"
-          style={{
-            color: "#4a4a4a",
-            fontFamily: "'Lato', sans-serif",
-            lineHeight: "1.7",
-          }}
-        >
+        <div className="leading-relaxed text-[15px] md:text-[16px] font-body text-text font-light mb-8 text-justify">
           {room.description
             ? room.description
                 .replace(/\n\n/g, " ")
@@ -334,14 +310,7 @@ function RoomCard({ room, index }: { room: Room; index: number }) {
 
         {/* Discover button */}
         <div>
-          <Link
-            href={roomLink}
-            className="inline-block text-white text-[13px] font-medium tracking-[0.1em] uppercase px-10 py-3.5 transition-all duration-300 hover:bg-opacity-90 active:scale-95"
-            style={{
-              backgroundColor: "#7c317c",
-              fontFamily: "'Lato', sans-serif",
-            }}
-          >
+          <Link href={roomLink} className="btn">
             DISCOVER
           </Link>
         </div>

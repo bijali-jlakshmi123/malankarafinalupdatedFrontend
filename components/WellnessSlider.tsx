@@ -66,28 +66,23 @@ export default function WellnessSlider() {
               className="object-cover"
               sizes="100vw"
             />
-
-            {/* Same overlay as HeroSlider */}
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          {/* Content (Right aligned, HeroSlider spacing) */}
+          {/* Content */}
           {index === currentSlide && (
             <div className="absolute inset-0 z-20 flex items-end">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 flex justify-end">
-                <div className="max-w-2xl text-white text-right">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-primary text-white mb-4 leading-tight">
+              <div className="container-custom mx-auto px-4 pb-16 md:pb-24 flex justify-end">
+                <div className="max-w-2xl text-white text-center md:text-right">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-primary text-white mb-4 leading-tight">
                     {slide.title}
                   </h2>
 
-                  <p className="text-lg md:text-xl text-white font-light mb-6">
+                  <p className="text-base sm:text-lg md:text-xl text-white font-light mb-6">
                     {slide.description}
                   </p>
 
-                  <Link
-                    href={slide.link}
-                    className="btn"
-                  >
+                  <Link href={slide.link} className="btn">
                     Discover More
                   </Link>
                 </div>

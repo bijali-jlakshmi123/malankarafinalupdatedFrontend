@@ -156,72 +156,6 @@ const FALLBACK_EXPERIENCES: ExperienceItem[] = [
     category: "Nearby",
     order: 12,
   },
-  {
-    id: 13,
-    title: "Yoga & Meditation",
-    description:
-      "Peaceful sessions designed to relax the mind and restore inner balance.",
-    image: {
-      url: "https://images.unsplash.com/photo-1544766023-c901235b0b2e?q=80&w=2008&auto=format&fit=crop",
-    },
-    category: "Recreation",
-    order: 13,
-  },
-  {
-    id: 14,
-    title: "Cultural Performances",
-    description:
-      "Evening cultural performances showcasing traditional art forms such as Kathakali and Mohiniyattom.",
-    image: {
-      url: "https://images.unsplash.com/photo-1544766023-c901235b0b2e?q=80&w=2008&auto=format&fit=crop",
-    },
-    category: "Recreation",
-    order: 14,
-  },
-  {
-    id: 15,
-    title: "Cooking Demonstration",
-    description:
-      "Experience local flavours through interactive cooking demonstrations and live preparations.",
-    image: {
-      url: "https://images.unsplash.com/photo-1544766023-c901235b0b2e?q=80&w=2008&auto=format&fit=crop",
-    },
-    category: "Recreation",
-    order: 15,
-  },
-  {
-    id: 16,
-    title: "Off-Road Drive",
-    description:
-      "Enjoy an adventurous off-road drive through rugged hill tracks leading to Ilaveezhapoonchira, offering raw landscapes, panoramic views, and a thrilling nature escape.",
-    image: {
-      url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
-    },
-    category: "Nearby",
-    order: 16,
-  },
-  {
-    id: 17,
-    title: "Temple & Local Heritage Visits",
-    description:
-      "Visit nearby temples and heritage sites including Saramkuthi Temple, Vayanakkavu, and historic churches, offering a glimpse into the region’s spiritual traditions, architecture, and local culture.",
-    image: {
-      url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
-    },
-    category: "Nearby",
-    order: 17,
-  },
-  {
-    id: 18,
-    title: "Dam & Viewpoint Visits",
-    description:
-      "Explore the Malankara Dam area with its multiple viewpoints, scenic bridges, lakeside green lawns, and open spaces, perfect for relaxed walks, photography, and peaceful sightseeing.",
-    image: {
-      url: "https://images.unsplash.com/photo-1502391060939-feb70ad28854?q=80&w=2070&auto=format&fit=crop",
-    },
-    category: "Nearby",
-    order: 18,
-  },
 ];
 
 export default function Experiences({ pageData }: ExperiencesProps) {
@@ -255,28 +189,31 @@ export default function Experiences({ pageData }: ExperiencesProps) {
           alt={item.title}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>
 
-      <h4 className="text-2xl font-primary text-secondary mb-3">{item.title}</h4>
+      <h4 className="text-2xl font-primary text-secondary mb-3">
+        {item.title}
+      </h4>
 
-      <p className="text-text leading-relaxed text-[15px]">
+      <p className="text-text leading-relaxed text-[15px] font-body font-light">
         {item.description}
       </p>
     </div>
   );
 
   return (
-    <section className="py-20 font-body">
+    <section className="py-16 md:py-24 font-body">
       {/* White Section */}
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-custom mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-6">
               {pageData.introTitle}
             </h2>
 
-            <p className="text-text text-lg leading-relaxed mb-12">
+            <p className="text-text text-lg leading-relaxed mb-12 font-body font-light">
               {pageData.introDescription}
             </p>
 
@@ -285,49 +222,47 @@ export default function Experiences({ pageData }: ExperiencesProps) {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {inHouse.map((item) => (
               <ExperienceCard key={item.id} item={item} />
             ))}
           </div>
 
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {lake.map((item) => (
               <ExperienceCard key={item.id} item={item} />
             ))}
           </div>
 
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {recreation.map((item) => (
               <ExperienceCard key={item.id} item={item} />
             ))}
           </div>
         </div>
       </div>
-      <div>
-        <br />
-      </div>
+
       {/* Nearby */}
-      <div className="bg-bg-1 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-bg-1 py-16 md:py-24 mt-20">
+        <div className="container-custom mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-primary text-secondary">
               {pageData.nearbyTitle}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {nearby.map((item) => (
               <ExperienceCard key={item.id} item={item} />
             ))}
           </div>
 
-          <div className="mt-20 bg-bg-3/50 p-8 md:p-12 text-center">
+          <div className="mt-20 bg-bg-3 p-8 md:p-12 text-center">
             <h4 className="text-2xl font-primary text-secondary mb-4">
               {pageData.noteTitle}
             </h4>
 
-            <p className="text-text text-lg leading-relaxed max-w-4xl mx-auto">
+            <p className="text-text text-lg leading-relaxed max-w-4xl mx-auto font-body font-light">
               {pageData.noteContent}
             </p>
           </div>

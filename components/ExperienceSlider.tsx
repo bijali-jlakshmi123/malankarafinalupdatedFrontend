@@ -50,11 +50,8 @@ export default function ExperienceSlider() {
     async function fetchSlides() {
       try {
         const res = await fetch("/api/experiences");
-
         if (!res.ok) return;
-
         const data = await res.json();
-
         if (Array.isArray(data) && data.length > 0) {
           setSlides(data);
           setCurrentSlide(0);
@@ -63,18 +60,15 @@ export default function ExperienceSlider() {
         console.error("Error fetching experience slides:", error);
       }
     }
-
     fetchSlides();
   }, []);
 
   /* Autoplay */
   useEffect(() => {
     if (slides.length <= 1) return;
-
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [slides.length]);
 
@@ -98,28 +92,21 @@ export default function ExperienceSlider() {
               className="object-cover"
               sizes="100vw"
             />
-
-            {/* HeroSlider overlay */}
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
           {/* Content */}
           {index === currentSlide && (
             <div className="absolute inset-0 z-20 flex items-end">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
+              <div className="container-custom mx-auto px-4 pb-16 md:pb-24">
                 <div className="max-w-2xl text-white">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-primary text-white mb-4 leading-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-primary text-white mb-4 leading-tight">
                     {slide.title}
                   </h2>
-
-                  <p className="text-lg md:text-xl text-white font-light max-w-xl mb-6">
+                  <p className="text-base sm:text-lg md:text-xl text-white font-light max-w-xl mb-6">
                     {slide.description}
                   </p>
-
-                  <Link
-                    href={slide.link || "/experiences"}
-                    className="btn"
-                  >
+                  <Link href={slide.link || "/experiences"} className="btn">
                     Discover More
                   </Link>
                 </div>
