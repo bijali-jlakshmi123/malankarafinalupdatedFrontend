@@ -96,7 +96,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     <a
                       href={item.href}
                       onClick={onClose}
-                      className={`block font-prata text-[22px] transition ${
+                      className={`block font-primary text-[22px] transition ${
                         item.isActive
                           ? "text-primary"
                           : "text-text hover:text-primary"

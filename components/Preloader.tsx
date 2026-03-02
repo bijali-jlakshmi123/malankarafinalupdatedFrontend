@@ -44,7 +44,7 @@ export default function Preloader() {
         </div>
 
         {/* Minimalist Text */}
-        <p className="mt-4 text-secondary font-prata text-lg tracking-[0.2em] uppercase opacity-70 animate-fade-in"></p>
+        <p className="mt-4 text-secondary font-primary text-lg tracking-[0.2em] uppercase opacity-70 animate-fade-in"></p>
       </div>
 
       <style jsx>{`

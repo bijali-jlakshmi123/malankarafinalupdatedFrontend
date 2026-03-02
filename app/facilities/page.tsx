@@ -239,7 +239,7 @@ export default function FacilitiesPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <h1 className="text-4xl md:text-6xl font-prata text-white mb-4">
+          <h1 className="text-4xl md:text-6xl font-primary text-white mb-4">
             {pageData.heroTitle}
           </h1>
           <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl">
@@ -253,7 +253,7 @@ export default function FacilitiesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-6 font-medium">
               {pageData.amenitiesSectionTitle}
             </h2>
             <p className="text-text text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
@@ -298,7 +298,7 @@ export default function FacilitiesPage() {
                     <i className="las la-star text-4xl"></i>
                   )}
                 </div>
-                <span className="text-secondary font-prata text-lg max-w-[150px]">
+                <span className="text-secondary font-primary text-lg max-w-[150px]">
                   {amenity.name}
                 </span>
               </div>
@@ -341,7 +341,7 @@ export default function FacilitiesPage() {
 
         const contentBlock = (
           <div className="bg-[#f9f7f2] p-10 lg:p-16 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-prata text-secondary mb-6 font-medium">
+            <h2 className="text-3xl md:text-4xl font-primary text-secondary mb-6 font-medium">
               {section.title}
             </h2>
             <p className="text-text text-lg font-light leading-relaxed mb-8">

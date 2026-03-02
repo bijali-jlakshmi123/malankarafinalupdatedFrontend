@@ -258,7 +258,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
         />
       </div>
 
-      <h4 className="text-2xl font-prata text-secondary mb-3">{item.title}</h4>
+      <h4 className="text-2xl font-primary text-secondary mb-3">{item.title}</h4>
 
       <p className="text-text leading-relaxed text-[15px]">
         {item.description}
@@ -267,12 +267,12 @@ export default function Experiences({ pageData }: ExperiencesProps) {
   );
 
   return (
-    <section className="py-20 font-sarabun">
+    <section className="py-20 font-body">
       {/* White Section */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-6">
               {pageData.introTitle}
             </h2>
 
@@ -280,7 +280,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
               {pageData.introDescription}
             </p>
 
-            <h3 className="text-3xl md:text-4xl font-prata text-secondary italic">
+            <h3 className="text-3xl md:text-4xl font-primary text-secondary italic">
               {pageData.inHouseTitle}
             </h3>
           </div>
@@ -311,7 +311,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
       <div className="bg-bg-1 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary">
               {pageData.nearbyTitle}
             </h2>
           </div>
@@ -323,7 +323,7 @@ export default function Experiences({ pageData }: ExperiencesProps) {
           </div>
 
           <div className="mt-20 bg-bg-3/50 p-8 md:p-12 text-center">
-            <h4 className="text-2xl font-prata text-secondary mb-4">
+            <h4 className="text-2xl font-primary text-secondary mb-4">
               {pageData.noteTitle}
             </h4>
 

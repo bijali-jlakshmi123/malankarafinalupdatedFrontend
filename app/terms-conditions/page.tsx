@@ -74,7 +74,7 @@ export default function TermsConditionsPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white font-sarabun">
+    <main className="relative min-h-screen bg-white font-body">
       <MetaSEO slug="terms-conditions" />
       <Header transparent />
 
@@ -92,7 +92,7 @@ export default function TermsConditionsPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-5xl">
-            <h1 className="text-4xl md:text-7xl font-prata text-white mb-6 drop-shadow-lg">
+            <h1 className="text-4xl md:text-7xl font-primary text-white mb-6 drop-shadow-lg">
               A Tranquil Lakeside Escape at Malankara Palace
             </h1>
             <p className="text-lg md:text-2xl text-white/95 font-light drop-shadow-md">
@@ -107,7 +107,7 @@ export default function TermsConditionsPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
-            <h2 className="text-5xl md:text-6xl font-prata text-black mb-4">
+            <h2 className="text-5xl md:text-6xl font-primary text-black mb-4">
               {pageData.title}
             </h2>
             <p className="text-black/60 text-sm mb-12">Last Modified: Jan 29</p>
@@ -123,7 +123,7 @@ export default function TermsConditionsPage() {
           <div className="space-y-12 text-black/80 text-lg leading-relaxed">
             {(pageData.sections || FALLBACK_SECTIONS).map((section, idx) => (
               <div key={idx} className="space-y-4">
-                <h3 className="text-2xl font-prata text-black">
+                <h3 className="text-2xl font-primary text-black">
                   {section.title}
                 </h3>
                 <p>{section.content}</p>

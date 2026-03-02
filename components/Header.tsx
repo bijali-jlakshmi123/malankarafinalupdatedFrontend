@@ -80,10 +80,7 @@ export default function Header({ transparent = false }: HeaderProps) {
 
             {/* Right side - Book Now button and Hamburger */}
             <div className="flex items-center space-x-4">
-              <button
-                suppressHydrationWarning
-                className="hidden md:block bg-primary hover:bg-primary-hover text-white px-6 py-2.5 font-medium transition-colors duration-200"
-              >
+              <button suppressHydrationWarning className="btn hidden md:block">
                 BOOK NOW
               </button>
               <button

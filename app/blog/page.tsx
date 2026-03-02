@@ -133,7 +133,7 @@ export default function BlogPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-prata text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-primary text-white mb-6 leading-tight">
               {pageData.heroTitle}
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -148,7 +148,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-prata text-secondary leading-tight">
+              <h2 className="text-4xl md:text-5xl font-primary text-secondary leading-tight">
                 {pageData.introTitle}
               </h2>
             </div>
@@ -169,12 +169,12 @@ export default function BlogPage() {
                     />
                   </div>
 
-                  <h3 className="text-xl md:text-[22px] font-prata text-secondary mb-6 font-medium leading-relaxed">
+                  <h3 className="text-xl md:text-[22px] font-primary text-secondary mb-6 font-medium leading-relaxed">
                     {post.title}
                   </h3>
 
                   <div className="mt-auto">
-                    <span className="text-secondary font-sarabun text-sm font-medium hover:text-primary transition-colors cursor-pointer border-b border-transparent hover:border-primary">
+                    <span className="text-secondary font-body text-sm font-medium hover:text-primary transition-colors cursor-pointer border-b border-transparent hover:border-primary">
                       Read More
                     </span>
                   </div>

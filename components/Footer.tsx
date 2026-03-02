@@ -34,7 +34,7 @@ export default function Footer() {
         ];
 
   return (
-    <footer className="bg-bg-2 font-sarabun text-text">
+    <footer className="bg-bg-2 font-body text-text">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8">
         {/* Top Section: Logo, Quick Enquiry, Follow Us */}
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-10 gap-8 lg:gap-0">
@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row gap-12 lg:gap-24 text-center lg:text-right">
             {/* Quick Enquiry */}
             <div className="flex flex-col items-center lg:items-end">
-              <h3 className="font-prata text-2xl text-secondary mb-2">
+              <h3 className="font-primary text-2xl text-secondary mb-2">
                 Quick Enquiry
               </h3>
               <p className="text-lg text-text font-medium">
@@ -79,7 +79,7 @@ export default function Footer() {
 
             {/* Follow Us */}
             <div className="flex flex-col items-center lg:items-end">
-              <h3 className="font-prata text-2xl text-secondary mb-2">
+              <h3 className="font-primary text-2xl text-secondary mb-2">
                 Follow Us
               </h3>
               <div className="flex space-x-3 mt-1">
@@ -133,7 +133,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
           {/* Contact Us */}
           <div>
-            <h3 className="font-prata text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-2xl text-secondary mb-6">
               Contact Us
             </h3>
             <div className="space-y-4 text-text text-[15px] leading-relaxed">
@@ -151,7 +151,7 @@ export default function Footer() {
 
           {/* Rooms & Suites */}
           <div>
-            <h3 className="font-prata text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-2xl text-secondary mb-6">
               Rooms & Suites
             </h3>
             <ul className="space-y-3 text-[15px]">
@@ -187,7 +187,7 @@ export default function Footer() {
 
           {/* Quick Links Column 1 */}
           <div>
-            <h3 className="font-prata text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-2xl text-secondary mb-6">
               Quick Links
             </h3>
             <ul className="space-y-3 text-[15px]">
@@ -211,7 +211,7 @@ export default function Footer() {
 
           {/* Quick Links Column 2 */}
           <div>
-            <h3 className="font-prata text-2xl text-secondary mb-6">
+            <h3 className="font-primary text-2xl text-secondary mb-6">
               Quick Links
             </h3>
             <ul className="space-y-3 text-[15px]">

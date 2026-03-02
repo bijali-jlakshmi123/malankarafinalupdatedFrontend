@@ -145,7 +145,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-prata text-white mb-4 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-primary text-white mb-4 leading-tight">
               {heroTitle}
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -173,7 +173,7 @@ export default function ContactPage() {
               {/* Right side: Form */}
               <div className="w-full lg:w-1/2 flex flex-col justify-between">
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 leading-tight">
+                  <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-10 leading-tight">
                     {connectTitle}
                   </h2>
 
@@ -208,7 +208,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* ADD THIS WRAPPER */}
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-prata text-secondary font-medium mb-10">
+            <h2 className="text-3xl md:text-4xl font-primary text-secondary font-medium mb-10">
               Distance from Major Towns &amp; Travel Hubs
             </h2>
 

@@ -68,7 +68,7 @@ export default function OurStoryPage() {
     return (
       <main className="bg-white min-h-screen">
         <Header />
-        <div className="flex items-center justify-center h-[60vh] text-gray-500 font-prata text-xl">
+        <div className="flex items-center justify-center h-[60vh] text-gray-500 font-primary text-xl">
           Loading our story...
         </div>
         <Footer />
@@ -98,7 +98,7 @@ export default function OurStoryPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-prata text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-primary text-white mb-6 leading-tight">
               Our Story
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -112,7 +112,7 @@ export default function OurStoryPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-8 font-medium">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-8 font-medium">
               {story?.title}
             </h2>
             <div
@@ -167,7 +167,7 @@ export default function OurStoryPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 font-medium">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-10 font-medium">
               {story?.detailedStoryTitle || "The Story Behind the Place"}
             </h2>
             <div
@@ -300,7 +300,7 @@ export default function OurStoryPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-10 font-medium">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-10 font-medium">
               From Home to Destination
             </h2>
             <div className="space-y-8 text-text text-lg md:text-xl font-light leading-relaxed">

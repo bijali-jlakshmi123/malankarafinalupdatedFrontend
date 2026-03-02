@@ -196,7 +196,7 @@ export default function DiningPage() {
       <Header transparent />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-end font-sarabun">
+      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-end font-body">
         <Image
           src={
             pageData.heroImage?.url ||
@@ -212,7 +212,7 @@ export default function DiningPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-prata text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-primary text-white mb-6 leading-tight">
               {pageData.heroTitle}
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
@@ -223,11 +223,11 @@ export default function DiningPage() {
       </section>
 
       {/* Dining Introduction & Dining Sections */}
-      <section className="py-20 bg-white font-sarabun">
+      <section className="py-20 bg-white font-body">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-prata text-secondary mb-6 font-medium">
+            <h2 className="text-4xl md:text-5xl font-primary text-secondary mb-6 font-medium">
               {pageData.introTitle}
             </h2>
             <p className="text-text text-lg md:text-xl font-light leading-relaxed">
@@ -246,7 +246,7 @@ export default function DiningPage() {
                       : "order-last"
                   }`}
                 >
-                  <h3 className="text-3xl md:text-4xl font-prata text-secondary mb-6 font-medium">
+                  <h3 className="text-3xl md:text-4xl font-primary text-secondary mb-6 font-medium">
                     {section.title}
                   </h3>
                   <p className="text-text text-lg font-light leading-relaxed mb-6">

@@ -108,7 +108,7 @@ export default function ExperienceSlider() {
             <div className="absolute inset-0 z-20 flex items-end">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
                 <div className="max-w-2xl text-white">
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-prata text-white mb-4 leading-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-primary text-white mb-4 leading-tight">
                     {slide.title}
                   </h2>
 
@@ -118,7 +118,7 @@ export default function ExperienceSlider() {
 
                   <Link
                     href={slide.link || "/experiences"}
-                    className="inline-block bg-primary text-white text-lg font-medium px-8 py-3 rounded"
+                    className="btn"
                   >
                     Discover More
                   </Link>

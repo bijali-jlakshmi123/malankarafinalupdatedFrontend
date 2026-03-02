@@ -60,7 +60,7 @@ export default function ExperiencesPage() {
       <Header transparent />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[70vh] w-full flex items-end font-sarabun">
+      <section className="relative h-[60vh] md:h-[70vh] w-full flex items-end font-body">
         <Image
           src={
             pageData.heroImage?.url ||
@@ -75,7 +75,7 @@ export default function ExperiencesPage() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24 text-white">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-prata mb-6 leading-tight text-white">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-primary mb-6 leading-tight text-white">
               {pageData.heroTitle}
             </h1>
             <p className="text-lg md:text-xl font-light max-w-2xl leading-relaxed text-white/90">

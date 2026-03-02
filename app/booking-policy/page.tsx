@@ -119,7 +119,7 @@ export default function BookingPolicyPage() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-white font-sarabun">
+    <main className="relative min-h-screen bg-white font-body">
       <MetaSEO slug="booking-policy" />
 
       <Header transparent />
@@ -140,7 +140,7 @@ export default function BookingPolicyPage() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
           <div className="max-w-5xl">
-            <h1 className="text-4xl md:text-7xl font-prata text-white mb-6 drop-shadow-lg">
+            <h1 className="text-4xl md:text-7xl font-primary text-white mb-6 drop-shadow-lg">
               A Tranquil Lakeside Escape at Malankara Palace
             </h1>
 
@@ -158,7 +158,7 @@ export default function BookingPolicyPage() {
           <div className="flex flex-col lg:flex-row gap-16 items-start mx-6 md:mx-12 lg:mx-24">
             {/* LEFT SIDE */}
             <div className="w-full lg:w-3/5">
-              <h2 className="text-4xl md:text-5xl font-prata text-black mb-12">
+              <h2 className="text-4xl md:text-5xl font-primary text-black mb-12">
                 {pageData.title}
               </h2>
 

@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -22,27 +21,22 @@ const config: Config = {
           DEFAULT: "#76297D",
           hover: "#9B18A7",
         },
-
         secondary: "#292B2D",
-
         text: "#334155",
-
         accent: "#C7A754",
-
         bg: {
           1: "#FAF9F5",
           2: "#F2F2EC",
           3: "#FFFDE4",
         },
-
         white: "#FFFFFF",
       },
 
       fontFamily: {
-        prata: ["Prata", "serif"],
-        forum: ["Forum", "serif"],
-        sarabun: ["Sarabun", "sans-serif"],
-        nunito: ["Nunito Sans", "sans-serif"],
+        primary: ["Prata", "serif"],
+        secondary: ["Forum", "serif"],
+        body: ["Sarabun", "sans-serif"],
+        accent: ["Nunito Sans", "sans-serif"],
       },
 
       maxWidth: {
@@ -53,5 +47,3 @@ const config: Config = {
 
   plugins: [],
 };
-
-export default config;
